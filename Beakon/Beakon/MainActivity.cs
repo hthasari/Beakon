@@ -33,7 +33,7 @@ namespace Beakon
 
             String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
                                       "Jupiter", "Saturn", "Uranus", "Neptune"};
-            var planetList = new List<Planer>();
+            var planetList = new List<Planer>(); 
 
             foreach (var planet in planets)
             {
