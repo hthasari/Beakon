@@ -3,28 +3,21 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2ffe6">
-    <TextView
-        android:text="Request Status of Gurpreet"
+    android:background="#f2ffe6"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:id="@+id/linearLayout1">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        android:padding="3dp" />
-    <CheckBox
-        android:text="Request Calander"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox1"
-        android:textColor="@android:color/holo_blue_dark"
-        android:background="@android:color/background_light" />
-    <CheckBox
-        android:text="Request Location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox1"
-        android:textColor="@android:color/holo_blue_dark"
-        android:background="@android:color/background_light" />
-
+        android:layout_height="69.5dp"
+        android:id="@+id/relativeLayout1">
+        <ImageButton
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton1"
+            android:layout_weight="=0.3"/>
+    </RelativeLayout>
 </LinearLayout>
