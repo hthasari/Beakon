@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="Beakon.Beakon" android:versionCode="1" android:versionName="1.0">
   <uses-sdk android:minSdkVersion="16" />
-  <application android:label="Beakon"></application>
+  <application android:label="Beakon">
+    <activity android:name="md5bb25d229545e3ae05a46b23a2554c8a1.members"></activity>
+    <activity android:name="md5bb25d229545e3ae05a46b23a2554c8a1.first"></activity>
+    
+  </application>
 </manifest>

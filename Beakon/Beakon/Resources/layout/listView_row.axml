@@ -6,8 +6,9 @@
     android:minWidth="30px"
     android:minHeight="30px"
     android:paddingLeft="5dp"
+    android:layout_marginTop="3dp"
     android:paddingBottom="2dp"
-    android:background="@android:color/background_light"
+    android:background="#fff"
     android:paddingTop="2dp">
     <ImageView
         android:src="@android:drawable/ic_menu_gallery"
@@ -16,6 +17,7 @@
         android:layout_marginLeft="5px"
         android:layout_marginRight="20px"
         android:layout_marginTop="5px"
+        android:background="@drawable/style_input"
         android:id="@+id/imageView1" />
     <TextView
         android:text="First Name"
@@ -25,7 +27,7 @@
         android:id="@+id/txtName"
         android:textColor="@android:color/holo_blue_dark"
         android:padding="13dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginTop="5dp" />
     <TextView
         android:text="LastName"

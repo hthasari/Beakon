@@ -3,28 +3,79 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2ffe6">
+    android:background="#fff">
     <TextView
         android:text="Request Status of Gurpreet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
         android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
+        android:textSize="19sp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
         android:padding="3dp" />
+    <ImageView
+        android:src="@drawable/male"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView1" />
     <CheckBox
         android:text="Request Calander"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBox1"
         android:textColor="@android:color/holo_blue_dark"
-        android:background="@android:color/background_light" />
+        android:padding="13dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:background="@drawable/style_input" />
     <CheckBox
         android:text="Request Location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkBox1"
         android:textColor="@android:color/holo_blue_dark"
-        android:background="@android:color/background_light" />
-
+        android:padding="13dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:background="@drawable/style_input" />
+    <TextView
+        android:text="Other information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="17sp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="3dp" />
+    <EditText
+        android:hint="Extra info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtName"
+        android:background="@drawable/style_input"
+        android:padding="13dp"
+        android:textSize="15sp"
+        android:layout_margin="5dp"
+        android:textColor="@android:color/holo_blue_light"
+        android:textColorHint="@android:color/holo_blue_light" />
+    <Button
+        android:text="Send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2DB4B4"
+        android:padding="13dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:id="@+id/sendButton" />
+    <Button
+        android:text="Cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2DB4B4"
+        android:padding="13dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:id="@+id/cancelButton" />
 </LinearLayout>
