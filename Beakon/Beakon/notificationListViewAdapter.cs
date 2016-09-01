@@ -50,7 +50,7 @@ namespace Beakon
         {
             View row = convertView;
             if (row == null) {
-                row = LayoutInflater.From(mContext).Inflate(Resource.Layout.CustomListView, null, false);
+                row = LayoutInflater.From(mContext).Inflate(Resource.Layout.NotificationCustomListView, null, false);
             }
 
             TextView rowTextHeader = row.FindViewById<TextView>(Resource.Id.messageHeader);
