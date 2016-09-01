@@ -5,9 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:minWidth="25px"
-    android:minHeight="25px">
-    <TextView
+    android:minHeight="25px"
+    android:paddingBottom="2dp">
+    
+  <TextView
         android:text="Message Header"
+        android:textColor="@android:color/holo_blue_dark"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,6 +19,7 @@
         android:textSize="60px" />
     <TextView
         android:text="Message Header"
+        android:textColor="@android:color/holo_blue_dark"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
