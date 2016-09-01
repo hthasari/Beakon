@@ -11,20 +11,21 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 
+// Author Harri Tuononen
 namespace Beakon
 {
-    public class ListViewAdapter : BaseAdapter
+    public class notificationListViewAdapter : BaseAdapter
     {
        private List<RequestMessage> mItems;
        private Context mContext;
 
-       public ListViewAdapter(Context Context, List<RequestMessage> items)
+       public notificationListViewAdapter(Context Context, List<RequestMessage> items)
         {
             mItems = items;
             mContext = Context;
         }
 
-      public  ListViewAdapter(Context Context, RequestMessage[] items)
+      public  notificationListViewAdapter(Context Context, RequestMessage[] items)
         {
             mItems = new List<RequestMessage>();
             foreach (RequestMessage x in items)
@@ -49,7 +50,7 @@ namespace Beakon
         {
             View row = convertView;
             if (row == null) {
-                row = LayoutInflater.From(mContext).Inflate(Resource.Layout.CustomListView, null, false);
+                row = LayoutInflater.From(mContext).Inflate(Resource.Layout.NotificationCustomListView, null, false);
             }
 
             TextView rowTextHeader = row.FindViewById<TextView>(Resource.Id.messageHeader);
