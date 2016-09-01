@@ -22,9 +22,9 @@ namespace Beakon
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.settings);
 
-            ImageButton requestButton = FindViewById<ImageButton>(Resource.Id.btnRequest);
-            ImageButton notificationButton = FindViewById<ImageButton>(Resource.Id.btnNotification);
-            ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.btnSettings);
+            //ImageButton requestButton = FindViewById<ImageButton>(Resource.Id.btnRequest);
+            //ImageButton notificationButton = FindViewById<ImageButton>(Resource.Id.btnNotification);
+            //ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.btnSettings);
 
             
             
