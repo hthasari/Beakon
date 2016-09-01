@@ -78,8 +78,8 @@ namespace Beakon
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050011
-			public const int MyListView = 2131034129;
+			// aapt resource value: 0x7f05000e
+			public const int MyListView = 2131034126;
 			
 			// aapt resource value: 0x7f050005
 			public const int abtnNotification = 2131034117;
@@ -102,11 +102,11 @@ namespace Beakon
 			// aapt resource value: 0x7f05000d
 			public const int imageButton1 = 2131034125;
 			
-			// aapt resource value: 0x7f05000f
-			public const int imageButton2 = 2131034127;
+			// aapt resource value: 0x7f050021
+			public const int imageButton2 = 2131034145;
 			
-			// aapt resource value: 0x7f050010
-			public const int imageButton3 = 2131034128;
+			// aapt resource value: 0x7f050022
+			public const int imageButton3 = 2131034146;
 			
 			// aapt resource value: 0x7f050000
 			public const int imageView1 = 2131034112;
@@ -114,17 +114,17 @@ namespace Beakon
 			// aapt resource value: 0x7f05000b
 			public const int linearLayout1 = 2131034123;
 			
-			// aapt resource value: 0x7f050016
-			public const int linearLayout2 = 2131034134;
+			// aapt resource value: 0x7f050013
+			public const int linearLayout2 = 2131034131;
 			
-			// aapt resource value: 0x7f05001a
-			public const int linearLayout3 = 2131034138;
+			// aapt resource value: 0x7f050017
+			public const int linearLayout3 = 2131034135;
 			
-			// aapt resource value: 0x7f050012
-			public const int linearLayout4 = 2131034130;
+			// aapt resource value: 0x7f05000f
+			public const int linearLayout4 = 2131034127;
 			
-			// aapt resource value: 0x7f05001e
-			public const int linearLayout5 = 2131034142;
+			// aapt resource value: 0x7f05001b
+			public const int linearLayout5 = 2131034139;
 			
 			// aapt resource value: 0x7f050003
 			public const int linearLayout6 = 2131034115;
@@ -135,47 +135,47 @@ namespace Beakon
 			// aapt resource value: 0x7f05000c
 			public const int relativeLayout1 = 2131034124;
 			
-			// aapt resource value: 0x7f050014
-			public const int space1 = 2131034132;
-			
-			// aapt resource value: 0x7f050018
-			public const int space2 = 2131034136;
-			
-			// aapt resource value: 0x7f05001c
-			public const int space3 = 2131034140;
-			
-			// aapt resource value: 0x7f050021
-			public const int switch1 = 2131034145;
-			
-			// aapt resource value: 0x7f050020
-			public const int textAutoCal = 2131034144;
-			
-			// aapt resource value: 0x7f050022
-			public const int textAutoLoc = 2131034146;
-			
-			// aapt resource value: 0x7f05001b
-			public const int textEmail = 2131034139;
-			
-			// aapt resource value: 0x7f05001d
-			public const int textEmailInput = 2131034141;
-			
-			// aapt resource value: 0x7f05001f
-			public const int textFavCont = 2131034143;
-			
-			// aapt resource value: 0x7f050013
-			public const int textFirstName = 2131034131;
+			// aapt resource value: 0x7f050011
+			public const int space1 = 2131034129;
 			
 			// aapt resource value: 0x7f050015
-			public const int textFirstNameInput = 2131034133;
-			
-			// aapt resource value: 0x7f050017
-			public const int textLastName = 2131034135;
+			public const int space2 = 2131034133;
 			
 			// aapt resource value: 0x7f050019
-			public const int textLastNameInput = 2131034137;
+			public const int space3 = 2131034137;
 			
-			// aapt resource value: 0x7f05000e
-			public const int toolbar1 = 2131034126;
+			// aapt resource value: 0x7f05001e
+			public const int switch1 = 2131034142;
+			
+			// aapt resource value: 0x7f05001d
+			public const int textAutoCal = 2131034141;
+			
+			// aapt resource value: 0x7f05001f
+			public const int textAutoLoc = 2131034143;
+			
+			// aapt resource value: 0x7f050018
+			public const int textEmail = 2131034136;
+			
+			// aapt resource value: 0x7f05001a
+			public const int textEmailInput = 2131034138;
+			
+			// aapt resource value: 0x7f05001c
+			public const int textFavCont = 2131034140;
+			
+			// aapt resource value: 0x7f050010
+			public const int textFirstName = 2131034128;
+			
+			// aapt resource value: 0x7f050012
+			public const int textFirstNameInput = 2131034130;
+			
+			// aapt resource value: 0x7f050014
+			public const int textLastName = 2131034132;
+			
+			// aapt resource value: 0x7f050016
+			public const int textLastNameInput = 2131034134;
+			
+			// aapt resource value: 0x7f050020
+			public const int toolbar1 = 2131034144;
 			
 			// aapt resource value: 0x7f050002
 			public const int txtLastName = 2131034114;
