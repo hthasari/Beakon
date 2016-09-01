@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MwwmLearning.core", "MwwmLearning.core\MwwmLearning.core.csproj", "{2FA7E2FF-01E2-4AE2-9D75-E223C631362F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MwwmLearning.Droid", "MwwmLearning.Droid\MwwmLearning.Droid.csproj", "{6F135C8C-0D87-48D3-B41D-AA9063DE9969}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FA7E2FF-01E2-4AE2-9D75-E223C631362F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA7E2FF-01E2-4AE2-9D75-E223C631362F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA7E2FF-01E2-4AE2-9D75-E223C631362F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA7E2FF-01E2-4AE2-9D75-E223C631362F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F135C8C-0D87-48D3-B41D-AA9063DE9969}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
