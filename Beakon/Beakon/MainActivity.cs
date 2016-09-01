@@ -12,7 +12,7 @@ namespace Beakon
 {
 
 
-    [Activity(Label = "Beakon", MainLauncher = true, Icon = "@drawable/icon")]
+ [Activity(Label = "Beakon", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
         private List<Person> mItems;

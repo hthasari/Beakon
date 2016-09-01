@@ -14,9 +14,10 @@ namespace Beakon
 {
     //Author Harri Tuononen
     [Activity(Label = "NotificationActivity")]
+    //[Activity(Label = "NotificationActivity", MainLauncher = true, Icon = "@drawable/icon")]
     public class NotificationActivity : Activity
     {
-        //notification screen
+
         ListView view;
         private List<RequestMessage> LItems;
         notificationListViewAdapter adapter;
@@ -37,7 +38,7 @@ namespace Beakon
             {
 
                 Toast.MakeText(this, "Message sent!", ToastLength.Short).Show();
-                LItems.Remove(LItems[e.Position]);
+                //LItems.Remove(LItems[e.Position]);
 
 
             });
