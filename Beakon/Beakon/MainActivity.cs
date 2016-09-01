@@ -27,16 +27,14 @@ namespace Beakon
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+            ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.btnSettingsMain);
+            settingsButton.Click += delegate { StartActivity(typeof(SettingsActivity)); };
+
+            ImageButton notificationButton = FindViewById<ImageButton>(Resource.Id.btnNotificationMain);
+            notificationButton.Click += delegate { StartActivity(typeof(NotificationActivity)); };
 
 
-            ImageButton requestButton = FindViewById<ImageButton>(Resource.Id.abtnRequest);
-            ImageButton notificationButton = FindViewById<ImageButton>(Resource.Id.abtnNotification);
-            ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.abtnSettings);
 
-            //settingsButton.Click += delegate { StartActivity(typeof(SettingsActivity)); };
-
-            
-             
 
             mListView = FindViewById<ListView>(Resource.Id.listView);
 

@@ -23,8 +23,11 @@ namespace Beakon
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             notificationPage();
+
+            // Menu Buttons
+            ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.btnSettingsNotification);
+            settingsButton.Click += delegate { StartActivity(typeof(SettingsActivity)); };
         }
 
         private void View_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
@@ -47,6 +50,8 @@ namespace Beakon
 
             Dialog dialog = alert.Create();
             dialog.Show();
+
+
         }
 
         private void notificationPage()
