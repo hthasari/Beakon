@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace Beakon
 {
-
+    //Author Harri Tuononen
     [Activity(Label = "NotificationActivity")]
     public class NotificationActivity : Activity
     {
