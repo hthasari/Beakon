@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Java.Lang;
 
+// Author Harri Tuononen
 namespace Second
 {
     public class ListViewAdapter : BaseAdapter
