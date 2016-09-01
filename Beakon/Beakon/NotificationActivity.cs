@@ -13,8 +13,8 @@ using Android.Widget;
 namespace Beakon
 {
     //Author Harri Tuononen
-    [Activity(Label = "NotificationActivity")]
-    //[Activity(Label = "NotificationActivity", MainLauncher = true, Icon = "@drawable/icon")]
+   [Activity(Label = "NotificationActivity")]
+   // [Activity(Label = "NotificationActivity", MainLauncher = true, Icon = "@drawable/icon")]
     public class NotificationActivity : Activity
     {
 
