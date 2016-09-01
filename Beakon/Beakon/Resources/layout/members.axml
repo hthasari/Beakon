@@ -18,7 +18,6 @@
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton1"
-            android:layout_weight="=0.3" 
-            />
+            android:layout_weight="0.3" />
     </RelativeLayout>
 </LinearLayout>
