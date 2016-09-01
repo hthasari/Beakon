@@ -17,7 +17,6 @@
             android:src="@android:drawable/ic_menu_gallery"
             android:layout_width="0px"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton1"
-            android:layout_weight="=0.3"/>
+            android:id="@+id/imageButton1" />
     </RelativeLayout>
 </LinearLayout>

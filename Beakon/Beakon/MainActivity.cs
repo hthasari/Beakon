@@ -22,10 +22,24 @@ namespace Beakon
         {
             base.OnCreate(bundle);
 
+            
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
+
+
+            ImageButton requestButton = FindViewById<ImageButton>(Resource.Id.abtnRequest);
+            ImageButton notificationButton = FindViewById<ImageButton>(Resource.Id.abtnNotification);
+            ImageButton settingsButton = FindViewById<ImageButton>(Resource.Id.abtnSettings);
+
+            //settingsButton.Click += delegate { StartActivity(typeof(SettingsActivity)); };
+
+            
+             
+
             mListView = FindViewById<ListView>(Resource.Id.listView);
+
+            
 
             mItems = new List<Person>(); // new List
 
@@ -43,7 +57,7 @@ namespace Beakon
 
             mListView.Adapter = adapter;
             mListView.ItemClick += MListView_ItemClick1;
-
+            
 
             // Get our button from the layout resource,
 
