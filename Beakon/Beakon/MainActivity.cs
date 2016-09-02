@@ -64,7 +64,8 @@ namespace Beakon
 
         private void MListView_ItemClick1(object sender, AdapterView.ItemClickEventArgs e)
         {
-            Android.Widget.Toast.MakeText(this, "List View Clicked", ToastLength.Short).Show();
+
+            StartActivity(typeof(members));
         }
 
       
