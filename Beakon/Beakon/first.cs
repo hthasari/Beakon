@@ -22,7 +22,7 @@ namespace Beakon
             sendBut.Click += delegate
             {
               //  Android.Widget.Toast.MakeText(this, "Status Request Sent.", ToastLength.Short).Show();
-                Intent intent = new Intent(this, typeof(MainActivity));
+                Intent intent = new Intent(this, typeof(RequestActivity));
                 StartActivityForResult(intent, 0);
             };
 

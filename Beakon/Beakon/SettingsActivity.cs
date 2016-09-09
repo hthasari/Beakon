@@ -12,7 +12,7 @@ namespace Beakon
 {
 
 
-    [Activity(Label = "Beakon", MainLauncher = false, Icon = "@drawable/icon")]
+    [Activity(Label = "Settings", MainLauncher = false, Icon = "@drawable/Beakon_Icon")]
     public class SettingsActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

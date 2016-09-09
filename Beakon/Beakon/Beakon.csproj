@@ -52,8 +52,9 @@
     <Compile Include="NotificationActivity.cs" />
     <Compile Include="notificationListViewAdapter.cs" />
     <Compile Include="RequestMessage.cs" />
-    <Compile Include="SettingsActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="SettingsActivity.cs" />
+    <Compile Include="RequestActivity.cs" />
     <Compile Include="first.cs" />
     <Compile Include="members.cs" />
     <Compile Include="myListViewAdapter.cs" />
@@ -134,6 +135,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\NotificationIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Beakon_Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
