@@ -99,6 +99,14 @@
     <AndroidResource Include="Resources\layout\FirstView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\listView_row.axml" />
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\layout\members.axml" />
+    <AndroidResource Include="Resources\layout\Notification.axml" />
+    <AndroidResource Include="Resources\layout\NotificationCustomListView.axml" />
+    <AndroidResource Include="Resources\layout\settings.axml" />
+    <AndroidResource Include="Resources\layout\Template.axml" />
+    <AndroidResource Include="Resources\layout\first.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -119,6 +127,19 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\noti.jpg" />
+    <AndroidResource Include="Resources\drawable\NotificationIcon.png" />
+    <AndroidResource Include="Resources\drawable\req.jpg" />
+    <AndroidResource Include="Resources\drawable\request.png" />
+    <AndroidResource Include="Resources\drawable\RequestIcon.png" />
+    <AndroidResource Include="Resources\drawable\see.jpg" />
+    <AndroidResource Include="Resources\drawable\SettingsIcon.png" />
+    <AndroidResource Include="Resources\drawable\sty.xml" />
+    <AndroidResource Include="Resources\drawable\style_input.xml" />
+    <AndroidResource Include="Resources\drawable\android_logo.jpg" />
+    <AndroidResource Include="Resources\drawable\Beakon_Icon.png" />
+    <AndroidResource Include="Resources\drawable\dd.jpg" />
+    <AndroidResource Include="Resources\drawable\male.jpg" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
