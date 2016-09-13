@@ -156,8 +156,8 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000a
 			public const int btnNotificationMain = 2130968586;
 			
-			// aapt resource value: 0x7f040017
-			public const int btnNotificationSettings = 2130968599;
+			// aapt resource value: 0x7f040016
+			public const int btnNotificationSettings = 2130968598;
 			
 			// aapt resource value: 0x7f04000d
 			public const int btnRequest = 2130968589;
@@ -165,8 +165,8 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040009
 			public const int btnRequestMain = 2130968585;
 			
-			// aapt resource value: 0x7f040016
-			public const int btnRequestSettings = 2130968598;
+			// aapt resource value: 0x7f040015
+			public const int btnRequestSettings = 2130968597;
 			
 			// aapt resource value: 0x7f04000f
 			public const int btnSettings = 2130968591;
@@ -174,11 +174,11 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000b
 			public const int btnSettingsMain = 2130968587;
 			
-			// aapt resource value: 0x7f040015
-			public const int btnSettingsNotification = 2130968597;
-			
 			// aapt resource value: 0x7f040018
-			public const int btnSettingsSettings = 2130968600;
+			public const int btnSettingsNotification = 2130968600;
+			
+			// aapt resource value: 0x7f040017
+			public const int btnSettingsSettings = 2130968599;
 			
 			// aapt resource value: 0x7f040014
 			public const int cancelButton = 2130968596;
@@ -314,19 +314,22 @@ namespace BeakonMvvm.Droid
 			public const int members = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int Notification = 2130903045;
+			public const int Navigation = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int NotificationCustomListView = 2130903046;
+			public const int Notification = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int settings = 2130903047;
+			public const int NotificationCustomListView = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int SplashScreen = 2130903048;
+			public const int settings = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int Template = 2130903049;
+			public const int SplashScreen = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int Template = 2130903050;
 			
 			static Layout()
 			{
