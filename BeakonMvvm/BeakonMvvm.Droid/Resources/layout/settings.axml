@@ -221,8 +221,8 @@
                 android:id="@+id/switch1" />
         </LinearLayout>
     </LinearLayout>
-  <Mvx.MvxLinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      local:MvxItemTemplate="@layout/navigation"/>
+    <Mvx.MvxLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxItemTemplate="@layout/navigation" />
 </LinearLayout>
