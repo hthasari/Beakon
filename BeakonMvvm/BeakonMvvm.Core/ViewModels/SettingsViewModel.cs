@@ -2,7 +2,7 @@
 
 namespace BeakonMvvm.Core.ViewModels
 {
-    public class Navigation
+    public class SettingsViewModel
         : MvxViewModel
     {
         
