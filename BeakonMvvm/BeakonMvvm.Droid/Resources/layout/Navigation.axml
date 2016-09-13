@@ -3,7 +3,8 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
     <ImageButton
         android:src="@drawable/requesticon"
         android:layout_width="wrap_content"
@@ -11,20 +12,23 @@
         android:id="@+id/btnRequestSettings"
         android:layout_gravity="left"
         android:layout_weight=".3"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        local:MvxBind="NavRequestBtn" />
     <ImageButton
         android:src="@drawable/notificationicon"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/btnNotificationSettings"
         android:layout_weight="0.3"
-        android:scaleType="fitCenter" />
+        android:scaleType="fitCenter"
+        local:MvxBind="NavNotifBtn" />
     <ImageButton
         android:src="@drawable/settingsicon"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/btnSettingsSettings"
+        android:id="@+id/btnSettingsBtn"
         android:layout_weight="0.3"
         android:scaleType="fitCenter"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        local:MvxBind="NavSettingsIcon" />
 </LinearLayout>

@@ -171,14 +171,14 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000f
 			public const int btnSettings = 2130968591;
 			
+			// aapt resource value: 0x7f040017
+			public const int btnSettingsBtn = 2130968599;
+			
 			// aapt resource value: 0x7f04000b
 			public const int btnSettingsMain = 2130968587;
 			
 			// aapt resource value: 0x7f040018
-			public const int btnSettingsNotification = 2130968600;
-			
-			// aapt resource value: 0x7f040017
-			public const int btnSettingsSettings = 2130968599;
+			public const int btnSettingsSettings = 2130968600;
 			
 			// aapt resource value: 0x7f040014
 			public const int cancelButton = 2130968596;
