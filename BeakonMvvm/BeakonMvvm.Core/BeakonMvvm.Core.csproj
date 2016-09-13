@@ -34,19 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AllCsFiles\first.cs" />
-    <Compile Include="AllCsFiles\MainActivity.cs" />
-    <Compile Include="AllCsFiles\members.cs" />
-    <Compile Include="AllCsFiles\myListViewAdapter.cs" />
-    <Compile Include="AllCsFiles\Notification.cs" />
-    <Compile Include="AllCsFiles\NotificationActivity.cs" />
-    <Compile Include="AllCsFiles\notificationListViewAdapter.cs" />
-    <Compile Include="AllCsFiles\Person.cs" />
-    <Compile Include="AllCsFiles\RequestActivity.cs" />
-    <Compile Include="AllCsFiles\RequestMessage.cs" />
-    <Compile Include="AllCsFiles\SettingsActivity.cs" />
+    <Compile Include="OldClass\first.cs" />
+    <Compile Include="OldClass\MainActivity.cs" />
+    <Compile Include="OldClass\members.cs" />
+    <Compile Include="OldClass\myListViewAdapter.cs" />
+    <Compile Include="OldClass\Notification.cs" />
+    <Compile Include="OldClass\NotificationActivity.cs" />
+    <Compile Include="OldClass\notificationListViewAdapter.cs" />
+    <Compile Include="OldClass\Person.cs" />
+    <Compile Include="OldClass\RequestActivity.cs" />
+    <Compile Include="OldClass\RequestMessage.cs" />
+    <Compile Include="OldClass\SettingsActivity.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Navigation.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
     <Compile Include="ViewModels\RecievedRequestViewModel.cs" />
   </ItemGroup>
@@ -86,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
