@@ -11,8 +11,8 @@ namespace BeakonMvvm.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 
-          //RegisterAppStart<ViewModels.SettingsViewModel>();
-          RegisterAppStart<ViewModels.RecievedRequestViewModel>();
+          RegisterAppStart<ViewModels.SettingsViewModel>();
+          //RegisterAppStart<ViewModels.RecievedRequestViewModel>();
         }
     }
 }
