@@ -33,9 +33,10 @@ namespace BeakonMvvm.Core.ViewModels
             get { return basicText; }
             set
             {
-                if (value != null)
+                if (value != null) { 
 
                     SetProperty(ref basicText, value);
+                }
             }
         }
         public RecievedRequestViewModel()
@@ -43,6 +44,7 @@ namespace BeakonMvvm.Core.ViewModels
             Messages = new ObservableCollection<RequestMessage>() {
                 new RequestMessage("John Mack", "Recieved request"),
                 new RequestMessage("Tom Mack", "Recieved request"),
+                new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Paul Mack", "Recieved request") };
         }
