@@ -5,9 +5,10 @@ using MvvmCross.Droid.Views;
 namespace BeakonMvvm.Droid
 {
     [Activity(
-        Label = "BeakonMvvm.Droid"
+        Label = "Beakon"
         , MainLauncher = true
         , Theme = "@style/Theme.Splash"
+        , Icon = "@drawable/Beakon_Icon"
         , NoHistory = true
         , ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreen : MvxSplashScreenActivity

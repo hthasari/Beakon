@@ -7,13 +7,18 @@ using MvvmCross.Droid.Views;
 namespace BeakonMvvm.Droid.Views
 {
     [MvxViewFor(typeof(SettingsViewModel))]
-    [Activity(Label = "View For Request")]
+    [Activity(Label = "Settings")]
     public class Settings : MvxActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle Bundle)
         {
-            base.OnCreate(bundle);
+            base.OnCreate(Bundle);
             SetContentView(Resource.Layout.settings);
+        }
+
+        protected void OnRestart(IMvxBundle savedState)
+        {  
+            
         }
     }
 }
