@@ -17,8 +17,8 @@
             android:id="@+id/btnRequestSettings"
             android:layout_gravity="left"
             android:layout_weight="0.3"
-            android:scaleType="fitCenter"
-            local:MvxBind="Click NavReqCmd" />
+            android:background="#5882ff"
+            android:scaleType="fitCenter"/>
         <ImageButton
             android:src="@drawable/notificationicon"
             android:layout_width="wrap_content"
@@ -26,7 +26,6 @@
             android:id="@+id/btnNotificationSettings"
             android:layout_weight="0.3"
             android:scaleType="fitCenter"
-            android:background="#5882ff"
             local:MvxBind="Click NavNotCmd" />
         <ImageButton
             android:src="@drawable/settingsicon"
@@ -38,9 +37,9 @@
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd" />
     </LinearLayout>
-    <Mvx.MvxListView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        local:MvxItemTemplate="@layout/notificationcustomlistview"
-        local:MvxBind="ItemsSource Messages" />
+    <Imageview
+      android:layout_width="match_parent"
+      android:layout_height="fill_parent"
+      android:src="@drawable/BeakonLogo_Large"
+      android:scaleType="fitCenter" />
 </LinearLayout>

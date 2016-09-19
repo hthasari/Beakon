@@ -6,9 +6,9 @@ using MvvmCross.Droid.Views;
 
 namespace BeakonMvvm.Droid.Views
 {
-    [MvxViewFor(typeof(RecievedRequestViewModel))]
-    [Activity(Label = "View for Request")]
-    public class Request : MvxActivity
+    [MvxViewFor(typeof(NotificationViewModel))]
+    [Activity(Label = "Notification")]
+    public class Notification : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
