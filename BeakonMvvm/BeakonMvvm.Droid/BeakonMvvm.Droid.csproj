@@ -135,9 +135,9 @@
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\FirstView.cs" />
+    <Compile Include="Views\Requests.cs" />
     <Compile Include="Views\Notification.cs" />
     <Compile Include="Views\Settings.cs" />
-    <Compile Include="Views\Requests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
