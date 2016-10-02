@@ -6,7 +6,7 @@ using MvvmCross.Droid.Views;
 
 namespace BeakonMvvm.Droid.Views
 {
-    [MvxViewFor(typeof(RequestsViewModel))]
+    [MvxViewFor(typeof(NotificationViewModel))]
     [Activity(Label = "Notification")]
     public class Notification : MvxActivity
     {
