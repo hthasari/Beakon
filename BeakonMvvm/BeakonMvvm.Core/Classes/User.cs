@@ -13,6 +13,9 @@ namespace BeakonMvvm.Core.Classes
         private string _email;
         private bool _autoCalendar;
         private bool _autoLocation;
+        private string _nearestWifi;
+        private string _nearestBlutooth;
+        private string _latestUpdateTime;
 
         public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation)
         {
@@ -21,6 +24,19 @@ namespace BeakonMvvm.Core.Classes
             _email = email;
             _autoCalendar = autoCalendar;
             _autoLocation = autoLocation;
+        }
+
+        public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation, string nearestWifi, string nearestBlutooth)
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+            _email = email;
+            _autoCalendar = autoCalendar;
+            _autoLocation = autoLocation;
+            _nearestWifi = null;
+            _nearestBlutooth = null;
+            _latestUpdateTime = null;
+
         }
 
         public string UserFirstName

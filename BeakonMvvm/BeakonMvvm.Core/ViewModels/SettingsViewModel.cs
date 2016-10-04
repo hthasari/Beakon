@@ -10,12 +10,19 @@ namespace BeakonMvvm.Core.ViewModels
         static private User UserObj = new User("Fred", "Flintstone", "email.address@site.com", false, false);
         static private ObservableCollection<User> UserFriends;
 
-        bool showUserSettings = false;
+        private bool settingsMainViewVisible = true;
+        string abc = "a";
 
-        public bool ShowUserSettings
+        public string Abc
         {
-            get { return showUserSettings; }
+            get { return abc; }
         }
+
+        public bool SettingsMainViewVisible
+        {
+            get { return settingsMainViewVisible; }
+        }
+
 
         public string FirstName
         {
