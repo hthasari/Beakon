@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="OldClass\first.cs" />
     <Compile Include="OldClass\MainActivity.cs" />
     <Compile Include="OldClass\members.cs" />
