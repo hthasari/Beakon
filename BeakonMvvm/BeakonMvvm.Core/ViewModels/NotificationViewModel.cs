@@ -10,6 +10,50 @@ namespace BeakonMvvm.Core.ViewModels
 {
    public class NotificationViewModel : MvxViewModel
     {
+        private ObservableCollection<RequestMessage> messages;
+        public ObservableCollection<RequestMessage> Messages
+        {
+            get { return messages; }
+            set
+            {
+                SetProperty(ref messages, value);
+            }
+        }
+
+
+        private string messageHeader;
+        public string MessageHeader
+        {
+            get { return messageHeader; }
+            set
+            {
+                if (value != null)
+
+                    SetProperty(ref messageHeader, value);
+            }
+        }
+        private string basicText;
+        public string BasicText
+        {
+            get { return basicText; }
+            set
+            {
+                if (value != null)
+                {
+
+                    SetProperty(ref basicText, value);
+                }
+            }
+        }
+        public NotificationViewModel()
+        {
+            Messages = new ObservableCollection<RequestMessage>() {
+                new RequestMessage("John Mack", "Recieved request"),
+                new RequestMessage("Tom Mack", "Recieved request"),
+                new RequestMessage("Nick Mack", "Recieved request"),
+                new RequestMessage("Nick Mack", "Recieved request"),
+                new RequestMessage("Paul Mack", "Recieved request") };
+        }
         public MvxCommand NavReqCmd
         {
             get
