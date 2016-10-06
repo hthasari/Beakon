@@ -62,7 +62,7 @@ namespace BeakonMvvm.Core.ViewModels
             this.dialog = dialog;
             SelectMessage = new MvxCommand<RequestMessage>(async selectedItem =>
             {
-                // dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
+              
                 bool x = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
 
             });
