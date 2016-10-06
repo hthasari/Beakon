@@ -5,11 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
+using BeakonMvvm.Core.Interfaces;
+using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
 {
    public class NotificationViewModel : MvxViewModel
     {
+        public ICommand SelectMessage { get; private set; }
+        private readonly IDialogService dialog;
+
         private ObservableCollection<RequestMessage> messages;
         public ObservableCollection<RequestMessage> Messages
         {
@@ -45,15 +50,24 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel()
+        public NotificationViewModel(IDialogService dialog)
         {
+
             Messages = new ObservableCollection<RequestMessage>() {
                 new RequestMessage("John Mack", "Recieved request"),
                 new RequestMessage("Tom Mack", "Recieved request"),
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Paul Mack", "Recieved request") };
+            this.dialog = dialog;
+            SelectMessage = new MvxCommand<RequestMessage>(async selectedItem =>
+            {
+                // dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
+                bool x = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
+
+            });
         }
+
         public MvxCommand NavReqCmd
         {
             get
