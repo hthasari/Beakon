@@ -18,7 +18,7 @@
             android:layout_gravity="left"
             android:layout_weight="0.3"
             android:background="#5882ff"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter" />
         <ImageButton
             android:src="@drawable/notificationicon"
             android:layout_width="wrap_content"
@@ -37,9 +37,10 @@
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd" />
     </LinearLayout>
-    <Imageview
-      android:layout_width="match_parent"
-      android:layout_height="fill_parent"
-      android:src="@drawable/BeakonLogo_Large"
-      android:scaleType="fitCenter" />
+    <Mvx.MvxListView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="#f2ffe6"
+        local:MvxItemTemplate="@layout/listview_row"
+        local:MvxBind="ItemsSource Messages" />
 </LinearLayout>

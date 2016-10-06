@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class RequestsViewModel : MvxViewModel
+   public class MemberViewModel : MvxViewModel
     {
 
         private ObservableCollection<Person> messages;
@@ -48,7 +48,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public RequestsViewModel()
+        public MemberViewModel()
         {
             Messages = new ObservableCollection<Person>() {
                 new Person("John", "Dhaliwal"),
@@ -73,16 +73,6 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
-
-
-        public MvxCommand memberSelected
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<MemberViewModel>());
-            }
-        }
-
 
     }
     

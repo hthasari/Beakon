@@ -1,21 +1,23 @@
-//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-//using Android.App;
-//using Android.Content;
-//using Android.OS;
-//using Android.Runtime;
-//using Android.Views;
-//using Android.Widget;
+// Author Harri Tuononen
 
-//namespace Beakon
-//{
-//    class Person
-//    {
-//        public string FirstName { get; set; }
-//        public string LastName { get; set; }
+namespace BeakonMvvm.Core
+{
+    public class Person
+    {
+        public string pFirstname { get; set; }
+        public string pLastname { get; set; }
 
-//    }
-//}
+        public Person(string firstname, string lastname)
+        {
+            pFirstname = firstname;
+            pLastname = lastname;
+        }
+
+    }
+
+}
