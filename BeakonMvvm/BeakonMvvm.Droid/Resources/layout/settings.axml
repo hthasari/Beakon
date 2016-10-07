@@ -3,7 +3,7 @@
     xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#ffffff">
     <LinearLayout
         android:orientation="horizontal"
@@ -13,36 +13,393 @@
         android:background="#101010">
         <ImageButton
             android:src="@drawable/requesticon"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/btnRequestSettings"
             android:layout_gravity="left"
-            android:layout_weight="0.333"
+            android:layout_weight="1"
             android:scaleType="fitCenter"
             local:MvxBind="Click NavReqCmd" />
         <ImageButton
             android:src="@drawable/notificationicon"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/btnNotificationSettings"
-            android:layout_weight="0.333"
+            android:layout_weight="1"
             android:scaleType="fitCenter"
             local:MvxBind="Click NavNotCmd" />
         <ImageButton
             android:src="@drawable/settingsicon"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:id="@+id/btnSettingsSettings"
-            android:layout_weight="0.333"
+            android:layout_weight="1"
             android:scaleType="fitCenter"
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd"
             android:background="#5882ff" />
     </LinearLayout>
-    <Mvx.MvxListView
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="4dp"
+        android:background="#000" />
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:id="@+id/SettingsMainView"
-        local:MvxItemTemplate="@layout/settingsmainview"
-        local:MvxBind="ItemsSource Abc"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout4"
+        local:MvxBind="Visible SettingsMainViewVisible">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:background="#000">
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space2"
+                android:layout_weight="2" />
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff8d54"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="20px"
+                android:text="Contacts &gt;"
+                local:MvxBind="Click ButtonFavouriteContacts" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1">
+            <TextView
+                android:id="@+id/textFirstName"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:text="@string/SettingsFirstName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space1"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/textFirstNameInput"
+                android:textColor="#000"
+                android:textStyle="normal"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="30px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                local:MvxBind="Text FirstName; Visibility ShowUserSettings, Converter=Visibility" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout2">
+            <TextView
+                android:id="@+id/textLastName"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:text="@string/SettingsLastName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space2"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/textLastNameInput"
+                android:textColor="#000"
+                android:textStyle="normal"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="30px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                local:MvxBind="Text LastName" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout3">
+            <TextView
+                android:id="@+id/textEmail"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:text="@string/SettingsEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space3"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/textEmailInput"
+                android:textColor="#000"
+                android:textStyle="normal"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="30px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                local:MvxBind="Text Email" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textAutoCal"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:text="@string/SettingsCalendarAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space3"
+                android:layout_weight="1" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/switch1"
+                local:MvxBind="Checked AutoCalendar" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textAutoLoc"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:text="@string/SettingsLocationAuto"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space3"
+                android:layout_weight="1" />
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/switch1"
+                local:MvxBind="Checked AutoLocation" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textAutoLoc"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                local:MvxBind="Text SSID" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/FavourateContactsLinearLayout"
+        local:MvxBind="Visible SettingsFavContViewVisible">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ff8d54"
+                android:textColor="#fff"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:paddingTop="20px"
+                android:paddingBottom="20px"
+                android:paddingLeft="20px"
+                android:paddingRight="20px"
+                android:text="&lt; Settings"
+                local:MvxBind="Click ButtonMainView" />
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/space2"
+                android:layout_weight="2" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="#000" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#aaa"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:paddingBottom="5px"
+                android:paddingLeft="5dp"
+                android:gravity="bottom"
+                android:text="@string/SettingsYourContacts"
+                android:id="@+id/textView2" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#aaa">
+            <Searchview
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="Search"
+                android:layout_weight="8.5" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/space1"
+                android:layout_weight="0.2" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/removecontactbutton"
+                android:scaleType="centerInside"
+                android:layout_weight="1.1" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/space1"
+                android:layout_weight="0.2" />
+        </LinearLayout>
+        <Mvx.MvxListView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#eee"
+            local:MvxItemTemplate="@layout/listview_contacts"
+            local:MvxBind="ItemsSource UserContactsList"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#aaa"
+            android:minWidth="25px"
+            android:minHeight="25px">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#fff"
+                android:textColor="#000"
+                android:textSize="15dp"
+                android:paddingBottom="5px"
+                android:paddingLeft="5dp"
+                android:gravity="bottom"
+                android:text="@string/SettingsAllContacts"
+                android:id="@+id/textView2" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#aaa">
+            <Searchview
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:hint="Search"
+                android:layout_weight="8.5" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/space1"
+                android:layout_weight="0.2" />
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/removecontactbutton"
+                android:scaleType="centerInside"
+                android:layout_weight="1.1" />
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/space1"
+                android:layout_weight="0.2" />
+        </LinearLayout>
+        <Mvx.MvxListView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="#eee"
+            local:MvxItemTemplate="@layout/listview_contacts"
+            local:MvxBind="ItemsSource AllContactsList" />
+    </LinearLayout>
 </LinearLayout>
