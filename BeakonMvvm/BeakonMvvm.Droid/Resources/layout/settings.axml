@@ -37,7 +37,7 @@
             android:scaleType="fitCenter"
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd"
-            android:background="#5882ff" />
+            android:background="#4372FF" />
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
@@ -77,7 +77,7 @@
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
-            android:layout_height="1dp"
+            android:layout_height="4dp"
             android:background="#000" />
         <LinearLayout
             android:orientation="horizontal"
@@ -295,7 +295,7 @@
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
-            android:layout_height="1dp"
+            android:layout_height="4dp"
             android:background="#000" />
         <LinearLayout
             android:orientation="horizontal"
@@ -345,10 +345,10 @@
         </LinearLayout>
         <Mvx.MvxListView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="190dp"
             android:background="#eee"
             local:MvxItemTemplate="@layout/listview_contacts"
-            local:MvxBind="ItemsSource UserContactsList"/>
+            local:MvxBind="ItemsSource UserContactsList" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
@@ -397,7 +397,7 @@
         </LinearLayout>
         <Mvx.MvxListView
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="fill_parent"
             android:background="#eee"
             local:MvxItemTemplate="@layout/listview_contacts"
             local:MvxBind="ItemsSource AllContactsList" />

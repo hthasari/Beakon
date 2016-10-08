@@ -9,7 +9,6 @@ namespace BeakonMvvm.Core.ViewModels
     {
         static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false);
 
-
         static private ObservableCollection<User> userContactsList;
 
         public ObservableCollection<User> UserContactsList
