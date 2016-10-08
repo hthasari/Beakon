@@ -2,6 +2,9 @@ using Android.Content;
 using MvvmCross.Droid.Platform;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform.Platform;
+using MvvmCross.Platform;
+using BeakonMvvm.Core.Interfaces;
+using BeakonMvvm.Droid.Services;
 
 namespace BeakonMvvm.Droid
 {
@@ -19,6 +22,11 @@ namespace BeakonMvvm.Droid
         protected override IMvxTrace CreateDebugTrace()
         {
             return new DebugTrace();
+        }
+        protected override void InitializeFirstChance()
+        {
+            Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
+            base.InitializeFirstChance();
         }
     }
 }

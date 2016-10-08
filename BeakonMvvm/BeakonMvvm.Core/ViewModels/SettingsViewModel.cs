@@ -1,10 +1,28 @@
 ﻿using MvvmCross.Core.ViewModels;
+using System.Collections.ObjectModel;
+using System.Windows.Input;
+using BeakonMvvm.Core.Classes;
 
 namespace BeakonMvvm.Core.ViewModels
 {
     public class SettingsViewModel : MvxViewModel
     {
-        static User UserObj = new User("Fred", "Flintstone", "email.address@site.com", false, false, "");
+        static private User UserObj = new User("Fred", "Flintstone", "email.address@site.com", false, false);
+        static private ObservableCollection<User> UserFriends;
+
+        private bool settingsMainViewVisible = true;
+        string abc = "a";
+
+        public string Abc
+        {
+            get { return abc; }
+        }
+
+        public bool SettingsMainViewVisible
+        {
+            get { return settingsMainViewVisible; }
+        }
+
 
         public string FirstName
         {
@@ -55,61 +73,6 @@ namespace BeakonMvvm.Core.ViewModels
 
     public class FavouratesViewModel : MvxViewModel
     {
-
-    }
-
-    public class User
-    {
-        private string _firstName;
-        private string _lastName;
-        private string _email;
-        private bool _autoCalendar;
-        private bool _autoLocation;
-        private string _wifiPoint;
-
-        public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation, string wifiPoint)
-        {
-            _firstName = firstName;
-            _lastName = lastName;
-            _email = email;
-            _autoCalendar = autoCalendar;
-            _autoLocation = autoLocation;
-            _wifiPoint = wifiPoint;
-        }  
-        
-        public string UserFirstName
-        {
-            get { return _firstName; }
-            set { _firstName = value; }
-        }
-        public string UserLastName
-        {
-            get { return _lastName; }
-            set { _lastName = value; }
-        }
-
-        public string UserEmail
-        {
-            get { return _email; }
-            set { _email = value; }
-        }
-
-        public bool UserAutoCalendar
-        {
-            get { return _autoCalendar; }
-            set { _autoCalendar = value; }
-        }
-        public bool UserAutoLocation
-        {
-            get { return _autoLocation; }
-            set { _autoLocation = value; }
-        }
-
-        public string WifiPoint
-        {
-            get { return _wifiPoint; }
-            set { _wifiPoint = value; }
-        }
 
     }
 }
