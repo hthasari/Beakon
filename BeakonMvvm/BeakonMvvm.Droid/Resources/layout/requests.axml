@@ -40,7 +40,7 @@
     <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="#f2ffe6"
+        android:background="#fff"
         local:MvxItemTemplate="@layout/listview_row"
-        local:MvxBind="ItemsSource Messages" />
+        local:MvxBind="ItemsSource Messages; ItemClick memberSelected" />
 </LinearLayout>
