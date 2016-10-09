@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\AllUsersList.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="OldClass\first.cs" />
     <Compile Include="OldClass\MainActivity.cs" />

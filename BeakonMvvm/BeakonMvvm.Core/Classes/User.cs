@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 namespace BeakonMvvm.Core.Classes
 {
@@ -47,5 +49,20 @@ namespace BeakonMvvm.Core.Classes
         public bool UserAutoCalendar { get; set; }
         public bool UserAutoLocation { get; set; }
 
-    }
+        static private ObservableCollection<User> userContactsList = new ObservableCollection<User>() {
+                new User("Aaron", "Andersen", "AAndersen1@hotmail.com"),
+                new User("Bill", "Benson", "BBensen1@hotmail.com"),
+                new User("Fred", "Farrell", "FFarrell1@hotmail.com"),
+                new User("Harri", "Houdini", "HHoudini1@hotmail.com") };
+
+        public ObservableCollection<User> UserContactsList
+        {
+            get { return userContactsList; }
+        }
+
+}
+
+
+
+
 }

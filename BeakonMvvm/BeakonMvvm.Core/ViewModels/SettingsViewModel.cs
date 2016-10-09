@@ -8,8 +8,12 @@ namespace BeakonMvvm.Core.ViewModels
     public class SettingsViewModel : MvxViewModel
     {
         static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false);
+        static private AllUsersList List = new AllUsersList();
 
-        static private ObservableCollection<User> userContactsList;
+
+        static private ObservableCollection<User> allContactsList = List.AllUsers;
+
+        static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -20,7 +24,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        static private ObservableCollection<User> allContactsList;
+
 
         public ObservableCollection<User> AllContactsList
         {
@@ -71,24 +75,6 @@ namespace BeakonMvvm.Core.ViewModels
                 RaisePropertyChanged(() => SettingsMainViewVisible);
             });
 
-
-            UserContactsList = new ObservableCollection<User>() {
-                new User("Aaron", "Andersen", "AAndersen1@hotmail.com"),
-                new User("Bill", "Benson", "BBensen1@hotmail.com"),
-                new User("Fred", "Farrell", "FFarrell1@hotmail.com"),
-                new User("Harri", "Houdini", "HHoudini1@hotmail.com") };
-
-            AllContactsList = new ObservableCollection<User>()
-            {
-                new User("Aaron", "Andersen", "AAndersen1@hotmail.com"),
-                new User("Bill", "Benson", "BBensen1@hotmail.com"),
-                new User("Chevy", "Carter", "CCarter1@hotmail.com"),
-                new User("Derek", "Davis", "DDavis1@hotmail.com"),
-                new User("Erin", "Ericson", "EEricson1@hotmail.com"),
-                new User("Fred", "Farrell", "FFarrell1@hotmail.com"),
-                new User("George", "Grinch", "GGrinch1@hotmail.com"),
-                new User("Harri", "Houdini", "HHoudini1@hotmail.com")
-            };
         }
 
 
