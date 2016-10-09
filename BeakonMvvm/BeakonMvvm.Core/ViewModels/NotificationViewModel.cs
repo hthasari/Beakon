@@ -14,6 +14,7 @@ namespace BeakonMvvm.Core.ViewModels
     {
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
+        private ICalendar calendar;
 
         private ObservableCollection<RequestMessage> messages;
         public ObservableCollection<RequestMessage> Messages
@@ -50,7 +51,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog)
+        public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
 
             Messages = new ObservableCollection<RequestMessage>() {
@@ -60,11 +61,22 @@ namespace BeakonMvvm.Core.ViewModels
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Paul Mack", "Recieved request") };
             this.dialog = dialog;
+            this.calendar = calendar;
             SelectMessage = new MvxCommand<RequestMessage>(async selectedItem =>
             {
               
-                bool x = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
-
+                bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
+                if(Answer == true)
+                {
+                    string name = calendar.listCalendar();
+                    Messages.Add(new RequestMessage(name, "Recieved request"));
+                    //Send Needed Information to database
+                }
+                else
+                {
+                    Messages.Remove(selectedItem);
+                
+                }
             });
         }
 
@@ -83,6 +95,7 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
+        
 
     }
     
