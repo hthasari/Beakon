@@ -26,6 +26,7 @@ namespace BeakonMvvm.Droid
         protected override void InitializeFirstChance()
         {
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
+            Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
             base.InitializeFirstChance();
         }
     }
