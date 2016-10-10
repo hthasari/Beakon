@@ -21,11 +21,11 @@ namespace BeakonMvvm.Droid.Services
     public class Calendar : ICalendar
     {
        
-        public void listCalendar()
+        public void AddEventsToDatabase()
         {
             
 
-            // List Calendars
+            // Get events
             var calendarsUri = CalendarContract.Calendars.ContentUri;
 
             string[] calendarsProjection = {
@@ -41,7 +41,22 @@ namespace BeakonMvvm.Droid.Services
 
             var events = eventList(calId);
 
-            //Add events to Database
+            long eventTimeLong = events.GetLong(2);
+            DateTime eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
+                DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
+
+            DateTime now = DateTime.Now.ToLocalTime();
+            
+            if (eventTimeDate.DayOfYear.Equals(now.DayOfYear)) 
+            {
+                //Add to database
+            }
+            else
+            {
+                 cursor.MoveToNext();
+            }
+
+            
 
 
         }

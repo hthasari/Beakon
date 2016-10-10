@@ -9,7 +9,7 @@ namespace BeakonMvvm.Core.Interfaces
 {
     public interface ICalendar
     {
-        void listCalendar();
+        void AddEventsToDatabase();
 
         ICursor eventList(int _calId);
     }

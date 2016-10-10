@@ -68,7 +68,7 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
                 if(Answer == true)
                 {
-                    calendar.listCalendar();
+                    calendar.AddEventsToDatabase();
                     Messages.Remove(selectedItem);
 
                     //Send Needed Information to database
