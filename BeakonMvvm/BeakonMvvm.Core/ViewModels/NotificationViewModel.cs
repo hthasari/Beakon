@@ -53,7 +53,7 @@ namespace BeakonMvvm.Core.ViewModels
         }
         public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
-
+            
             Messages = new ObservableCollection<RequestMessage>() {
                 new RequestMessage("John Mack", "Recieved request"),
                 new RequestMessage("Tom Mack", "Recieved request"),
@@ -68,8 +68,9 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
                 if(Answer == true)
                 {
-                    string name = calendar.listCalendar();
-                    Messages.Add(new RequestMessage(name, "Recieved request"));
+                    calendar.listCalendar();
+                    Messages.Remove(selectedItem);
+
                     //Send Needed Information to database
                 }
                 else

@@ -20,9 +20,11 @@ namespace BeakonMvvm.Droid.Services
     
     public class Calendar : ICalendar
     {
-
-        public string listCalendar()
+       
+        public void listCalendar()
         {
+            
+
             // List Calendars
             var calendarsUri = CalendarContract.Calendars.ContentUri;
 
@@ -38,10 +40,9 @@ namespace BeakonMvvm.Droid.Services
             int calId = cursor.GetInt(cursor.GetColumnIndex(calendarsProjection[0]));
 
             var events = eventList(calId);
-           // Event even = new Event()
 
-            string calendarevent = events.GetColumnName(0);
-            return calendarevent;
+            //Add events to Database
+
 
         }
 
