@@ -2,18 +2,19 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BeakonMvvm.Core.Classes;
+using System.Linq;
 
 namespace BeakonMvvm.Core.ViewModels
 {
     public class SettingsViewModel : MvxViewModel
     {
         static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false);
+
         static private AllUsersList List = new AllUsersList();
-
-
         static private ObservableCollection<User> allContactsList = List.AllUsers;
 
         static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
+        static private ObservableCollection<User> updatedContactsList;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -23,6 +24,42 @@ namespace BeakonMvvm.Core.ViewModels
                 SetProperty(ref userContactsList, value);
             }
         }
+
+        public ObservableCollection<User> UpdatedContactsList
+        {
+            get { return updatedContactsList; }
+            set
+            {
+                SetProperty(ref updatedContactsList, value);
+                RaisePropertyChanged(() => UpdatedContactsList);
+            }
+        }
+
+        private string userContactsSearchTerm;
+
+        public string UserContactsSearchTerm
+        {
+            get { return userContactsSearchTerm; }
+            set
+            {
+                SetProperty(ref userContactsSearchTerm, value);
+                if (userContactsSearchTerm.Length > 3)
+                {
+                    SearchUserContactsList(userContactsSearchTerm);
+                }
+            }
+        }
+
+        public void SearchUserContactsList(string UserContactsSearchTerm)
+        {
+            UpdatedContactsList.Clear();
+            updatedContactsList = UserContactsList;
+            RaisePropertyChanged(()=> UpdatedContactsList);          
+        }
+        
+
+        
+
 
 
 
