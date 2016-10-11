@@ -60,6 +60,7 @@ namespace BeakonMvvm.Core.ViewModels
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Nick Mack", "Recieved request"),
                 new RequestMessage("Paul Mack", "Recieved request") };
+            
             this.dialog = dialog;
             this.calendar = calendar;
             SelectMessage = new MvxCommand<RequestMessage>(async selectedItem =>
@@ -68,7 +69,7 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
                 if(Answer == true)
                 {
-                   List<string> list =  calendar.returnEvents();
+                   List<string> EventList =  calendar.returnEvents();
                     Messages.Remove(selectedItem);
 
                     //Send Needed Information to databas

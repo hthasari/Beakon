@@ -34,8 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Classes\AllUsersList.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Database\PersonDB.cs" />
+    <Compile Include="Interfaces\ICalendar.cs" />
     <Compile Include="Interfaces\IPersonDB.cs" />
     <Compile Include="Interfaces\IDatabase.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />

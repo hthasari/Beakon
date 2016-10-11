@@ -35,14 +35,34 @@ namespace BeakonMvvm.Droid.Services
             };
 
             var cursor = Application.Context.ContentResolver.Query(calendarsUri, calendarsProjection, null, null, null);
+            cursor.MoveToFirst();
+            int calendarCount = cursor.Count;
 
-            cursor.MoveToPosition(0);
+
+            
+
             int calId = cursor.GetInt(cursor.GetColumnIndex(calendarsProjection[0]));
 
-            var events = eventList(calId);
+
+            var eventsUri = CalendarContract.Events.ContentUri;
+
+            string[] eventsProjection = {
+                CalendarContract.Events.InterfaceConsts.Id,
+                CalendarContract.Events.InterfaceConsts.Title,
+                CalendarContract.Events.InterfaceConsts.Dtstart
+             };
+
+            var events = Application.Context.ContentResolver.Query(eventsUri, eventsProjection,
+             String.Format("calendar_id={0}", calId), null, "dtstart ASC");
+
+          
 
 
-            long eventTimeLong = events.GetLong(2);
+           // var events = eventList(calId);
+           int testi = events.Count;
+
+            events.MoveToFirst();
+            long eventTimeLong = events.GetLong(events.GetColumnIndex(eventsProjection[2]));
             DateTime eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
                 DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
 
@@ -58,8 +78,9 @@ namespace BeakonMvvm.Droid.Services
 
                 {
 
-                    
-                    eventlist.Add(events.ToString());
+
+                    eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + ":"+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
+                        ":" + events.GetString(events.GetColumnIndex(eventsProjection[2])));
 
                     if (events.IsLast == true)
                     {

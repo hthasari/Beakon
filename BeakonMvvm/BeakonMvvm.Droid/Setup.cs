@@ -28,6 +28,7 @@ namespace BeakonMvvm.Droid
         {
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
             Mvx.LazyConstructAndRegisterSingleton<IDatabase, BDatabase>();
+            Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
             base.InitializeFirstChance();
         }
     }
