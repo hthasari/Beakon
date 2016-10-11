@@ -20,8 +20,8 @@ namespace BeakonMvvm.Droid.Services
     
     public class Calendar : ICalendar
     {
-       
-        public void AddEventsToDatabase()
+        List<string> eventlist = new List<string>();
+        public List<string> returnEvents()
         {
             
 
@@ -41,23 +41,50 @@ namespace BeakonMvvm.Droid.Services
 
             var events = eventList(calId);
 
+
             long eventTimeLong = events.GetLong(2);
             DateTime eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
                 DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
 
             DateTime now = DateTime.Now.ToLocalTime();
-            
-            if (eventTimeDate.DayOfYear.Equals(now.DayOfYear)) 
+
+            while (true)
             {
-                //Add to database
-            }
-            else
-            {
-                 cursor.MoveToNext();
+                 eventTimeLong = events.GetLong(2);
+                 eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
+                    DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
+
+                if (eventTimeDate.DayOfYear.Equals(now.DayOfYear))
+
+                {
+
+                    
+                    eventlist.Add(events.ToString());
+
+                    if (events.IsLast == true)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        events.MoveToNext();
+                    }
+                  
+                }
+                else
+                {
+                    if (events.IsLast == true)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        events.MoveToNext();
+                    }
+                }
             }
 
-            
-
+            return eventlist;
 
         }
 
