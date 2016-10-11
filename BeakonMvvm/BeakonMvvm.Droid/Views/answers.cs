@@ -6,14 +6,14 @@ using MvvmCross.Droid.Views;
 
 namespace BeakonMvvm.Droid.Views
 {
-    [MvxViewFor(typeof(MemberViewModel))]
-    [Activity(Label = "Member")]
-    public class answers : MvxActivity
+    [MvxViewFor(typeof(AnswerViewModel))]
+    [Activity(Label = "Answers Page")]
+    public class mem : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.members);
+            SetContentView(Resource.Layout.answers);
         }
     }
 }

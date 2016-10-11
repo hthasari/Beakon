@@ -5,6 +5,7 @@ using MvvmCross.Platform.Platform;
 using MvvmCross.Platform;
 using BeakonMvvm.Core.Interfaces;
 using BeakonMvvm.Droid.Services;
+using BeakonMvvm.Droid.Database;
 
 namespace BeakonMvvm.Droid
 {
@@ -26,7 +27,7 @@ namespace BeakonMvvm.Droid
         protected override void InitializeFirstChance()
         {
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
-            Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
+            Mvx.LazyConstructAndRegisterSingleton<IDatabase, BDatabase>();
             base.InitializeFirstChance();
         }
     }
