@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BeakonMvvm.Core.Classes;
+using System.Linq;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -9,8 +10,11 @@ namespace BeakonMvvm.Core.ViewModels
     {
         static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false);
 
+        static private AllUsersList List = new AllUsersList();
+        static private ObservableCollection<User> allContactsList = List.AllUsers;
 
-        static private ObservableCollection<User> userContactsList;
+        static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
+        static private ObservableCollection<User> updatedContactsList;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -21,7 +25,43 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        static private ObservableCollection<User> allContactsList;
+        public ObservableCollection<User> UpdatedContactsList
+        {
+            get { return updatedContactsList; }
+            set
+            {
+                SetProperty(ref updatedContactsList, value);
+                RaisePropertyChanged(() => UpdatedContactsList);
+            }
+        }
+
+        private string userContactsSearchTerm;
+
+        public string UserContactsSearchTerm
+        {
+            get { return userContactsSearchTerm; }
+            set
+            {
+                SetProperty(ref userContactsSearchTerm, value);
+                if (userContactsSearchTerm.Length > 3)
+                {
+                    SearchUserContactsList(userContactsSearchTerm);
+                }
+            }
+        }
+
+        public void SearchUserContactsList(string UserContactsSearchTerm)
+        {
+            UpdatedContactsList.Clear();
+            updatedContactsList = UserContactsList;
+            RaisePropertyChanged(()=> UpdatedContactsList);          
+        }
+        
+
+        
+
+
+
 
         public ObservableCollection<User> AllContactsList
         {
@@ -72,24 +112,6 @@ namespace BeakonMvvm.Core.ViewModels
                 RaisePropertyChanged(() => SettingsMainViewVisible);
             });
 
-
-            UserContactsList = new ObservableCollection<User>() {
-                new User("Aaron", "Andersen", "AAndersen1@hotmail.com"),
-                new User("Bill", "Benson", "BBensen1@hotmail.com"),
-                new User("Fred", "Farrell", "FFarrell1@hotmail.com"),
-                new User("Harri", "Houdini", "HHoudini1@hotmail.com") };
-
-            AllContactsList = new ObservableCollection<User>()
-            {
-                new User("Aaron", "Andersen", "AAndersen1@hotmail.com"),
-                new User("Bill", "Benson", "BBensen1@hotmail.com"),
-                new User("Chevy", "Carter", "CCarter1@hotmail.com"),
-                new User("Derek", "Davis", "DDavis1@hotmail.com"),
-                new User("Erin", "Ericson", "EEricson1@hotmail.com"),
-                new User("Fred", "Farrell", "FFarrell1@hotmail.com"),
-                new User("George", "Grinch", "GGrinch1@hotmail.com"),
-                new User("Harri", "Houdini", "HHoudini1@hotmail.com")
-            };
         }
 
 

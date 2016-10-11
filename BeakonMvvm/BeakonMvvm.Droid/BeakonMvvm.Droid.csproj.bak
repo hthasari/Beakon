@@ -135,6 +135,7 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Views\mem.cs" />
     <Compile Include="Views\FirstView.cs" />
     <Compile Include="Views\Requests.cs" />
     <Compile Include="Views\Notification.cs" />
@@ -148,7 +149,9 @@
     <AndroidResource Include="Resources\layout\FirstView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\listView_row.axml" />
+    <AndroidResource Include="Resources\layout\listView_row.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\layout\members.axml" />
     <AndroidResource Include="Resources\layout\Notification.axml">
@@ -169,7 +172,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\layout\SettingsMainView.axml">
+    <AndroidResource Include="Resources\layout\ListView_Contacts.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -191,6 +194,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable\RemoveContactButton.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
