@@ -1,4 +1,4 @@
-﻿using Android.Database;
+﻿//using Android.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace BeakonMvvm.Core.Interfaces
     {
         void AddEventsToDatabase();
 
-        ICursor eventList(int _calId);
+        //ICursor eventList(int _calId);
     }
 
 
