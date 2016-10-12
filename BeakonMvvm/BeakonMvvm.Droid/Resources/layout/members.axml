@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
     <TextView
-        android:text="Request Status of Gurpreet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView1"
@@ -13,6 +13,7 @@
         android:textSize="19sp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="5dp"
+        local:MvxBind="Text ReqPerson"
         android:padding="3dp" />
     <ImageView
         android:src="@drawable/male"

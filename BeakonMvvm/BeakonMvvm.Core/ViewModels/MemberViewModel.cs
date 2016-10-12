@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
+using BeakonMvvm.Core.ViewModels;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -12,6 +13,8 @@ namespace BeakonMvvm.Core.ViewModels
     {
 
         private ObservableCollection<Person> messages;
+        public string Reqperson;
+        Person p;
 
         public ObservableCollection<Person> Messages
         {
@@ -35,6 +38,18 @@ namespace BeakonMvvm.Core.ViewModels
                     SetProperty(ref messageHeader, value);
             }
         }
+
+        public string ReqPerson
+        {
+
+            get { return Reqperson; }
+            set
+            {
+                if (value != null)
+
+                    SetProperty(ref Reqperson, value);
+            }
+        }
         private string basicText;
         public string pLastName
         {
@@ -48,18 +63,11 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public MemberViewModel()
-        {
-            Messages = new ObservableCollection<Person>() {
-                new Person("John", "Dhaliwal"),
-                new Person("kala", "Gill"),
-                new Person("Gora", "Dhillon"),
-                new Person("Nicki", "Sidhu"),
-                new Person("Paul", "Mannan") };
+        public MemberViewModel() {
+            Reqperson = "a";
         }
+        public MvxCommand NavNotCmd {
 
-        public MvxCommand NavNotCmd
-        {
             get
             {
                 return new MvxCommand(() => ShowViewModel<NotificationViewModel>());

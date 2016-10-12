@@ -27,30 +27,30 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        private string messageHeader;
-        public string MessageHeader
-        {
-            get { return messageHeader; }
-            set
-            {
-                if (value != null)
+        //private string messageHeader;
+        //public string MessageHeader
+        //{
+        //    get { return messageHeader; }
+        //    set
+        //    {
+        //        if (value != null)
 
-                    SetProperty(ref messageHeader, value);
-            }
-        }
-        private string basicText;
-        public string BasicText
-        {
-            get { return basicText; }
-            set
-            {
-                if (value != null)
-                {
+        //            SetProperty(ref messageHeader, value);
+        //    }
+        //}
+        //private string basicText;
+        //public string BasicText
+        //{
+        //    get { return basicText; }
+        //    set
+        //    {
+        //        if (value != null)
+        //        {
 
-                    SetProperty(ref basicText, value);
-                }
-            }
-        }
+        //            SetProperty(ref basicText, value);
+        //        }
+        //    }
+        //}
         public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
             

@@ -7,15 +7,15 @@
     android:background="@android:color/background_light">
     <ImageView
         android:src="@drawable/BeakonLogo_Large"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:layout_gravity="center"
         android:id="@+id/imageView1" />
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
         android:text="Loading..."
         android:layout_gravity="center"
         android:textColor="@android:color/holo_blue_dark" />

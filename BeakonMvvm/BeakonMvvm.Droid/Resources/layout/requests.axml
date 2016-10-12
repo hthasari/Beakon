@@ -42,5 +42,5 @@
         android:layout_height="fill_parent"
         android:background="#fff"
         local:MvxItemTemplate="@layout/listview_row"
-        local:MvxBind="ItemsSource Messages; ItemClick memberSelected" />
+        local:MvxBind="ItemsSource Messages; ItemClick SelectPer" />
 </LinearLayout>
