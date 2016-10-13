@@ -19,7 +19,7 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
-        private INetwork ssdi;
+        private INetwork ssid;
 
         private ObservableCollection<Req> messages;
         public ObservableCollection<Req> Message
@@ -57,7 +57,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssdi)
+        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid)
         {
             Message = new ObservableCollection<Req>();
             this.dbs = new ReqDB();
@@ -68,7 +68,7 @@ namespace BeakonMvvm.Core.ViewModels
                 Message.Add(p);
             }
 
-            this.ssdi = ssdi;
+            this.ssid = ssid;
             this.dialog = dialog;
             this.calendar = calendar;
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
@@ -81,7 +81,7 @@ namespace BeakonMvvm.Core.ViewModels
                     List<string> EventList = calendar.returnEvents();
 
                     //Name of the wifi
-                    string ssdiName = ssdi.SSID();
+                    string ssidName = ssid.SSID();
                     Message.Remove(selectedItem);
                     
                     //Send Needed Information to databas
