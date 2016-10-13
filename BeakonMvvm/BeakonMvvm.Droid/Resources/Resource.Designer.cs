@@ -177,17 +177,20 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040005
 			public const int btnSettingsSettings = 2130968581;
 			
+			// aapt resource value: 0x7f040021
+			public const int button1 = 2130968609;
+			
 			// aapt resource value: 0x7f04000e
 			public const int checkBox1 = 2130968590;
 			
-			// aapt resource value: 0x7f040023
-			public const int imageButton1 = 2130968611;
-			
 			// aapt resource value: 0x7f040024
-			public const int imageButton2 = 2130968612;
+			public const int imageButton1 = 2130968612;
 			
 			// aapt resource value: 0x7f040025
-			public const int imageButton3 = 2130968613;
+			public const int imageButton2 = 2130968613;
+			
+			// aapt resource value: 0x7f040026
+			public const int imageButton3 = 2130968614;
 			
 			// aapt resource value: 0x7f040006
 			public const int imageView1 = 2130968582;
@@ -249,11 +252,11 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000f
 			public const int textView1 = 2130968591;
 			
-			// aapt resource value: 0x7f040021
-			public const int textView2 = 2130968609;
-			
 			// aapt resource value: 0x7f040022
-			public const int toolbar1 = 2130968610;
+			public const int textView2 = 2130968610;
+			
+			// aapt resource value: 0x7f040023
+			public const int toolbar1 = 2130968611;
 			
 			static Id()
 			{

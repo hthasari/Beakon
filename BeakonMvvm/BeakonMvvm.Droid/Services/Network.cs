@@ -12,7 +12,7 @@ using Android.Widget;
 using Android.Net.Wifi;
 using BeakonMvvm.Core.Interfaces;
 
-namespace BeakonMvvm.Droid.Database
+namespace BeakonMvvm.Droid.Services
 {
     public class Network : INetwork
     {

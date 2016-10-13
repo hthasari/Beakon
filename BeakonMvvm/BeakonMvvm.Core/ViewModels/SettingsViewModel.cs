@@ -4,6 +4,8 @@ using System.Windows.Input;
 using BeakonMvvm.Core.Classes;
 using System.Linq;
 using BeakonMvvm.Core.Interfaces;
+using BeakonMvvm.Core.Database;
+using MvvmCross.Platform;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -17,7 +19,6 @@ namespace BeakonMvvm.Core.ViewModels
         static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
         static private ObservableCollection<User> updatedContactsList = UserObj.UserContactsList;
 
-        private INetwork ssID;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -27,6 +28,119 @@ namespace BeakonMvvm.Core.ViewModels
                 SetProperty(ref userContactsList, value);
             }
         }
+
+        static Person selected = MyGlobals.SelPer;
+
+        // First Name
+        private string _name = selected.pFirstname;
+        public string fName
+        {
+            get { return _name; }
+            set
+            {
+                if (value != null && value != _name)
+                {
+                    _name = value;
+                    selected.pFirstname = value;
+                    RaisePropertyChanged(() => fName);
+                }
+            }
+        }
+
+        //Last Name
+        private string _lname = selected.pLastname;
+        public string lName
+        {
+            get { return _lname; }
+            set
+            {
+                if (value != null && value != _lname)
+                {
+                    _lname = value;
+                    selected.pLastname = value;
+                    RaisePropertyChanged(() => lName);
+                }
+            }
+        }
+
+        //Last Name
+        private string _email = selected.PEmail;
+        public string Eemail
+        {
+            get { return _email; }
+            set
+            {
+                if (value != null && value != _email)
+                {
+                    _email = value;
+                    selected.PEmail = value;
+                    RaisePropertyChanged(() => Eemail);
+                }
+            }
+        }
+
+        //Last Name
+        private string _photo = selected.photo;
+        public string Photo
+        {
+            get { return _photo; }
+        }
+        private INetwork ssdi;
+        private string ssdiName;
+
+
+
+
+        public string Wifi
+        {
+            get { return ssdiName; }
+            set
+            {
+                if (value != ssdiName)
+                {
+                    ssdiName = value;
+                    selected.PLocation = value;
+                    RaisePropertyChanged(() => Wifi);
+                }
+            }
+        }
+
+
+
+
+        //Last Name
+        private bool _loc = selected.PLocCheck;
+        public bool Location
+        {
+            get { return _loc; }
+            set
+            {
+                if (value != _loc)
+                {
+                    _loc = value;
+                    selected.PLocCheck = value;
+                    RaisePropertyChanged(() => Location);
+                }
+            }
+        }
+
+        //Last Name
+        private bool _cal = selected.PCalCheck;
+        public bool Calander
+        {
+            get { return _cal; }
+            set
+            {
+                if (value != _cal)
+                {
+                    _cal = value;
+                    selected.PCalCheck = value;
+                    RaisePropertyChanged(() => Calander);
+                }
+            }
+        }
+
+
 
         public ObservableCollection<User> UpdatedContactsList
         {
@@ -89,8 +203,11 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand ButtonFavouriteContacts { get; private set; }
         public ICommand ButtonMainView { get; private set; }
 
-        public SettingsViewModel()
+        public SettingsViewModel(INetwork ssdi)
         {
+
+            this.ssdi = ssdi;
+            ssdiName = ssdi.SSID();
             //string strSSID = ssID.SSID();
             //UserObj.UserSSID = strSSID;
 
