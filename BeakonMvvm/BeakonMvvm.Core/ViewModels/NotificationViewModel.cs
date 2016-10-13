@@ -69,7 +69,7 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
                 if(Answer == true)
                 {
-                    // list of event on this day. Format is id:title:startingTime
+                   // list of event on this day. Format is id:title:startingTime
                    List<string> EventList =  calendar.returnEvents();
                     Messages.Remove(selectedItem);
 
