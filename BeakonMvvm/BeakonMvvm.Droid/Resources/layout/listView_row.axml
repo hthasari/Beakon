@@ -12,7 +12,7 @@
     android:background="@drawable/style_input"
     android:paddingTop="2dp">
     <ImageView
-        android:src="@android:drawable/ic_menu_gallery"
+        android:src="@drawable/male"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginLeft="5px"

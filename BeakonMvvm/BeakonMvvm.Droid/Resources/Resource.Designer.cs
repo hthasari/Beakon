@@ -47,8 +47,6 @@ namespace BeakonMvvm.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::BeakonMvvm.Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::BeakonMvvm.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::BeakonMvvm.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::BeakonMvvm.Droid.Resource.String.ApplicationName;
-			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::BeakonMvvm.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -134,128 +132,128 @@ namespace BeakonMvvm.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050023
-			public const int FavourateContactsLinearLayout = 2131034147;
+			// aapt resource value: 0x7f040023
+			public const int FavourateContactsLinearLayout = 2130968611;
 			
-			// aapt resource value: 0x7f050000
-			public const int MvvmCrossTagId = 2131034112;
+			// aapt resource value: 0x7f040000
+			public const int MvvmCrossTagId = 2130968576;
 			
-			// aapt resource value: 0x7f050001
-			public const int MvxBindingTagUnique = 2131034113;
+			// aapt resource value: 0x7f040001
+			public const int MvxBindingTagUnique = 2130968577;
 			
-			// aapt resource value: 0x7f05000c
-			public const int btnNotification = 2131034124;
+			// aapt resource value: 0x7f04000c
+			public const int btnNotification = 2130968588;
 			
-			// aapt resource value: 0x7f050008
-			public const int btnNotificationMain = 2131034120;
+			// aapt resource value: 0x7f040008
+			public const int btnNotificationMain = 2130968584;
 			
-			// aapt resource value: 0x7f050004
-			public const int btnNotificationSettings = 2131034116;
+			// aapt resource value: 0x7f040004
+			public const int btnNotificationSettings = 2130968580;
 			
-			// aapt resource value: 0x7f05000b
-			public const int btnRequest = 2131034123;
+			// aapt resource value: 0x7f04000b
+			public const int btnRequest = 2130968587;
 			
-			// aapt resource value: 0x7f050007
-			public const int btnRequestMain = 2131034119;
+			// aapt resource value: 0x7f040007
+			public const int btnRequestMain = 2130968583;
 			
-			// aapt resource value: 0x7f050003
-			public const int btnRequestSettings = 2131034115;
+			// aapt resource value: 0x7f040003
+			public const int btnRequestSettings = 2130968579;
 			
-			// aapt resource value: 0x7f05000d
-			public const int btnSettings = 2131034125;
+			// aapt resource value: 0x7f04000d
+			public const int btnSettings = 2130968589;
 			
-			// aapt resource value: 0x7f050009
-			public const int btnSettingsMain = 2131034121;
+			// aapt resource value: 0x7f040009
+			public const int btnSettingsMain = 2130968585;
 			
-			// aapt resource value: 0x7f050005
-			public const int btnSettingsSettings = 2131034117;
+			// aapt resource value: 0x7f040005
+			public const int btnSettingsSettings = 2130968581;
 			
-			// aapt resource value: 0x7f050012
-			public const int cancelButton = 2131034130;
+			// aapt resource value: 0x7f040012
+			public const int cancelButton = 2130968594;
 			
-			// aapt resource value: 0x7f05000f
-			public const int checkBox1 = 2131034127;
+			// aapt resource value: 0x7f04000f
+			public const int checkBox1 = 2130968591;
 			
-			// aapt resource value: 0x7f050010
-			public const int edtName = 2131034128;
+			// aapt resource value: 0x7f040010
+			public const int edtName = 2130968592;
 			
-			// aapt resource value: 0x7f050026
-			public const int imageButton1 = 2131034150;
+			// aapt resource value: 0x7f040026
+			public const int imageButton1 = 2130968614;
 			
-			// aapt resource value: 0x7f050027
-			public const int imageButton2 = 2131034151;
+			// aapt resource value: 0x7f040027
+			public const int imageButton2 = 2130968615;
 			
-			// aapt resource value: 0x7f050028
-			public const int imageButton3 = 2131034152;
+			// aapt resource value: 0x7f040028
+			public const int imageButton3 = 2130968616;
 			
-			// aapt resource value: 0x7f050006
-			public const int imageView1 = 2131034118;
+			// aapt resource value: 0x7f040006
+			public const int imageView1 = 2130968582;
 			
-			// aapt resource value: 0x7f050015
-			public const int linearLayout1 = 2131034133;
+			// aapt resource value: 0x7f040015
+			public const int linearLayout1 = 2130968597;
 			
-			// aapt resource value: 0x7f050019
-			public const int linearLayout2 = 2131034137;
+			// aapt resource value: 0x7f040019
+			public const int linearLayout2 = 2130968601;
 			
-			// aapt resource value: 0x7f05001c
-			public const int linearLayout3 = 2131034140;
+			// aapt resource value: 0x7f04001c
+			public const int linearLayout3 = 2130968604;
 			
-			// aapt resource value: 0x7f050013
-			public const int linearLayout4 = 2131034131;
+			// aapt resource value: 0x7f040013
+			public const int linearLayout4 = 2130968595;
 			
-			// aapt resource value: 0x7f050002
-			public const int linearLayout6 = 2131034114;
+			// aapt resource value: 0x7f040002
+			public const int linearLayout6 = 2130968578;
 			
-			// aapt resource value: 0x7f05000a
-			public const int listView = 2131034122;
+			// aapt resource value: 0x7f04000a
+			public const int listView = 2130968586;
 			
-			// aapt resource value: 0x7f050011
-			public const int sendButton = 2131034129;
+			// aapt resource value: 0x7f040011
+			public const int sendButton = 2130968593;
 			
-			// aapt resource value: 0x7f050017
-			public const int space1 = 2131034135;
+			// aapt resource value: 0x7f040017
+			public const int space1 = 2130968599;
 			
-			// aapt resource value: 0x7f050014
-			public const int space2 = 2131034132;
+			// aapt resource value: 0x7f040014
+			public const int space2 = 2130968596;
 			
-			// aapt resource value: 0x7f05001e
-			public const int space3 = 2131034142;
+			// aapt resource value: 0x7f04001e
+			public const int space3 = 2130968606;
 			
-			// aapt resource value: 0x7f050021
-			public const int switch1 = 2131034145;
+			// aapt resource value: 0x7f040021
+			public const int switch1 = 2130968609;
 			
-			// aapt resource value: 0x7f050020
-			public const int textAutoCal = 2131034144;
+			// aapt resource value: 0x7f040020
+			public const int textAutoCal = 2130968608;
 			
-			// aapt resource value: 0x7f050022
-			public const int textAutoLoc = 2131034146;
+			// aapt resource value: 0x7f040022
+			public const int textAutoLoc = 2130968610;
 			
-			// aapt resource value: 0x7f05001d
-			public const int textEmail = 2131034141;
+			// aapt resource value: 0x7f04001d
+			public const int textEmail = 2130968605;
 			
-			// aapt resource value: 0x7f05001f
-			public const int textEmailInput = 2131034143;
+			// aapt resource value: 0x7f04001f
+			public const int textEmailInput = 2130968607;
 			
-			// aapt resource value: 0x7f050016
-			public const int textFirstName = 2131034134;
+			// aapt resource value: 0x7f040016
+			public const int textFirstName = 2130968598;
 			
-			// aapt resource value: 0x7f050018
-			public const int textFirstNameInput = 2131034136;
+			// aapt resource value: 0x7f040018
+			public const int textFirstNameInput = 2130968600;
 			
-			// aapt resource value: 0x7f05001a
-			public const int textLastName = 2131034138;
+			// aapt resource value: 0x7f04001a
+			public const int textLastName = 2130968602;
 			
-			// aapt resource value: 0x7f05001b
-			public const int textLastNameInput = 2131034139;
+			// aapt resource value: 0x7f04001b
+			public const int textLastNameInput = 2130968603;
 			
-			// aapt resource value: 0x7f05000e
-			public const int textView1 = 2131034126;
+			// aapt resource value: 0x7f04000e
+			public const int textView1 = 2130968590;
 			
-			// aapt resource value: 0x7f050024
-			public const int textView2 = 2131034148;
+			// aapt resource value: 0x7f040024
+			public const int textView2 = 2130968612;
 			
-			// aapt resource value: 0x7f050025
-			public const int toolbar1 = 2131034149;
+			// aapt resource value: 0x7f040025
+			public const int toolbar1 = 2130968613;
 			
 			static Id()
 			{
@@ -325,38 +323,38 @@ namespace BeakonMvvm.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f060001
+			public const int ApplicationName = 2131099649;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f060000
+			public const int Hello = 2131099648;
 			
-			// aapt resource value: 0x7f040009
-			public const int SettingsAllContacts = 2130968585;
+			// aapt resource value: 0x7f060009
+			public const int SettingsAllContacts = 2131099657;
 			
-			// aapt resource value: 0x7f040006
-			public const int SettingsCalendarAuto = 2130968582;
+			// aapt resource value: 0x7f060006
+			public const int SettingsCalendarAuto = 2131099654;
 			
-			// aapt resource value: 0x7f040004
-			public const int SettingsEmail = 2130968580;
+			// aapt resource value: 0x7f060004
+			public const int SettingsEmail = 2131099652;
 			
-			// aapt resource value: 0x7f040005
-			public const int SettingsFavCont = 2130968581;
+			// aapt resource value: 0x7f060005
+			public const int SettingsFavCont = 2131099653;
 			
-			// aapt resource value: 0x7f040002
-			public const int SettingsFirstName = 2130968578;
+			// aapt resource value: 0x7f060002
+			public const int SettingsFirstName = 2131099650;
 			
-			// aapt resource value: 0x7f040003
-			public const int SettingsLastName = 2130968579;
+			// aapt resource value: 0x7f060003
+			public const int SettingsLastName = 2131099651;
 			
-			// aapt resource value: 0x7f040007
-			public const int SettingsLocationAuto = 2130968583;
+			// aapt resource value: 0x7f060007
+			public const int SettingsLocationAuto = 2131099655;
 			
-			// aapt resource value: 0x7f040008
-			public const int SettingsYourContacts = 2130968584;
+			// aapt resource value: 0x7f060008
+			public const int SettingsYourContacts = 2131099656;
 			
-			// aapt resource value: 0x7f04000a
-			public const int abc = 2130968586;
+			// aapt resource value: 0x7f06000a
+			public const int abc = 2131099658;
 			
 			static String()
 			{
@@ -371,8 +369,8 @@ namespace BeakonMvvm.Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int Theme_Splash = 2131099648;
+			// aapt resource value: 0x7f050000
+			public const int Theme_Splash = 2131034112;
 			
 			static Style()
 			{

@@ -10,20 +10,24 @@ using BeakonMvvm.Core.Interfaces;
 using System.Collections;
 using MvvmCross.Platform;
 using BeakonMvvm.Core.Database;
-using SQLite.Net;
+using SQLite;
+using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
 {
    public class RequestsViewModel : MvxViewModel
     { 
-        private ObservableCollection<Person> messages;
-        PersonDB dbs;
-        List<Person> jj = new List<Person>();
-
+       private ObservableCollection<Person> messages;
+       private IPersonDB dbs;
+       List<Person> jj = new List<Person>();
+       public ICommand SelectPer { get; private set; }
+       private readonly IDialogService dialog;
+       public Person Per { get; private set; }
 
 
         public ObservableCollection<Person> Messages
         {
+
             get { return messages; }
             set
             {
@@ -57,41 +61,50 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public RequestsViewModel()
+
+        public RequestsViewModel(IDialogService dialog, IPersonDB dbs)
         {
-          //  this.Messages = new ObservableCollection<Person>(dbs.)
-            dbs = new PersonDB();
-            int j = dbs.InsertPerson(new Person("John", "Dhaliwal"));
-            //dbs.InsertPerson(new Person("John", "Dhaliwal"));
-            //dbs.InsertPerson(new Person("John", "Dhaliwal"));
-            //dbs.InsertPerson(new Person("John", "Dhaliwal"));
-            //dbs.InsertPerson(new Person("John", "Dhaliwal"));
-            //dbs.DeletePerson(6);
-            //   string t = dbs.Count();
-            int jjj = j;
+            this.dbs = new PersonDB();
+            jj = dbs.GetPersons();
 
-            Messages = new ObservableCollection<Person>();
-            //jj = dbs.GetPersons();
-     
-            //foreach (Person p in jj)
-            //{
-            //    Messages.Add(p);
-            //}
+          Messages = new ObservableCollection<Person>();
+                 
+            foreach (Person p in jj)
+            {
+               Messages.Add(p);
+            }
+            this.dialog = dialog;
+
+            SelectPer = new MvxCommand<Person>(selectedPer =>
+            {
+                Per = selectedPer;
+                ShowViewModel<MemberViewModel>(selectedPer);
+            });
+
+                //bool Answer = await dialog.Show(selectedPer.pFirstname, selectedPer.pLastname, "Send", "Dismiss");
+                //if (Answer == true)
+                //{
+                //    Person p = new Person()
+                //    { pFirstname = selectedPer.pFirstname,
+                //    pLastname = selectedPer.pLastname
+                //    };
+                    
+                //    Messages.Add(p);
+                //    dbs.InsertPerson(p);
+
+                //    //Send Needed Information to database
+                //}
+                //else
+                //{
+                //    int id = selectedPer.Id;
+                //    Messages.Remove(selectedPer);
+                //    dbs.DeletePerson(id);
+
+                //}
 
 
+           
 
-            //   db.InsertPerson(new Person("John", "Dhaliwal"));
-
-
-            //Messages = new ObservableCollection<Person>() {
-            //    new Person("John", "Dhaliwal"),
-            //    new Person("kala", "Gill"),
-            //    new Person("Gora", "Dhillon"),
-            //    new Person("Nicki", "Sidhu"),
-            //    new Person("Paul", "Mannan")
-            //  };
-
-            // db.InsertLocation(new Person("John", "Dhaliwal"));
 
         }
 
@@ -113,13 +126,13 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        public MvxCommand memberSelected
-        {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<MemberViewModel>());
-            }
-        }
+        //public MvxCommand memberSelected
+        //{
+        //    get
+        //    {
+        //        return new MvxCommand(() => ShowViewModel<MemberViewModel>());
+        //    }
+        //}
 
     }
     
