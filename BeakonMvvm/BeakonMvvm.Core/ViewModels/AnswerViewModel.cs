@@ -74,21 +74,30 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
         public ICommand SendButton { get; private set; }
+        public ICommand CancelButton { get; private set; }
 
-    public AnswerViewModel()
+        public AnswerViewModel()
     {
-            
-           // jj = dbs.GetPersons();
-           
+
+            // jj = dbs.GetPersons();
+
 
             SendButton = new MvxCommand(() =>
         {
-            this.dbss = new ReqDB();
-            dbss.InsertReq(new Req("Gurpreet", "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
-            List<Req> a = dbss.GetReq();
+        this.dbss = new ReqDB();
+        dbss.InsertReq(new Req("Gurpreet", "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
+        List<Req> a = dbss.GetReq();
+        ShowViewModel<NotificationViewModel>();
+
         });
 
-    }
+            CancelButton = new MvxCommand(() =>
+            {
+                ShowViewModel<RequestsViewModel>();
+
+            });
+
+        }
 
     public MvxCommand NavNotCmd
     {

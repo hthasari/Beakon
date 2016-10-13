@@ -31,7 +31,6 @@ namespace BeakonMvvm.Core.ViewModels
        private readonly IDialogService dialog;
         private Person Per;
 
-      
 
         public ObservableCollection<Person> Messages
         {
