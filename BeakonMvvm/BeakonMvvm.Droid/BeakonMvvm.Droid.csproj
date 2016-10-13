@@ -213,7 +213,7 @@
     <AndroidResource Include="Resources\layout\answers.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\listView_answers.axml">
+    <AndroidResource Include="Resources\layout\listview_answers.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

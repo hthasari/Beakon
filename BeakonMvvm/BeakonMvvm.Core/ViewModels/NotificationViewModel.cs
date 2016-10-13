@@ -7,17 +7,21 @@ using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
 using System.Windows.Input;
+using BeakonMvvm.Core.Database;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class NotificationViewModel : MvxViewModel
+    public class NotificationViewModel : MvxViewModel
     {
+
+        private IReqDB dbs;
+        List<Req> jj = new List<Req>();
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
 
-        private ObservableCollection<RequestMessage> messages;
-        public ObservableCollection<RequestMessage> Messages
+        private ObservableCollection<Req> messages;
+        public ObservableCollection<Req> Message
         {
             get { return messages; }
             set
@@ -27,38 +31,80 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-     
-    
+        private string Reqfrom;
+        public string ReqFrom
+        {
+            get { return Reqfrom; }
+            set
+            {
+                if (value != null)
+
+                    SetProperty(ref Reqfrom, value);
+            }
+        }
+        private string reqextra;
+
+        public string ReqExtra
+        {
+            get { return reqextra; }
+            set
+            {
+                if (value != null)
+                {
+
+                    SetProperty(ref reqextra, value);
+                }
+            }
+        }
         public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
-             //Get This messages from database
-            Messages = new ObservableCollection<RequestMessage>() {
-                new RequestMessage("John Mack", "Recieved request"),
-                new RequestMessage("Tom Mack", "Recieved request"),
-                new RequestMessage("Nick Mack", "Recieved request"),
-                new RequestMessage("Nick Mack", "Recieved request"),
-                new RequestMessage("Paul Mack", "Recieved request") };
-            
+
+
+
+            Message = new ObservableCollection<Req>();
+            this.dbs = new ReqDB();
+            // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
+            jj = dbs.GetReq();
+            foreach (Req p in jj)
+            {
+                Message.Add(p);
+            }
+
+
             this.dialog = dialog;
             this.calendar = calendar;
-            SelectMessage = new MvxCommand<RequestMessage>(async selectedItem =>
+            SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
-              
-                bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
-                if(Answer == true)
+
+                bool Answer = await dialog.Show(selectedItem.ReqFrom, selectedItem.ReqExtra, "Send", "Dismiss");
+                if (Answer == true)
                 {
-                   // list of event on this day. Format is id title startingTime
-                   List<string> EventList =  calendar.returnEvents();
-                    Messages.Remove(selectedItem);
+                    // list of event on this day. Format is id:title:startingTime
+                    List<string> EventList = calendar.returnEvents();
+                    Message.Remove(selectedItem);
 
                     //Send Needed Information to databas
                 }
                 else
                 {
-                    //Delete or mark message as seen or anwered.
-                    Messages.Remove(selectedItem);
-                
+                    Message.Remove(selectedItem);
+                    dbs.DeleteReq(selectedItem.Id);
+
                 }
+            });
+
+            ButtonFavouriteContacts = new MvxCommand(() =>
+            {
+                SettingsMainViewVisible = false;
+                SettingsFavContViewVisible = true;
+                RaisePropertyChanged(() => SettingsMainViewVisible);
+            });
+
+            ButtonMainView = new MvxCommand(() =>
+            {
+                SettingsMainViewVisible = true;
+                SettingsFavContViewVisible = false;
+                RaisePropertyChanged(() => SettingsMainViewVisible);
             });
         }
 
@@ -77,9 +123,39 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
-        
+
+  
+
+        private bool settingsMainViewVisible = true;
+        public bool SettingsMainViewVisible
+        {
+            get { return settingsMainViewVisible; }
+            set
+            {
+                SetProperty(ref settingsMainViewVisible, value);
+            }
+        }
+
+        private bool settingsFavContViewVisible = false;
+        public bool SettingsFavContViewVisible
+        {
+            get { return settingsFavContViewVisible; }
+            set
+            {
+                SetProperty(ref settingsFavContViewVisible, value);
+            }
+        }
+
+
+
+        public ICommand ButtonFavouriteContacts { get; private set; }
+        public ICommand ButtonMainView { get; private set; }
+
+
+
 
     }
-    
-}
+
+
+    }
 

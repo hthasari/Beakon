@@ -6,67 +6,52 @@ using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using BeakonMvvm.Core.ViewModels;
+using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class MemberViewModel : MvxViewModel
+    public class MemberViewModel : MvxViewModel
     {
 
-        private ObservableCollection<Person> messages;
-        public string Reqperson;
-        Person p;
-
-        public ObservableCollection<Person> Messages
+        private string _ExtraInfo = "Hello MvvmCross";
+        public string ExtraInfo
         {
-            get { return messages; }
-            set
-            {
-                SetProperty(ref messages, value);
-            }
-        }
-
-
-        private string messageHeader;
-        public string pFirstName
-        {
-
-            get { return messageHeader; }
+            get { return _ExtraInfo; }
             set
             {
                 if (value != null)
 
-                    SetProperty(ref messageHeader, value);
+                    SetProperty(ref _ExtraInfo, value);
             }
         }
 
-        public string ReqPerson
+        private bool _isChecked;
+        public bool IsChecked
+        {
+            get { return _isChecked; }
+            set
+            { 
+
+                    SetProperty(ref _isChecked, value);
+            }
+        }
+
+        public ICommand SendButton { get; private set; }
+
+        public MemberViewModel()
         {
 
-            get { return Reqperson; }
-            set
-            {
-                if (value != null)
 
-                    SetProperty(ref Reqperson, value);
-            }
+            SendButton = new MvxCommand(() =>
+            {
+                _isChecked = true;
+                _ExtraInfo = "fuck off";
+            });
+
         }
-        private string basicText;
-        public string pLastName
+
+        public MvxCommand NavNotCmd
         {
-            get { return basicText; }
-            set
-            {
-                if (value != null)
-                {
-
-                    SetProperty(ref basicText, value);
-                }
-            }
-        }
-        public MemberViewModel() {
-            Reqperson = "a";
-        }
-        public MvxCommand NavNotCmd {
 
             get
             {
@@ -83,6 +68,5 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
     }
-    
-}
 
+}

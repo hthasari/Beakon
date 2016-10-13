@@ -8,12 +8,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1"
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="19sp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="5dp"
-        local:MvxBind="Text ReqPerson"
+        local:MvxBind="Text PerInfo"
         android:padding="3dp" />
     <ImageView
         android:src="@drawable/male"
@@ -24,7 +23,7 @@
         android:text="Request Calander"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox1"
+        local:MvxBind="Checked IsCheckedCal"
         android:textColor="@android:color/holo_blue_dark"
         android:padding="13dp"
         android:textSize="18sp"
@@ -37,6 +36,7 @@
         android:id="@+id/checkBox1"
         android:textColor="@android:color/holo_blue_dark"
         android:padding="13dp"
+        local:MvxBind="Checked IsCheckedLoc"
         android:textSize="18sp"
         android:layout_margin="5dp"
         android:background="@drawable/style_input" />
@@ -51,10 +51,9 @@
         android:layout_marginTop="10dp"
         android:padding="3dp" />
     <EditText
-        android:hint="Extra info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/edtName"
+        local:MvxBind="Text ExtraInfo, Mode=TwoWay"
         android:background="@drawable/style_input"
         android:padding="13dp"
         android:textSize="15sp"
@@ -69,7 +68,7 @@
         android:padding="13dp"
         android:textSize="18sp"
         android:layout_margin="5dp"
-        android:id="@+id/sendButton" />
+        local:MvxBind="Click SendButton" />
     <Button
         android:text="Cancel"
         android:layout_width="match_parent"
@@ -78,5 +77,5 @@
         android:padding="13dp"
         android:textSize="18sp"
         android:layout_margin="5dp"
-        android:id="@+id/cancelButton" />
+        local:MvxBind="Click CancelButton" />
 </LinearLayout>

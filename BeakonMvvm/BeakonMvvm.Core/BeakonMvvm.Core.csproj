@@ -36,20 +36,23 @@
   <ItemGroup>
     <Compile Include="Classes\AllUsersList.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="Database\ReqDB.cs" />
     <Compile Include="Database\PersonDB.cs" />
     <Compile Include="Interfaces\ICalendar.cs" />
+    <Compile Include="Interfaces\IReqDB.cs" />
     <Compile Include="Interfaces\IPersonDB.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="Models\Answer.cs" />
+    <Compile Include="Models\Req.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\RequestMessage.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SearchBar.cs" />
     <Compile Include="ViewModels\AnswerViewModel.cs" />
-    <Compile Include="ViewModels\NotificationViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
+    <Compile Include="ViewModels\NotificationViewModel.cs" />
     <Compile Include="ViewModels\RequestsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
