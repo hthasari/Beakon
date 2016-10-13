@@ -89,10 +89,12 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand ButtonFavouriteContacts { get; private set; }
         public ICommand ButtonMainView { get; private set; }
 
-        public SettingsViewModel()
+        public SettingsViewModel(INetwork ssid)
         {
-            //string strSSID = ssID.SSID();
-            //UserObj.UserSSID = strSSID;
+            this.ssID = ssid;
+
+            string ssidName = ssID.SSID();
+            UserObj.UserSSID = ssidName;
 
             ButtonFavouriteContacts = new MvxCommand(() =>
             {
