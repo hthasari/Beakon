@@ -14,7 +14,7 @@ namespace BeakonMvvm.Core.ViewModels
         static private ObservableCollection<User> allContactsList = List.AllUsers;
 
         static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
-        static private ObservableCollection<User> updatedContactsList;
+        static private ObservableCollection<User> updatedContactsList = UserObj.UserContactsList;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -35,18 +35,12 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        private string userContactsSearchTerm;
 
         public string UserContactsSearchTerm
         {
-            get { return userContactsSearchTerm; }
             set
             {
-                SetProperty(ref userContactsSearchTerm, value);
-                if (userContactsSearchTerm.Length > 3)
-                {
-                    SearchUserContactsList(userContactsSearchTerm);
-                }
+                UpdatedContactsList = new ObservableCollection<User>( UserObj.UserContactsList.Where(x => x.UserDetails.Contains(value)));
             }
         }
 

@@ -349,7 +349,7 @@
                 android:layout_height="match_parent"
                 android:hint="Search"
                 android:layout_weight="8.5"
-                local:MvxBind="Text UserContactsSearchTerm, Mode=OneWayToSource"/>
+                local:MvxBind="Text UserContactsSearchTerm" />
             <Space
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
