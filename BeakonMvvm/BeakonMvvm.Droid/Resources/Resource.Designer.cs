@@ -201,8 +201,8 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040019
 			public const int linearLayout3 = 2130968601;
 			
-			// aapt resource value: 0x7f040010
-			public const int linearLayout4 = 2130968592;
+			// aapt resource value: 0x7f040011
+			public const int linearLayout4 = 2130968593;
 			
 			// aapt resource value: 0x7f040002
 			public const int linearLayout6 = 2130968578;
@@ -213,8 +213,8 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040014
 			public const int space1 = 2130968596;
 			
-			// aapt resource value: 0x7f040011
-			public const int space2 = 2130968593;
+			// aapt resource value: 0x7f040010
+			public const int space2 = 2130968592;
 			
 			// aapt resource value: 0x7f04001b
 			public const int space3 = 2130968603;

@@ -43,6 +43,7 @@
     <Compile Include="Interfaces\IPersonDB.cs" />
     <Compile Include="Interfaces\ISqlite.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />
+    <Compile Include="Interfaces\INetwork.cs" />
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Req.cs" />
     <Compile Include="Models\Person.cs" />

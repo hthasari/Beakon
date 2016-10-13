@@ -11,7 +11,7 @@ using BeakonMvvm.Core.Database;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class NotificationViewModel : MvxViewModel
+    public class NotificationViewModel : MvxViewModel
     {
 
         private IReqDB dbs;
@@ -19,6 +19,7 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
+        private INetwork ssdi;
 
         private ObservableCollection<Req> messages;
         public ObservableCollection<Req> Message
@@ -56,39 +57,55 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar)
+        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssdi)
         {
-
             Message = new ObservableCollection<Req>();
             this.dbs = new ReqDB();
-           // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
+            // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
             jj = dbs.GetReq();
             foreach (Req p in jj)
             {
                 Message.Add(p);
             }
 
-
+            this.ssdi = ssdi;
             this.dialog = dialog;
             this.calendar = calendar;
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
-              
+
                 bool Answer = await dialog.Show(selectedItem.ReqFrom, selectedItem.ReqExtra, "Send", "Dismiss");
-                if(Answer == true)
+                if (Answer == true)
                 {
                     // list of event on this day. Format is id:title:startingTime
-                   List<string> EventList =  calendar.returnEvents();
-                    Message.Remove(selectedItem);
+                    List<string> EventList = calendar.returnEvents();
 
+                    //Name of the wifi
+                    string ssdiName = ssdi.SSID();
+                    Message.Remove(selectedItem);
+                    
                     //Send Needed Information to databas
                 }
                 else
                 {
                     Message.Remove(selectedItem);
                     dbs.DeleteReq(selectedItem.Id);
-                
+
                 }
+            });
+
+            ButtonFavouriteContacts = new MvxCommand(() =>
+            {
+                SettingsMainViewVisible = false;
+                SettingsFavContViewVisible = true;
+                RaisePropertyChanged(() => SettingsMainViewVisible);
+            });
+
+            ButtonMainView = new MvxCommand(() =>
+            {
+                SettingsMainViewVisible = true;
+                SettingsFavContViewVisible = false;
+                RaisePropertyChanged(() => SettingsMainViewVisible);
             });
         }
 
@@ -107,9 +124,39 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
-        
+
+  
+
+        private bool settingsMainViewVisible = true;
+        public bool SettingsMainViewVisible
+        {
+            get { return settingsMainViewVisible; }
+            set
+            {
+                SetProperty(ref settingsMainViewVisible, value);
+            }
+        }
+
+        private bool settingsFavContViewVisible = false;
+        public bool SettingsFavContViewVisible
+        {
+            get { return settingsFavContViewVisible; }
+            set
+            {
+                SetProperty(ref settingsFavContViewVisible, value);
+            }
+        }
+
+
+
+        public ICommand ButtonFavouriteContacts { get; private set; }
+        public ICommand ButtonMainView { get; private set; }
+
+
+
 
     }
-    
-}
+
+
+    }
 

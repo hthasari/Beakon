@@ -23,14 +23,16 @@ namespace BeakonMvvm.Core.Classes
             UserDetails = lastName + ", " + firstName + " - " + email;
         }
 
-        public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation)
+        public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation, string userSSID)
         {
             UserFirstName = firstName;
             UserLastName = lastName;
             UserEmail = email;
             UserAutoCalendar = autoCalendar;
             UserAutoLocation = autoLocation;
+            UserSSID = userSSID;
         }
+
 
         public User(string firstName, string lastName, string email, bool autoCalendar, bool autoLocation, string nearestWifi, string nearestBlutooth)
         {
@@ -50,6 +52,7 @@ namespace BeakonMvvm.Core.Classes
         public string UserDetails { get; set; }
         public bool UserAutoCalendar { get; set; }
         public bool UserAutoLocation { get; set; }
+        public string UserSSID { get; set; }
 
         static private ObservableCollection<User> userContactsList = new ObservableCollection<User>() {
                 new User("0001", "Aaron", "Andersen", "AAndersen1@hotmail.com"),
