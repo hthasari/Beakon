@@ -132,8 +132,8 @@ namespace BeakonMvvm.Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040023
-			public const int FavourateContactsLinearLayout = 2130968611;
+			// aapt resource value: 0x7f040021
+			public const int FavourateContactsLinearLayout = 2130968609;
 			
 			// aapt resource value: 0x7f040000
 			public const int MvvmCrossTagId = 2130968576;
@@ -168,38 +168,35 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040005
 			public const int btnSettingsSettings = 2130968581;
 			
-			// aapt resource value: 0x7f040012
-			public const int cancelButton = 2130968594;
-			
-			// aapt resource value: 0x7f04000f
-			public const int checkBox1 = 2130968591;
-			
 			// aapt resource value: 0x7f040010
-			public const int edtName = 2130968592;
+			public const int cancelButton = 2130968592;
+			
+			// aapt resource value: 0x7f04000e
+			public const int checkBox1 = 2130968590;
+			
+			// aapt resource value: 0x7f040024
+			public const int imageButton1 = 2130968612;
+			
+			// aapt resource value: 0x7f040025
+			public const int imageButton2 = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int imageButton1 = 2130968614;
-			
-			// aapt resource value: 0x7f040027
-			public const int imageButton2 = 2130968615;
-			
-			// aapt resource value: 0x7f040028
-			public const int imageButton3 = 2130968616;
+			public const int imageButton3 = 2130968614;
 			
 			// aapt resource value: 0x7f040006
 			public const int imageView1 = 2130968582;
 			
-			// aapt resource value: 0x7f040015
-			public const int linearLayout1 = 2130968597;
-			
-			// aapt resource value: 0x7f040019
-			public const int linearLayout2 = 2130968601;
-			
-			// aapt resource value: 0x7f04001c
-			public const int linearLayout3 = 2130968604;
-			
 			// aapt resource value: 0x7f040013
-			public const int linearLayout4 = 2130968595;
+			public const int linearLayout1 = 2130968595;
+			
+			// aapt resource value: 0x7f040017
+			public const int linearLayout2 = 2130968599;
+			
+			// aapt resource value: 0x7f04001a
+			public const int linearLayout3 = 2130968602;
+			
+			// aapt resource value: 0x7f040011
+			public const int linearLayout4 = 2130968593;
 			
 			// aapt resource value: 0x7f040002
 			public const int linearLayout6 = 2130968578;
@@ -207,53 +204,50 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000a
 			public const int listView = 2130968586;
 			
-			// aapt resource value: 0x7f040011
-			public const int sendButton = 2130968593;
+			// aapt resource value: 0x7f040015
+			public const int space1 = 2130968597;
 			
-			// aapt resource value: 0x7f040017
-			public const int space1 = 2130968599;
+			// aapt resource value: 0x7f040012
+			public const int space2 = 2130968594;
 			
-			// aapt resource value: 0x7f040014
-			public const int space2 = 2130968596;
-			
-			// aapt resource value: 0x7f04001e
-			public const int space3 = 2130968606;
-			
-			// aapt resource value: 0x7f040021
-			public const int switch1 = 2130968609;
-			
-			// aapt resource value: 0x7f040020
-			public const int textAutoCal = 2130968608;
-			
-			// aapt resource value: 0x7f040022
-			public const int textAutoLoc = 2130968610;
-			
-			// aapt resource value: 0x7f04001d
-			public const int textEmail = 2130968605;
+			// aapt resource value: 0x7f04001c
+			public const int space3 = 2130968604;
 			
 			// aapt resource value: 0x7f04001f
-			public const int textEmailInput = 2130968607;
+			public const int switch1 = 2130968607;
 			
-			// aapt resource value: 0x7f040016
-			public const int textFirstName = 2130968598;
+			// aapt resource value: 0x7f04001e
+			public const int textAutoCal = 2130968606;
 			
-			// aapt resource value: 0x7f040018
-			public const int textFirstNameInput = 2130968600;
-			
-			// aapt resource value: 0x7f04001a
-			public const int textLastName = 2130968602;
+			// aapt resource value: 0x7f040020
+			public const int textAutoLoc = 2130968608;
 			
 			// aapt resource value: 0x7f04001b
-			public const int textLastNameInput = 2130968603;
+			public const int textEmail = 2130968603;
 			
-			// aapt resource value: 0x7f04000e
-			public const int textView1 = 2130968590;
+			// aapt resource value: 0x7f04001d
+			public const int textEmailInput = 2130968605;
 			
-			// aapt resource value: 0x7f040024
-			public const int textView2 = 2130968612;
+			// aapt resource value: 0x7f040014
+			public const int textFirstName = 2130968596;
 			
-			// aapt resource value: 0x7f040025
-			public const int toolbar1 = 2130968613;
+			// aapt resource value: 0x7f040016
+			public const int textFirstNameInput = 2130968598;
+			
+			// aapt resource value: 0x7f040018
+			public const int textLastName = 2130968600;
+			
+			// aapt resource value: 0x7f040019
+			public const int textLastNameInput = 2130968601;
+			
+			// aapt resource value: 0x7f04000f
+			public const int textView1 = 2130968591;
+			
+			// aapt resource value: 0x7f040022
+			public const int textView2 = 2130968610;
+			
+			// aapt resource value: 0x7f040023
+			public const int toolbar1 = 2130968611;
 			
 			static Id()
 			{
@@ -275,7 +269,7 @@ namespace BeakonMvvm.Droid
 			public const int FirstView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int listView_answers = 2130903042;
+			public const int listview_answers = 2130903042;
 			
 			// aapt resource value: 0x7f030003
 			public const int ListView_Contacts = 2130903043;

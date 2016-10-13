@@ -5,76 +5,108 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using BeakonMvvm.Core.Interfaces;
+using BeakonMvvm.Core.Database;
 
 namespace BeakonMvvm.Core.ViewModels
 {
    public class AnswerViewModel : MvxViewModel
+
     {
+        private ObservableCollection<Person> messages;
+        private IReqDB dbss;
+        List<Person> jj = new List<Person>();
 
-        private ObservableCollection<Person> answers;
-
-        public ObservableCollection<Person> Answers
+        private string _PerInfo = MyGlobals.perr.pFirstname;
+        public string PerInfo
         {
-            get { return answers; }
+            get { return _PerInfo; }
             set
             {
-                SetProperty(ref answers, value);
+                if (value != null && value != _PerInfo)
+                {
+                    _ExtraInfo = value;
+                    RaisePropertyChanged(() => PerInfo);
+                }
             }
         }
 
 
-        //private string messageHeader;
-        //public string pFirstName
-        //{
-
-        //    get { return messageHeader; }
-        //    set
-        //    {
-        //        if (value != null)
-
-        //            SetProperty(ref messageHeader, value);
-        //    }
-        //}
-        //private string basicText;
-        //public string pLastName
-        //{
-        //    get { return basicText; }
-        //    set
-        //    {
-        //        if (value != null)
-        //        {
-
-        //            SetProperty(ref basicText, value);
-        //        }
-        //    }
-        //}
-        public AnswerViewModel()
+        private string _ExtraInfo = "Extra Info";
+    public string ExtraInfo
+    {
+        get { return _ExtraInfo; }
+        set
         {
-            //Messages = new ObservableCollection<Person>() {
-            //    new Person("John", "Dhaliwal"),
-            //    new Person("kala", "Gill"),
-            //    new Person("Gora", "Dhillon"),
-            //    new Person("Nicki", "Sidhu"),
-            //    new Person("Paul", "Mannan") };
-        }
+                if (value != null && value != _ExtraInfo)
+                {
+                    _ExtraInfo = value;
+                    RaisePropertyChanged(() => ExtraInfo);
+                }
+            }
+    }
 
-        public MvxCommand NavNotCmd
+    private bool _isCheckedCal = true;
+    public bool IsCheckedCal
+    {
+        get { return _isCheckedCal; }
+        set
         {
-            get
+
+                    _isCheckedCal = value;
+                    RaisePropertyChanged(() => IsCheckedCal);
+                
+            }
+    }
+
+        private bool _isCheckedLoc = true;
+        public bool IsCheckedLoc
+        {
+            get { return _isCheckedLoc; }
+            set
             {
-                return new MvxCommand(() => ShowViewModel<NotificationViewModel>());
+
+                _isCheckedLoc = value;
+                RaisePropertyChanged(() => IsCheckedLoc);
+
             }
         }
 
-        public MvxCommand NavSetCmd
+        public ICommand SendButton { get; private set; }
+
+    public AnswerViewModel()
+    {
+            
+           // jj = dbs.GetPersons();
+           
+
+            SendButton = new MvxCommand(() =>
         {
-            get
-            {
-                return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
-            }
-        }
+            this.dbss = new ReqDB();
+            dbss.InsertReq(new Req("Gurpreet", "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
+            List<Req> a = dbss.GetReq();
+        });
 
     }
-    
+
+    public MvxCommand NavNotCmd
+    {
+
+        get
+        {
+            return new MvxCommand(() => ShowViewModel<NotificationViewModel>());
+        }
+    }
+
+    public MvxCommand NavSetCmd
+    {
+        get
+        {
+            return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
+        }
+    }
+
 }
 
+}

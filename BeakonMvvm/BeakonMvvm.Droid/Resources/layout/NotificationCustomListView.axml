@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:height="80px"
         android:textSize="60px"
-        local:MvxBind="Text MessageHeader" />
+        local:MvxBind="Text ReqFrom" />
     <TextView
         android:textColor="@android:color/holo_blue_dark"
         android:textAppearance="?android:attr/textAppearanceSmall"
@@ -22,5 +22,5 @@
         android:layout_height="wrap_content"
         android:height="50px"
         android:textSize="40px"
-        local:MvxBind="Text BasicText" />
+        local:MvxBind="Text ReqExtra" />
 </LinearLayout>

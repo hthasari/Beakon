@@ -8,13 +8,12 @@ namespace BeakonMvvm.Droid.Views
 {
     [MvxViewFor(typeof(AnswerViewModel))]
     [Activity(Label = "Answers Page")]
-    public class mem : MvxActivity
+    public class answers : MvxActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.answers);
+            SetContentView(Resource.Layout.members);
         }
     }
 }
-

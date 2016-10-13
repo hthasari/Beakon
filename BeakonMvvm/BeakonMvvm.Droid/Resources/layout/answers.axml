@@ -4,43 +4,43 @@
     android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="70.5dp"
-        android:id="@+id/linearLayout6"
-        android:background="#101010">
-        <ImageButton
-            android:src="@drawable/requesticon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnRequestSettings"
-            android:layout_gravity="left"
-            android:layout_weight="0.3"
-            android:background="#5882ff"
-            android:scaleType="fitCenter" />
-        <ImageButton
-            android:src="@drawable/notificationicon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnNotificationSettings"
-            android:layout_weight="0.3"
-            android:scaleType="fitCenter"
-            local:MvxBind="Click NavNotCmd" />
-        <ImageButton
-            android:src="@drawable/settingsicon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/btnSettingsSettings"
-            android:layout_weight="0.3"
-            android:scaleType="fitCenter"
-            android:layout_gravity="right"
-            local:MvxBind="Click NavSetCmd" />
-    </LinearLayout>
-    <Mvx.MvxListView
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:background="#fff"
-        local:MvxItemTemplate="@layout/listview_answers"
-        local:MvxBind="ItemsSource Messages; ItemClick memberSelected" />
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="70.5dp"
+      android:id="@+id/linearLayout6"
+      android:background="#101010">
+    <ImageButton
+        android:src="@drawable/requesticon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/btnRequestSettings"
+        android:layout_gravity="left"
+        android:layout_weight="0.3"
+        android:background="#5882ff"
+        android:scaleType="fitCenter" />
+    <ImageButton
+        android:src="@drawable/notificationicon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/btnNotificationSettings"
+        android:layout_weight="0.3"
+        android:scaleType="fitCenter"
+        local:MvxBind="Click NavNotCmd" />
+    <ImageButton
+        android:src="@drawable/settingsicon"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/btnSettingsSettings"
+        android:layout_weight="0.3"
+        android:scaleType="fitCenter"
+        android:layout_gravity="right"
+        local:MvxBind="Click NavSetCmd" />
+  </LinearLayout>
+  <Mvx.MvxListView
+      android:layout_width="match_parent"
+      android:layout_height="fill_parent"
+      android:background="#fff"
+      local:MvxItemTemplate="@layout/listview_answers"
+      local:MvxBind="ItemsSource Messages; ItemClick memberSelected" />
 </LinearLayout>

@@ -15,15 +15,23 @@ using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class RequestsViewModel : MvxViewModel
+
+
+    public static class MyGlobals
+    {
+        public static Person perr { get; set; }
+    }
+
+    public class RequestsViewModel : MvxViewModel
     { 
        private ObservableCollection<Person> messages;
        private IPersonDB dbs;
        List<Person> jj = new List<Person>();
        public ICommand SelectPer { get; private set; }
        private readonly IDialogService dialog;
-       public Person Per { get; private set; }
+        private Person Per;
 
+      
 
         public ObservableCollection<Person> Messages
         {
@@ -66,6 +74,7 @@ namespace BeakonMvvm.Core.ViewModels
         {
             this.dbs = new PersonDB();
             jj = dbs.GetPersons();
+            dbs.InsertPerson(new Person("Gurpreet","Dhaliwal"));
 
           Messages = new ObservableCollection<Person>();
                  
@@ -75,20 +84,21 @@ namespace BeakonMvvm.Core.ViewModels
             }
             this.dialog = dialog;
 
-            SelectPer = new MvxCommand<Person>(selectedPer =>
+            SelectPer = new MvxCommand<Person>( selectedPer =>
             {
-                Per = selectedPer;
-                ShowViewModel<MemberViewModel>(selectedPer);
-            });
+                MyGlobals.perr = selectedPer;
+                ShowViewModel<AnswerViewModel>();
+
 
                 //bool Answer = await dialog.Show(selectedPer.pFirstname, selectedPer.pLastname, "Send", "Dismiss");
                 //if (Answer == true)
                 //{
                 //    Person p = new Person()
-                //    { pFirstname = selectedPer.pFirstname,
-                //    pLastname = selectedPer.pLastname
+                //    {
+                //        pFirstname = selectedPer.pFirstname,
+                //        pLastname = selectedPer.pLastname
                 //    };
-                    
+
                 //    Messages.Add(p);
                 //    dbs.InsertPerson(p);
 
@@ -101,13 +111,13 @@ namespace BeakonMvvm.Core.ViewModels
                 //    dbs.DeletePerson(id);
 
                 //}
+            });
 
 
-           
+
 
 
         }
-
 
         public MvxCommand NavNotCmd
         {
@@ -135,6 +145,8 @@ namespace BeakonMvvm.Core.ViewModels
         //}
 
     }
-    
+
+
+
 }
 
