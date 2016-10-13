@@ -15,13 +15,16 @@ namespace BeakonMvvm.Core
         public int Id { get; set; }
         public string pFirstname { get; set; }
         public string pLastname { get; set; }
+        public string photo { get; set; }
         
         public Person() {}
 
-        public Person(string firstname, string lastname)
+        public Person(string firstname, string lastname, string phot)
         {
             pFirstname = firstname;
             pLastname = lastname;
+            photo = phot;
+
         }
 
         //public override string ToString()

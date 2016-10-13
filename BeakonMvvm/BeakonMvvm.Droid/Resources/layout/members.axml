@@ -15,7 +15,7 @@
         local:MvxBind="Text PerInfo"
         android:padding="3dp" />
     <ImageView
-        android:src="@drawable/male"
+        local:MvxBind="DrawableName PersonPhto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/imageView1" />

@@ -20,6 +20,7 @@ namespace BeakonMvvm.Core.ViewModels
     public static class MyGlobals
     {
         public static Person perr { get; set; }
+        public static Person SelPer { get; set; }
     }
 
     public class RequestsViewModel : MvxViewModel
@@ -73,7 +74,6 @@ namespace BeakonMvvm.Core.ViewModels
         {
             this.dbs = new PersonDB();
             jj = dbs.GetPersons();
-            dbs.InsertPerson(new Person("Gurpreet","Dhaliwal"));
 
           Messages = new ObservableCollection<Person>();
                  
@@ -88,32 +88,7 @@ namespace BeakonMvvm.Core.ViewModels
                 MyGlobals.perr = selectedPer;
                 ShowViewModel<AnswerViewModel>();
 
-
-                //bool Answer = await dialog.Show(selectedPer.pFirstname, selectedPer.pLastname, "Send", "Dismiss");
-                //if (Answer == true)
-                //{
-                //    Person p = new Person()
-                //    {
-                //        pFirstname = selectedPer.pFirstname,
-                //        pLastname = selectedPer.pLastname
-                //    };
-
-                //    Messages.Add(p);
-                //    dbs.InsertPerson(p);
-
-                //    //Send Needed Information to database
-                //}
-                //else
-                //{
-                //    int id = selectedPer.Id;
-                //    Messages.Remove(selectedPer);
-                //    dbs.DeletePerson(id);
-
-                //}
             });
-
-
-
 
 
         }
@@ -133,15 +108,6 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
-
-
-        //public MvxCommand memberSelected
-        //{
-        //    get
-        //    {
-        //        return new MvxCommand(() => ShowViewModel<MemberViewModel>());
-        //    }
-        //}
 
     }
 
