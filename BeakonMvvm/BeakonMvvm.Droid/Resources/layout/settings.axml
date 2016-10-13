@@ -288,14 +288,13 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/FavourateContactsLinearLayout"
         local:MvxBind="Visible SettingsFavContViewVisible">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.9"
+            android:layout_height="wrap_content"
             android:background="#000">
             <Button
                 android:layout_width="0dp"
@@ -319,8 +318,7 @@
         </LinearLayout>
         <View
             android:layout_width="fill_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".1"
+            android:layout_height="4dp"
             android:background="#000" />
         <LinearLayout
             android:orientation="horizontal"
@@ -344,8 +342,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".5"
+            android:layout_height="40dp"
             android:background="#aaa">
             <Searchview
                 android:layout_width="0dp"
@@ -372,16 +369,14 @@
         </LinearLayout>
         <Mvx.MvxListView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4"
+            android:layout_height="140dp"
             android:background="#eee"
             local:MvxItemTemplate="@layout/listview_contacts"
             local:MvxBind="ItemsSource UpdatedContactsList" />
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_height="40dp"
             android:background="#aaa"
             android:minWidth="25px"
             android:minHeight="25px">
@@ -400,8 +395,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.5"
+            android:layout_height="40dp"
             android:background="#aaa">
             <Searchview
                 android:layout_width="0dp"
@@ -427,9 +421,8 @@
         </LinearLayout>
         <Mvx.MvxListView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="fill_parent"
             android:background="#eee"
-            android:layout_weight="4"
             local:MvxItemTemplate="@layout/listview_contacts"
             local:MvxBind="ItemsSource AllContactsList" />
     </LinearLayout>
