@@ -54,6 +54,7 @@
     <Compile Include="ViewModels\AnswerViewModel.cs" />
     <Compile Include="ViewModels\MemberViewModel.cs" />
     <Compile Include="ViewModels\NotificationViewModel.cs" />
+    <Compile Include="ViewModels\WelcomeViewModel.cs" />
     <Compile Include="ViewModels\RequestsViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />

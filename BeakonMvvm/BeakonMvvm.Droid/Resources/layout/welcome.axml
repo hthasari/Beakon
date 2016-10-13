@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+    <ImageView
+        android:src="@drawable/beakonlogo_large"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/imageView1"
+        android:layout_gravity="center"
+        android:padding="20sp" />
+    <TextView
+        android:text="Welcome to Beakon "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="150sp" />
+    <TextView
+        android:text="Please Login as:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp" />
+    <Button
+        android:text="Gurpreet Dhaliwal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click GurButton"
+        android:background="@android:color/holo_red_light"
+        android:layout_margin="10dp" />
+    <Button
+        android:text="Harri Tuononen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        local:MvxBind="Click HarriButton"
+        android:background="@android:color/holo_orange_light"
+        android:layout_margin="10dp" />
+</LinearLayout>

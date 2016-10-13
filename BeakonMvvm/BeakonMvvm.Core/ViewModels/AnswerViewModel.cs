@@ -18,7 +18,9 @@ namespace BeakonMvvm.Core.ViewModels
         private IReqDB dbss;
         List<Person> jj = new List<Person>();
 
-        private string _PerInfo = MyGlobals.perr.pFirstname;
+        static string nameofperson = "Request Status of " + MyGlobals.perr.pFirstname +"";
+
+        private string _PerInfo = nameofperson;
         public string PerInfo
         {
             get { return _PerInfo; }
@@ -32,6 +34,11 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
+        private string _PersonPhto = MyGlobals.perr.photo;
+        public string PersonPhto
+        {
+            get { return _PersonPhto; }
+        }
 
         private string _ExtraInfo = "Extra Info";
     public string ExtraInfo
@@ -85,7 +92,9 @@ namespace BeakonMvvm.Core.ViewModels
             SendButton = new MvxCommand(() =>
         {
         this.dbss = new ReqDB();
-        dbss.InsertReq(new Req("Gurpreet", "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
+        string pppp = MyGlobals.SelPer.pFirstname;
+
+        dbss.InsertReq(new Req(pppp, "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
         List<Req> a = dbss.GetReq();
         ShowViewModel<NotificationViewModel>();
 

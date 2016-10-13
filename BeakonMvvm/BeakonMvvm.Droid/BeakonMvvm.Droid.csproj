@@ -171,6 +171,7 @@
     <Compile Include="Views\FirstView.cs" />
     <Compile Include="Views\Requests.cs" />
     <Compile Include="Views\Notification.cs" />
+    <Compile Include="Views\welcome.cs" />
     <Compile Include="Views\Settings.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +217,9 @@
     <AndroidResource Include="Resources\layout\listview_answers.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\welcome.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -245,7 +249,15 @@
     <AndroidResource Include="Resources\drawable\male.jpg" />
     <AndroidResource Include="Resources\drawable\BeakonLogo_Large.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\iam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\gur.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\harri.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
