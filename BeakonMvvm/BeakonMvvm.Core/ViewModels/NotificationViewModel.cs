@@ -27,33 +27,11 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        //private string messageHeader;
-        //public string MessageHeader
-        //{
-        //    get { return messageHeader; }
-        //    set
-        //    {
-        //        if (value != null)
-
-        //            SetProperty(ref messageHeader, value);
-        //    }
-        //}
-        //private string basicText;
-        //public string BasicText
-        //{
-        //    get { return basicText; }
-        //    set
-        //    {
-        //        if (value != null)
-        //        {
-
-        //            SetProperty(ref basicText, value);
-        //        }
-        //    }
-        //}
+     
+    
         public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
-            
+             //Get This messages from database
             Messages = new ObservableCollection<RequestMessage>() {
                 new RequestMessage("John Mack", "Recieved request"),
                 new RequestMessage("Tom Mack", "Recieved request"),
@@ -69,7 +47,7 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(selectedItem.BasicText, selectedItem.MessageHeader, "Send", "Dismiss");
                 if(Answer == true)
                 {
-                   // list of event on this day. Format is id:title:startingTime
+                   // list of event on this day. Format is id title startingTime
                    List<string> EventList =  calendar.returnEvents();
                     Messages.Remove(selectedItem);
 
@@ -77,6 +55,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
                 else
                 {
+                    //Delete or mark message as seen or anwered.
                     Messages.Remove(selectedItem);
                 
                 }
