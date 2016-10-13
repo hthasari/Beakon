@@ -56,11 +56,6 @@ namespace BeakonMvvm.Core.ViewModels
             updatedContactsList = UserContactsList;
             RaisePropertyChanged(()=> UpdatedContactsList);          
         }
-        
-
-        
-
-
 
 
         public ObservableCollection<User> AllContactsList

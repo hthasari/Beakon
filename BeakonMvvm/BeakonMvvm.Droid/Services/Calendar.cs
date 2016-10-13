@@ -81,8 +81,8 @@ namespace BeakonMvvm.Droid.Services
                     eventTimeDate.ToShortDateString();
 
 
-                    eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + ":"+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
-                        ":" + eventTimeDate.ToShortTimeString());
+                    eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + " "+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
+                        " " + eventTimeDate.ToShortTimeString());
 
                     if (events.IsLast == true)
                     {

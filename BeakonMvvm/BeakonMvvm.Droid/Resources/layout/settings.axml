@@ -369,7 +369,7 @@
         </LinearLayout>
         <Mvx.MvxListView
             android:layout_width="match_parent"
-            android:layout_height="190dp"
+            android:layout_height="140dp"
             android:background="#eee"
             local:MvxItemTemplate="@layout/listview_contacts"
             local:MvxBind="ItemsSource UpdatedContactsList" />
