@@ -3,18 +3,21 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using BeakonMvvm.Core.Classes;
 using System.Linq;
+using BeakonMvvm.Core.Interfaces;
 
 namespace BeakonMvvm.Core.ViewModels
 {
     public class SettingsViewModel : MvxViewModel
     {
-        static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false);
+        static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false, null);
 
         static private AllUsersList List = new AllUsersList();
         static private ObservableCollection<User> allContactsList = List.AllUsers;
 
         static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
         static private ObservableCollection<User> updatedContactsList = UserObj.UserContactsList;
+
+        private INetwork ssID;
 
         public ObservableCollection<User> UserContactsList
         {
@@ -85,8 +88,12 @@ namespace BeakonMvvm.Core.ViewModels
 
         public ICommand ButtonFavouriteContacts { get; private set; }
         public ICommand ButtonMainView { get; private set; }
+
         public SettingsViewModel()
         {
+            //string strSSID = ssID.SSID();
+            //UserObj.UserSSID = strSSID;
+
             ButtonFavouriteContacts = new MvxCommand(() =>
             {
                 SettingsMainViewVisible = false;
@@ -132,6 +139,12 @@ namespace BeakonMvvm.Core.ViewModels
         {
             get { return UserObj.UserAutoLocation; }
             set { UserObj.UserAutoLocation = value; }
+        }
+
+        public string UserSSID
+        {
+            get { return UserObj.UserSSID; }
+            set { UserObj.UserSSID = value; }
         }
 
         public MvxCommand NavNotCmd

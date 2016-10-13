@@ -266,7 +266,7 @@ namespace BeakonMvvm.Droid
 			public const int FirstView = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int listView_answers = 2130903042;
+			public const int listview_answers = 2130903042;
 			
 			// aapt resource value: 0x7f030003
 			public const int ListView_Contacts = 2130903043;

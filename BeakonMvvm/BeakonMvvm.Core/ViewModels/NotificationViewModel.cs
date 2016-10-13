@@ -58,9 +58,6 @@ namespace BeakonMvvm.Core.ViewModels
         }
         public NotificationViewModel(IDialogService dialog, ICalendar calendar)
         {
-
-
-
             Message = new ObservableCollection<Req>();
             this.dbs = new ReqDB();
             // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
