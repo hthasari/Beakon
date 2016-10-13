@@ -19,6 +19,7 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
+        private INetwork ssdi;
 
         private ObservableCollection<Req> messages;
         public ObservableCollection<Req> Message
@@ -56,7 +57,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar)
+        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssdi)
         {
             Message = new ObservableCollection<Req>();
             this.dbs = new ReqDB();
@@ -67,7 +68,7 @@ namespace BeakonMvvm.Core.ViewModels
                 Message.Add(p);
             }
 
-
+            this.ssdi = ssdi;
             this.dialog = dialog;
             this.calendar = calendar;
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
@@ -78,8 +79,11 @@ namespace BeakonMvvm.Core.ViewModels
                 {
                     // list of event on this day. Format is id:title:startingTime
                     List<string> EventList = calendar.returnEvents();
-                    Message.Remove(selectedItem);
 
+                    //Name of the wifi
+                    string ssdiName = ssdi.SSID();
+                    Message.Remove(selectedItem);
+                    
                     //Send Needed Information to databas
                 }
                 else
