@@ -102,31 +102,34 @@ namespace BeakonMvvm.Droid
 			public const int iam = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int male = 2130837509;
+			public const int loading = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int NotificationIcon = 2130837510;
+			public const int male = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int RemoveContactButton = 2130837511;
+			public const int NotificationIcon = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int request = 2130837512;
+			public const int RemoveContactButton = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int RequestIcon = 2130837513;
+			public const int request = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int SettingsIcon = 2130837514;
+			public const int RequestIcon = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int splash = 2130837515;
+			public const int SettingsIcon = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int sty = 2130837516;
+			public const int splash = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int style_input = 2130837517;
+			public const int sty = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int style_input = 2130837518;
 			
 			static Drawable()
 			{
@@ -183,17 +186,20 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000e
 			public const int checkBox1 = 2130968590;
 			
-			// aapt resource value: 0x7f040024
-			public const int imageButton1 = 2130968612;
-			
 			// aapt resource value: 0x7f040025
-			public const int imageButton2 = 2130968613;
+			public const int imageButton1 = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int imageButton3 = 2130968614;
+			public const int imageButton2 = 2130968614;
+			
+			// aapt resource value: 0x7f040027
+			public const int imageButton3 = 2130968615;
 			
 			// aapt resource value: 0x7f040006
 			public const int imageView1 = 2130968582;
+			
+			// aapt resource value: 0x7f040023
+			public const int imageView2 = 2130968611;
 			
 			// aapt resource value: 0x7f040012
 			public const int linearLayout1 = 2130968594;
@@ -255,8 +261,8 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040022
 			public const int textView2 = 2130968610;
 			
-			// aapt resource value: 0x7f040023
-			public const int toolbar1 = 2130968611;
+			// aapt resource value: 0x7f040024
+			public const int toolbar1 = 2130968612;
 			
 			static Id()
 			{
