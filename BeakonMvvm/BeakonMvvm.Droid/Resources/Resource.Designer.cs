@@ -105,28 +105,31 @@ namespace BeakonMvvm.Droid
 			public const int male = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int NotificationIcon = 2130837510;
+			public const int navst = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int RemoveContactButton = 2130837511;
+			public const int NotificationIcon = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int request = 2130837512;
+			public const int RemoveContactButton = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int RequestIcon = 2130837513;
+			public const int request = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int SettingsIcon = 2130837514;
+			public const int RequestIcon = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int splash = 2130837515;
+			public const int SettingsIcon = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int sty = 2130837516;
+			public const int splash = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int style_input = 2130837517;
+			public const int sty = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int style_input = 2130837518;
 			
 			static Drawable()
 			{
@@ -140,9 +143,6 @@ namespace BeakonMvvm.Droid
 		
 		public partial class Id
 		{
-			
-			// aapt resource value: 0x7f040020
-			public const int FavourateContactsLinearLayout = 2130968608;
 			
 			// aapt resource value: 0x7f040000
 			public const int MvvmCrossTagId = 2130968576;
@@ -177,20 +177,17 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040005
 			public const int btnSettingsSettings = 2130968581;
 			
-			// aapt resource value: 0x7f040021
-			public const int button1 = 2130968609;
-			
 			// aapt resource value: 0x7f04000e
 			public const int checkBox1 = 2130968590;
 			
-			// aapt resource value: 0x7f040024
-			public const int imageButton1 = 2130968612;
-			
 			// aapt resource value: 0x7f040025
-			public const int imageButton2 = 2130968613;
+			public const int imageButton1 = 2130968613;
 			
 			// aapt resource value: 0x7f040026
-			public const int imageButton3 = 2130968614;
+			public const int imageButton2 = 2130968614;
+			
+			// aapt resource value: 0x7f040027
+			public const int imageButton3 = 2130968615;
 			
 			// aapt resource value: 0x7f040006
 			public const int imageView1 = 2130968582;
@@ -204,11 +201,11 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040019
 			public const int linearLayout3 = 2130968601;
 			
-			// aapt resource value: 0x7f040011
-			public const int linearLayout4 = 2130968593;
-			
 			// aapt resource value: 0x7f040002
 			public const int linearLayout6 = 2130968578;
+			
+			// aapt resource value: 0x7f04001d
+			public const int linearLayoutSSID = 2130968605;
 			
 			// aapt resource value: 0x7f04000a
 			public const int listView = 2130968586;
@@ -222,14 +219,23 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04001b
 			public const int space3 = 2130968603;
 			
-			// aapt resource value: 0x7f04001e
-			public const int switch1 = 2130968606;
-			
-			// aapt resource value: 0x7f04001d
-			public const int textAutoCal = 2130968605;
+			// aapt resource value: 0x7f040022
+			public const int space31 = 2130968610;
 			
 			// aapt resource value: 0x7f04001f
-			public const int textAutoLoc = 2130968607;
+			public const int space32 = 2130968607;
+			
+			// aapt resource value: 0x7f040020
+			public const int switch1 = 2130968608;
+			
+			// aapt resource value: 0x7f040023
+			public const int switchLoc = 2130968611;
+			
+			// aapt resource value: 0x7f04001e
+			public const int textAutoCal = 2130968606;
+			
+			// aapt resource value: 0x7f040021
+			public const int textAutoLoc = 2130968609;
 			
 			// aapt resource value: 0x7f04001a
 			public const int textEmail = 2130968602;
@@ -252,11 +258,11 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f04000f
 			public const int textView1 = 2130968591;
 			
-			// aapt resource value: 0x7f040022
-			public const int textView2 = 2130968610;
+			// aapt resource value: 0x7f040024
+			public const int toolbar1 = 2130968612;
 			
-			// aapt resource value: 0x7f040023
-			public const int toolbar1 = 2130968611;
+			// aapt resource value: 0x7f040011
+			public const int topNavLayout = 2130968593;
 			
 			static Id()
 			{
