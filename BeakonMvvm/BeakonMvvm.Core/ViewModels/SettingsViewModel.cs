@@ -85,20 +85,20 @@ namespace BeakonMvvm.Core.ViewModels
         {
             get { return _photo; }
         }
-        private INetwork ssdi;
-        private string ssdiName;
+        private INetwork ssid;
+        private string ssidName;
 
 
 
 
         public string Wifi
         {
-            get { return ssdiName; }
+            get { return ssidName; }
             set
             {
-                if (value != ssdiName)
+                if (value != ssidName)
                 {
-                    ssdiName = value;
+                    ssidName = value;
                     selected.PLocation = value;
                     RaisePropertyChanged(() => Wifi);
                 }
@@ -203,13 +203,11 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand ButtonFavouriteContacts { get; private set; }
         public ICommand ButtonMainView { get; private set; }
 
-        public SettingsViewModel(INetwork ssdi)
+        public SettingsViewModel(INetwork ssid)
         {
 
-            this.ssdi = ssdi;
-            ssdiName = ssdi.SSID();
-            //string strSSID = ssID.SSID();
-            //UserObj.UserSSID = strSSID;
+            this.ssid = ssid;
+            ssidName = ssid.SSID();
 
             ButtonFavouriteContacts = new MvxCommand(() =>
             {
