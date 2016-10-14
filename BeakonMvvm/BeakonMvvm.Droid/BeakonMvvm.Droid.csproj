@@ -168,7 +168,7 @@
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Views\answers.cs" />
     <Compile Include="Views\mem.cs" />
-    <Compile Include="Views\FirstView.cs" />
+    <Compile Include="Views\Answr.cs" />
     <Compile Include="Views\Requests.cs" />
     <Compile Include="Views\Notification.cs" />
     <Compile Include="Views\welcome.cs" />
@@ -179,13 +179,9 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\FirstView.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\listView_row.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\layout\members.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -196,10 +192,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\settings.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\Template.axml" />
-    <AndroidResource Include="Resources\layout\navigation.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\requests.axml">
@@ -218,6 +210,12 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\welcome.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\answ.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\AnsCustomListView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -248,7 +246,6 @@
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\style_input.xml" />
     <AndroidResource Include="Resources\drawable\Beakon_Icon.png" />
-    <AndroidResource Include="Resources\drawable\male.jpg" />
     <AndroidResource Include="Resources\drawable\BeakonLogo_Large.png" />
   </ItemGroup>
   <ItemGroup>
@@ -262,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\navst.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\loading.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.4.0.1\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

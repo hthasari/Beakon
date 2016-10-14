@@ -94,7 +94,7 @@ namespace BeakonMvvm.Core.ViewModels
         this.dbss = new ReqDB();
         string pppp = MyGlobals.SelPer.pFirstname;
 
-        dbss.InsertReq(new Req(pppp, "Dh", IsCheckedCal, IsCheckedLoc, ExtraInfo));
+        dbss.InsertReq(new Req(pppp, MyGlobals.perr.pFirstname, IsCheckedCal, IsCheckedLoc, ExtraInfo));
         List<Req> a = dbss.GetReq();
         ShowViewModel<NotificationViewModel>();
 

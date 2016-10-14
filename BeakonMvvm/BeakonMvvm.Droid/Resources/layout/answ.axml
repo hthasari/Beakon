@@ -54,19 +54,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#ff8d54"
-            android:textColor="#fff"
-            android:textStyle="bold"
-            android:textSize="14dp"
-            android:paddingTop="20px"
-            android:paddingBottom="20px"
-            android:paddingLeft="20px"
-            android:paddingRight="20px"
-            android:text="Requests" />
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:background="#fcb48f"
             android:textColor="#fff"
             android:textStyle="bold"
@@ -75,14 +62,27 @@
             android:paddingBottom="20px"
             android:paddingLeft="20px"
             android:paddingRight="20px"
-            android:text="Answers"
-            local:MvxBind="Click NavAns"
+            android:text="Requests"
+            local:MvxBind="Click NavNoti"
             android:layout_margin="2dp" />
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#ff8d54"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:paddingTop="20px"
+            android:paddingBottom="20px"
+            android:paddingLeft="20px"
+            android:paddingRight="20px"
+            android:text="Answers" />
     </LinearLayout>
     <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        local:MvxItemTemplate="@layout/notificationcustomlistview"
+        local:MvxItemTemplate="@layout/anscustomlistview"
         local:MvxBind="ItemsSource Message; ItemClick SelectMessage"
         android:background="#fff" />
 </LinearLayout>

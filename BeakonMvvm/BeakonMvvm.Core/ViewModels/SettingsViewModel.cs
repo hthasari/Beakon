@@ -1,7 +1,6 @@
 ﻿using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using BeakonMvvm.Core.Classes;
 using System.Linq;
 using BeakonMvvm.Core.Interfaces;
 using BeakonMvvm.Core.Database;
@@ -11,24 +10,6 @@ namespace BeakonMvvm.Core.ViewModels
 {
     public class SettingsViewModel : MvxViewModel
     {
-        static private User UserObj = new User("Joe", "Bloggs", "joebloggs@site.com", false, false, null);
-
-        static private AllUsersList List = new AllUsersList();
-        static private ObservableCollection<User> allContactsList = List.AllUsers;
-
-        static private ObservableCollection<User> userContactsList = UserObj.UserContactsList;
-        static private ObservableCollection<User> updatedContactsList = UserObj.UserContactsList;
-
-
-        public ObservableCollection<User> UserContactsList
-        {
-            get { return userContactsList; }
-            set
-            {
-                SetProperty(ref userContactsList, value);
-            }
-        }
-
         static Person selected = MyGlobals.SelPer;
 
         // First Name
@@ -126,7 +107,7 @@ namespace BeakonMvvm.Core.ViewModels
 
         //Last Name
         private bool _cal = selected.PCalCheck;
-        public bool Calander
+        public bool Calandr
         {
             get { return _cal; }
             set
@@ -135,134 +116,22 @@ namespace BeakonMvvm.Core.ViewModels
                 {
                     _cal = value;
                     selected.PCalCheck = value;
-                    RaisePropertyChanged(() => Calander);
+                    RaisePropertyChanged(() => Calandr);
                 }
             }
         }
-
-
-
-        public ObservableCollection<User> UpdatedContactsList
-        {
-            get { return updatedContactsList; }
-            set
-            {
-                SetProperty(ref updatedContactsList, value);
-                RaisePropertyChanged(() => UpdatedContactsList);
-            }
-        }
-
-
-        public string UserContactsSearchTerm
-        {
-            set
-            {
-                UpdatedContactsList = new ObservableCollection<User>( UserObj.UserContactsList.Where(x => x.UserDetails.Contains(value)));
-            }
-        }
-
-        public void SearchUserContactsList(string UserContactsSearchTerm)
-        {
-            UpdatedContactsList.Clear();
-            updatedContactsList = UserContactsList;
-            RaisePropertyChanged(()=> UpdatedContactsList);          
-        }
-
-
-        public ObservableCollection<User> AllContactsList
-        {
-            get { return allContactsList; }
-            set
-            {
-                SetProperty(ref allContactsList, value);
-            }
-        }
-
-        private bool settingsMainViewVisible = true;
-        public bool SettingsMainViewVisible
-        {
-            get { return settingsMainViewVisible; }
-            set
-            {
-                SetProperty(ref settingsMainViewVisible, value);
-            }
-        }
-
-        private bool settingsFavContViewVisible = false;
-        public bool SettingsFavContViewVisible
-        {
-            get { return settingsFavContViewVisible; }
-            set
-            {
-                SetProperty(ref settingsFavContViewVisible, value);
-            }
-        }
-
-
-
-        public ICommand ButtonFavouriteContacts { get; private set; }
-        public ICommand ButtonMainView { get; private set; }
 
         public SettingsViewModel(INetwork ssid)
         {
 
             this.ssid = ssid;
             ssidName = ssid.SSID();
-
-            ButtonFavouriteContacts = new MvxCommand(() =>
-            {
-                SettingsMainViewVisible = false;
-                SettingsFavContViewVisible = true;
-                RaisePropertyChanged(() => SettingsMainViewVisible);
-            });
-
-            ButtonMainView = new MvxCommand(() =>
-            {
-                SettingsMainViewVisible = true;
-                SettingsFavContViewVisible = false;
-                RaisePropertyChanged(() => SettingsMainViewVisible);
-            });
+            selected.PLocation = ssidName;
 
         }
 
 
-        public string FirstName
-        {
-            get { return UserObj.UserFirstName; }
-            set { UserObj.UserFirstName = value; }
-        }
-
-        public string LastName
-        {
-            get { return UserObj.UserLastName; }
-            set { UserObj.UserLastName = value; }
-        }
-
-        public string Email
-        {
-            get { return UserObj.UserEmail; }
-            set { UserObj.UserEmail = value; }
-        }
-
-        public bool AutoCalendar
-        {
-            get { return UserObj.UserAutoCalendar; }
-            set { UserObj.UserAutoCalendar = value; }
-        }
-
-        public bool AutoLocation
-        {
-            get { return UserObj.UserAutoLocation; }
-            set { UserObj.UserAutoLocation = value; }
-        }
-
-        public string UserSSID
-        {
-            get { return UserObj.UserSSID; }
-            set { UserObj.UserSSID = value; }
-        }
-
-        public MvxCommand NavNotCmd
+      public MvxCommand NavNotCmd
         {
             get
             {
@@ -279,8 +148,4 @@ namespace BeakonMvvm.Core.ViewModels
         }
     }
 
-    public class FavouratesViewModel : MvxViewModel
-    {
-
-    }
 }

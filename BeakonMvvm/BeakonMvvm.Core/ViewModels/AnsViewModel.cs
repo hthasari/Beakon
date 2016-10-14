@@ -11,19 +11,18 @@ using BeakonMvvm.Core.Database;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-    public class NotificationViewModel : MvxViewModel
+    public class AnsViewModel : MvxViewModel
     {
 
-        private IReqDB dbs;
         private IAnsDB adbs;
-        List<Req> jj = new List<Req>();
+        List<Answ> jj = new List<Answ>();
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
         private INetwork ssid;
 
-        private ObservableCollection<Req> messages;
-        public ObservableCollection<Req> Message
+        private ObservableCollection<Answ> messages;
+        public ObservableCollection<Answ> Message
         {
             get { return messages; }
             set
@@ -58,13 +57,13 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid)
+        public AnsViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid)
         {
-            Message = new ObservableCollection<Req>();
-            this.dbs = new ReqDB();
+            Message = new ObservableCollection<Answ>();
+            this.adbs = new AnsDB();
             // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
-            jj = dbs.GetReq();
-            foreach (Req p in jj)
+            jj = adbs.GetAns();
+            foreach (Answ p in jj)
             {
                 Message.Add(p);
             }
@@ -87,15 +86,15 @@ namespace BeakonMvvm.Core.ViewModels
 
                     //Name of the wifi
                   //  string ssidName = ssid.SSID();
-                    Message.Remove(selectedItem);
-                    dbs.DeleteReq(selectedItem.Id);
+                  //  Message.Remove(selectedItem);
+                //    dbs.DeleteReq(selectedItem.Id);
 
                     //Send Needed Information to databas
                 }
                 else
                 {
-                    Message.Remove(selectedItem);
-                    dbs.DeleteReq(selectedItem.Id);
+                  //  Message.Remove(selectedItem);
+                  //  dbs.DeleteReq(selectedItem.Id);
 
                 }
             });
@@ -118,12 +117,11 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-
-        public MvxCommand NavAns
+        public MvxCommand NavNoti
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<AnsViewModel>());
+                return new MvxCommand(() => ShowViewModel<NotificationViewModel>());
             }
         }
 
@@ -132,5 +130,5 @@ namespace BeakonMvvm.Core.ViewModels
     }
 
 
-}
+    }
 

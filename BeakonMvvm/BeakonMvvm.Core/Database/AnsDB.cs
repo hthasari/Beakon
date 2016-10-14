@@ -9,32 +9,38 @@ using System.Linq;
 namespace BeakonMvvm.Core.Database
 {
     
-    public class AnsDB : IAnsDB
+    public class ReqDB : IReqDB
     {
         private SQLiteConnection database;
 
-        public AnsDB()
+        public ReqDB()
         {
             var sqlite = Mvx.Resolve<ISqlite>();
             database = sqlite.GetConnection();
-            database.CreateTable<Answ>();
+            database.CreateTable<Req>();
         }
 
-    public void DeleteAnsw(object id)
+
+    public void DeleteReq(object id)
         {
-            database.Delete<Answ>(Convert.ToInt16(id));
+            database.Delete<Req>(Convert.ToInt16(id));
         }
 
-        public List<Answ> GetAns()
+        public List<Req> GetReq()
         {
-            return database.Table<Answ>().ToList();
+            return database.Table<Req>().ToList();
         }
 
-        public int InsertAns(Answ person)
+        public int InsertReq(Req person)
         {
             var num = database.Insert(person);
             database.Commit();
             return num;
+        }
+
+        public string Count()
+        {
+            return database.Query<Req>("SELECT Count(*) FROM Person").ToString();
         }
 
     }

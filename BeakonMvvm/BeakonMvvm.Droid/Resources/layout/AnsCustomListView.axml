@@ -16,7 +16,7 @@
         android:text="aaaa"
         android:height="80px"
         android:textSize="60px"
-        local:MvxBind="Text ReqFrom"
+        local:MvxBind="Text AnsFrom"
         android:padding="5dp" />
     <TextView
         android:textColor="@android:color/holo_green_light"
@@ -26,6 +26,6 @@
         android:text="bbb"
         android:height="50px"
         android:textSize="40px"
-        local:MvxBind="Text ReqExtra"
+        local:MvxBind="Text AnsLoc"
         android:padding="5dp" />
 </LinearLayout>

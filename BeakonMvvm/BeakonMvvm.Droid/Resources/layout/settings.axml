@@ -8,10 +8,10 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="73dp"
         android:layout_marginBottom="2dp"
         android:id="@+id/topNavLayout"
-        android:background="@drawable/style_input">
+        android:background="@drawable/navst">
         <ImageButton
             android:src="@drawable/requesticon"
             android:layout_width="0dp"
@@ -43,7 +43,6 @@
             android:layout_weight="1"
             android:scaleType="fitCenter"
             android:layout_gravity="right"
-            local:MvxBind="Click NavSetCmd"
             android:background="#6599ff"
             android:layout_margin="1dp" />
     </LinearLayout>
@@ -253,7 +252,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/switch1"
-            local:MvxBind="Checked Calendar"
+            local:MvxBind="Checked Calandr"
             android:layout_gravity="right" />
     </LinearLayout>
     <LinearLayout
