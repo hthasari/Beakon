@@ -14,30 +14,35 @@
         <ImageButton
             android:src="@drawable/requesticon"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="75dp"
             android:id="@+id/btnRequestSettings"
             android:layout_gravity="left"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            local:MvxBind="Click NavReqCmd" />
+            local:MvxBind="Click NavReqCmd"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_margin="1dp" />
         <ImageButton
             android:src="@drawable/notificationicon"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:id="@+id/btnNotificationSettings"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            local:MvxBind="Click NavNotCmd" />
+            local:MvxBind="Click NavNotCmd"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_margin="1dp" />
         <ImageButton
             android:src="@drawable/settingsicon"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="70dp"
             android:id="@+id/btnSettingsSettings"
             android:layout_weight="1"
             android:scaleType="fitCenter"
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd"
-            android:background="#4372FF" />
+            android:background="#6599ff"
+            android:layout_margin="1dp" />
     </LinearLayout>
     <View
         android:layout_width="fill_parent"
@@ -48,7 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/linearLayout4"
-        local:MvxBind="Visible SettingsMainViewVisible">
+        local:MvxBind="Visible SettingsMainViewVisible"
+        android:background="#fff">
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
