@@ -10,24 +10,14 @@ namespace BeakonMvvm.Core.ViewModels
     public class AnswerViewModel : MvxViewModel
 
     {
-        private ObservableCollection<Person> messages;
         private IReqDB dbss;
-        List<Person> jj = new List<Person>();
 
-        static string nameofperson = "Request Status of " + MyGlobals.perr.pFirstname +"";
+        static string nameofperson = "Request Status of " + MyGlobals.perr.pFirstname + "";
 
         private string _PerInfo = nameofperson;
         public string PerInfo
         {
             get { return _PerInfo; }
-            set
-            {
-                if (value != null && value != _PerInfo)
-                {
-                    _ExtraInfo = value;
-                    RaisePropertyChanged(() => PerInfo);
-                }
-            }
         }
 
         private string _PersonPhto = MyGlobals.perr.photo;
@@ -36,32 +26,32 @@ namespace BeakonMvvm.Core.ViewModels
             get { return _PersonPhto; }
         }
 
-        private string _ExtraInfo = "Extra Info";
-    public string ExtraInfo
-    {
-        get { return _ExtraInfo; }
-        set
+        private string _ExtraInfo;
+        public string ExtraInfo
         {
+            get { return _ExtraInfo; }
+            set
+            {
                 if (value != null && value != _ExtraInfo)
                 {
                     _ExtraInfo = value;
                     RaisePropertyChanged(() => ExtraInfo);
                 }
             }
-    }
+        }
 
-    private bool _isCheckedCal = true;
-    public bool IsCheckedCal
-    {
-        get { return _isCheckedCal; }
-        set
+        private bool _isCheckedCal = true;
+        public bool IsCheckedCal
         {
+            get { return _isCheckedCal; }
+            set
+            {
 
-                    _isCheckedCal = value;
-                    RaisePropertyChanged(() => IsCheckedCal);
-                
+                _isCheckedCal = value;
+                RaisePropertyChanged(() => IsCheckedCal);
+
             }
-    }
+        }
 
         private bool _isCheckedLoc = true;
         public bool IsCheckedLoc
@@ -80,22 +70,21 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand CancelButton { get; private set; }
 
         public AnswerViewModel(IToast toast)
-    {
-
-            // jj = dbs.GetPersons();
-
+        {
 
             SendButton = new MvxCommand(() =>
-        {
-        this.dbss = new ReqDB();
-        string pppp = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
+                {
+                    dbss = new ReqDB();
 
-        dbss.InsertReq(new Req(pppp, MyGlobals.perr.pFirstname, IsCheckedCal, IsCheckedLoc, ExtraInfo));
-        List<Req> a = dbss.GetReq();
-        toast.Show("Status Request Sent");
-        ShowViewModel<NotificationViewModel>();
+                    string from = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
 
-        });
+                    dbss.InsertReq(new Req(from, MyGlobals.perr.pFirstname, IsCheckedCal, IsCheckedLoc, ExtraInfo));
+
+                    toast.Show("Status Request Sent");
+
+                    ShowViewModel<NotificationViewModel>();
+
+                });
 
             CancelButton = new MvxCommand(() =>
             {
@@ -105,23 +94,21 @@ namespace BeakonMvvm.Core.ViewModels
 
         }
 
-    public MvxCommand NavNotCmd
-    {
-
-        get
+        public MvxCommand NavNotCmd
         {
-            return new MvxCommand(() => ShowViewModel<NotificationViewModel>());
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<NotificationViewModel>());
+            }
         }
-    }
 
-    public MvxCommand NavSetCmd
-    {
-        get
+        public MvxCommand NavSetCmd
         {
-            return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
+            get
+            {
+                return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
+            }
         }
+
     }
-
-}
-
 }

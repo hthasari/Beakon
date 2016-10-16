@@ -11,11 +11,9 @@ namespace BeakonMvvm.Core.ViewModels
     {
 
         private IAnsDB adbs;
-        List<Answ> jj = new List<Answ>();
+        List<Answ> dbAnswers = new List<Answ>();
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
-        private ICalendar calendar;
-        private INetwork ssid;
 
         private ObservableCollection<Answ> messages;
         public ObservableCollection<Answ> Message
@@ -53,29 +51,27 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public AnsViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid, IToast toast)
+        public AnsViewModel(IDialogService dialog, IToast toast)
         {
             Message = new ObservableCollection<Answ>();
-            this.adbs = new AnsDB();
 
-            jj = adbs.GetAns();
-            foreach (Answ p in jj)
+            adbs = new AnsDB();
+
+            dbAnswers = adbs.GetAns();
+
+            foreach (Answ person in dbAnswers)
             {
-                Message.Add(p);
+                Message.Add(person);
             }
 
-            this.ssid = ssid;
             this.dialog = dialog;
-            this.calendar = calendar;
+
             SelectMessage = new MvxCommand<Answ>(async selectedItem =>
             {
                 string mes = "from " + selectedItem.AnsFrom + "\n" + "Calendar: Meeting in F111\n" + "Location: "+ selectedItem.AnsLoc + "\nOther Info:" + selectedItem.AnsExtra;
                 bool Answer = await dialog.Show(mes, "Status Response", "Ok", "Delete");
-                if (Answer == true)
-                {
 
-                }
-                else if  (Answer == false)
+                if  (Answer == false)
                 {
                     Message.Remove(selectedItem);
                     adbs.DeleteAnsw(selectedItem.Id);
@@ -109,10 +105,6 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-
-
     }
-
-
-    }
+}
 

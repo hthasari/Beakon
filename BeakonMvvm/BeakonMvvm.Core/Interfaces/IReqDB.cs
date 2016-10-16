@@ -10,9 +10,6 @@ namespace BeakonMvvm.Core.Interfaces
         void DeleteReq(object id);
 
         int InsertReq(Req person);
-        // Task<int> InsertLocation(LocationAutoCompleteResult location);
-
-        string Count();
 
 
     }

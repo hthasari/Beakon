@@ -7,8 +7,6 @@ using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-
-
     public static class MyGlobals
     {
         public static Person perr { get; set; }
@@ -19,10 +17,10 @@ namespace BeakonMvvm.Core.ViewModels
     { 
        private ObservableCollection<Person> messages;
        private IPersonDB dbs;
-       List<Person> jj = new List<Person>();
+
+       List<Person> dbPersons = new List<Person>();
        public ICommand SelectPer { get; private set; }
-       private readonly IDialogService dialog;
-        private Person Per;
+       private Person Per;
 
 
         public ObservableCollection<Person> Messages
@@ -62,18 +60,17 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public RequestsViewModel(IDialogService dialog, IPersonDB dbs)
+        public RequestsViewModel()
         {
-            this.dbs = new PersonDB();
-            jj = dbs.GetPersons();
+            dbs = new PersonDB();
+            dbPersons = dbs.GetPersons();
 
-          Messages = new ObservableCollection<Person>();
+            Messages = new ObservableCollection<Person>();
                  
-            foreach (Person p in jj)
+            foreach (Person person in dbPersons)
             {
-               Messages.Add(p);
+               Messages.Add(person);
             }
-            this.dialog = dialog;
 
             SelectPer = new MvxCommand<Person>( selectedPer =>
             {

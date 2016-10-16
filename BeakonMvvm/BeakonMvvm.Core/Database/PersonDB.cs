@@ -20,8 +20,7 @@ namespace BeakonMvvm.Core.Database
             database.CreateTable<Person>();
         }
 
-
-    public void DeletePerson(object id)
+        public void DeletePerson(object id)
         {
             database.Delete<Person>(Convert.ToInt16(id));
         }
@@ -36,11 +35,6 @@ namespace BeakonMvvm.Core.Database
             var num = database.Insert(person);
             database.Commit();
             return num;
-        }
-
-        public string Count()
-        {
-            return database.Query<Person>("SELECT Count(*) FROM Person").ToString();
         }
 
     }
