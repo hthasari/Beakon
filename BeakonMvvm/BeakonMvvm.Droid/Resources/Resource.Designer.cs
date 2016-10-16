@@ -117,25 +117,28 @@ namespace BeakonMvvm.Droid
 			public const int NotificationIcon = 2130837513;
 			
 			// aapt resource value: 0x7f02000a
-			public const int RemoveContactButton = 2130837514;
+			public const int ProgressBarStyle = 2130837514;
 			
 			// aapt resource value: 0x7f02000b
-			public const int request = 2130837515;
+			public const int RemoveContactButton = 2130837515;
 			
 			// aapt resource value: 0x7f02000c
-			public const int RequestIcon = 2130837516;
+			public const int request = 2130837516;
 			
 			// aapt resource value: 0x7f02000d
-			public const int SettingsIcon = 2130837517;
+			public const int RequestIcon = 2130837517;
 			
 			// aapt resource value: 0x7f02000e
-			public const int splash = 2130837518;
+			public const int SettingsIcon = 2130837518;
 			
 			// aapt resource value: 0x7f02000f
-			public const int sty = 2130837519;
+			public const int splash = 2130837519;
 			
 			// aapt resource value: 0x7f020010
-			public const int style_input = 2130837520;
+			public const int sty = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int style_input = 2130837521;
 			
 			static Drawable()
 			{
@@ -180,9 +183,6 @@ namespace BeakonMvvm.Droid
 			// aapt resource value: 0x7f040002
 			public const int imageView1 = 2130968578;
 			
-			// aapt resource value: 0x7f040021
-			public const int imageView2 = 2130968609;
-			
 			// aapt resource value: 0x7f040003
 			public const int linearLayout1 = 2130968579;
 			
@@ -197,6 +197,9 @@ namespace BeakonMvvm.Droid
 			
 			// aapt resource value: 0x7f040019
 			public const int linearLayoutSSID = 2130968601;
+			
+			// aapt resource value: 0x7f040021
+			public const int progressBar1 = 2130968609;
 			
 			// aapt resource value: 0x7f040011
 			public const int space1 = 2130968593;
