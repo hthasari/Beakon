@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MvvmCross.Core.ViewModels;
-using System.Collections.ObjectModel;
-using BeakonMvvm.Core.ViewModels;
+﻿using MvvmCross.Core.ViewModels;
 using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels

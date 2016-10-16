@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
@@ -58,7 +54,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid)
+        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid, IToast toast)
         {
             Message = new ObservableCollection<Req>();
             this.dbs = new ReqDB();
@@ -74,13 +70,14 @@ namespace BeakonMvvm.Core.ViewModels
             this.calendar = calendar;
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
+                string mes = selectedItem.ReqFrom + "\n" + "Calendar: Needed\n" + "Location: Needed\n" + "Other Info:" + selectedItem.ReqExtra; 
 
-                bool Answer = await dialog.Show(selectedItem.ReqFrom, selectedItem.ReqExtra, "Send", "Dismiss");
+                bool Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
                 if (Answer == true)
                 {
                     // list of event on this day. Format is id:title:startingTime
                     //
-                    //     List<string> EventList = calendar.returnEvents();
+                      //  List<string> EventList = calendar.returnEvents();
                     this.adbs = new AnsDB();
                     Person sell = MyGlobals.SelPer;
                     adbs.InsertAns(new Answ(selectedItem.ReqTo, sell.pFirstname,sell.PLocation, selectedItem.ReqExtra));
@@ -89,6 +86,7 @@ namespace BeakonMvvm.Core.ViewModels
                   //  string ssidName = ssid.SSID();
                     Message.Remove(selectedItem);
                     dbs.DeleteReq(selectedItem.Id);
+                    toast.Show("Status Response Sent");
 
                     //Send Needed Information to databas
                 }
@@ -96,6 +94,7 @@ namespace BeakonMvvm.Core.ViewModels
                 {
                     Message.Remove(selectedItem);
                     dbs.DeleteReq(selectedItem.Id);
+                    toast.Show("Status Request Deleted");
 
                 }
             });

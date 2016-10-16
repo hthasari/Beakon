@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -11,7 +7,7 @@ using BeakonMvvm.Core.Database;
 
 namespace BeakonMvvm.Core.ViewModels
 {
-   public class AnswerViewModel : MvxViewModel
+    public class AnswerViewModel : MvxViewModel
 
     {
         private ObservableCollection<Person> messages;
@@ -83,7 +79,7 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand SendButton { get; private set; }
         public ICommand CancelButton { get; private set; }
 
-        public AnswerViewModel()
+        public AnswerViewModel(IToast toast)
     {
 
             // jj = dbs.GetPersons();
@@ -92,10 +88,11 @@ namespace BeakonMvvm.Core.ViewModels
             SendButton = new MvxCommand(() =>
         {
         this.dbss = new ReqDB();
-        string pppp = MyGlobals.SelPer.pFirstname;
+        string pppp = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
 
         dbss.InsertReq(new Req(pppp, MyGlobals.perr.pFirstname, IsCheckedCal, IsCheckedLoc, ExtraInfo));
         List<Req> a = dbss.GetReq();
+        toast.Show("Status Request Sent");
         ShowViewModel<NotificationViewModel>();
 
         });

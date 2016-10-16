@@ -1,10 +1,5 @@
 ﻿using MvvmCross.Core.ViewModels;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using System.Linq;
 using BeakonMvvm.Core.Interfaces;
-using BeakonMvvm.Core.Database;
-using MvvmCross.Platform;
 
 namespace BeakonMvvm.Core.ViewModels
 {

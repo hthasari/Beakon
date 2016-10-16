@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
@@ -57,11 +53,11 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public AnsViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid)
+        public AnsViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid, IToast toast)
         {
             Message = new ObservableCollection<Answ>();
             this.adbs = new AnsDB();
-            // dbs.InsertReq(new Req("Gur", "Dhaliwal", true, false, "yes"));
+
             jj = adbs.GetAns();
             foreach (Answ p in jj)
             {
@@ -71,31 +67,19 @@ namespace BeakonMvvm.Core.ViewModels
             this.ssid = ssid;
             this.dialog = dialog;
             this.calendar = calendar;
-            SelectMessage = new MvxCommand<Req>(async selectedItem =>
+            SelectMessage = new MvxCommand<Answ>(async selectedItem =>
             {
-
-                bool Answer = await dialog.Show(selectedItem.ReqFrom, selectedItem.ReqExtra, "Send", "Dismiss");
+                string mes = "from " + selectedItem.AnsFrom + "\n" + "Calendar: Meeting in F111\n" + "Location: "+ selectedItem.AnsLoc + "\nOther Info:" + selectedItem.AnsExtra;
+                bool Answer = await dialog.Show(mes, "Status Response", "Ok", "Delete");
                 if (Answer == true)
                 {
-                    // list of event on this day. Format is id:title:startingTime
-                    //
-                    //     List<string> EventList = calendar.returnEvents();
-                    this.adbs = new AnsDB();
-                    Person sell = MyGlobals.SelPer;
-                    adbs.InsertAns(new Answ(selectedItem.ReqTo, sell.pFirstname,sell.PLocation, selectedItem.ReqExtra));
 
-                    //Name of the wifi
-                  //  string ssidName = ssid.SSID();
-                  //  Message.Remove(selectedItem);
-                //    dbs.DeleteReq(selectedItem.Id);
-
-                    //Send Needed Information to databas
                 }
-                else
+                else if  (Answer == false)
                 {
-                  //  Message.Remove(selectedItem);
-                  //  dbs.DeleteReq(selectedItem.Id);
-
+                    Message.Remove(selectedItem);
+                    adbs.DeleteAnsw(selectedItem.Id);
+                    toast.Show("Status Response Deleted");
                 }
             });
 

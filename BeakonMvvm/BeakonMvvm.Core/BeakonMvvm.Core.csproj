@@ -37,6 +37,7 @@
     <Compile Include="Database\AnsDB.cs" />
     <Compile Include="Database\ReqDB.cs" />
     <Compile Include="Database\PersonDB.cs" />
+    <Compile Include="Interfaces\IToast.cs" />
     <Compile Include="Interfaces\ICalendar.cs" />
     <Compile Include="Interfaces\IAnsDB.cs" />
     <Compile Include="Interfaces\IReqDB.cs" />
@@ -115,9 +116,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

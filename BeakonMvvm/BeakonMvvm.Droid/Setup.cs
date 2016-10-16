@@ -31,6 +31,7 @@ namespace BeakonMvvm.Droid
             Mvx.LazyConstructAndRegisterSingleton<ISqlite, SqliteDroid>();
             Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
             Mvx.LazyConstructAndRegisterSingleton<IPersonDB, PersonDB>();
+            Mvx.LazyConstructAndRegisterSingleton<IToast, ToastService>();
             Mvx.LazyConstructAndRegisterSingleton<INetwork, Network>();
             base.InitializeFirstChance();
         }

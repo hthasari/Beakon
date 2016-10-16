@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
-using System.Collections.ObjectModel;
-using System.IO;
 using BeakonMvvm.Core.Interfaces;
-using System.Collections;
-using MvvmCross.Platform;
 using BeakonMvvm.Core.Database;
-using SQLite;
 using System.Windows.Input;
 
 namespace BeakonMvvm.Core.ViewModels
@@ -25,7 +17,7 @@ namespace BeakonMvvm.Core.ViewModels
 
         public ICommand GurButton { get; private set; }
         public ICommand HarriButton { get; private set; }
-        public WelcomeViewModel()
+        public WelcomeViewModel(IToast toast)
         {
             db = new PersonDB();
             List<string> a = new List<string>();
@@ -50,12 +42,14 @@ namespace BeakonMvvm.Core.ViewModels
             GurButton = new MvxCommand(() =>
             {
                 MyGlobals.SelPer = Gur;
+                toast.Show("Logged in as " + MyGlobals.SelPer.pFirstname + "");
                 ShowViewModel<SettingsViewModel>();
 
             });
             HarriButton = new MvxCommand(() =>
             {
                 MyGlobals.SelPer = Hari;
+                toast.Show("Logged in as " + MyGlobals.SelPer.pFirstname + "");
                 ShowViewModel<SettingsViewModel>();
 
             });

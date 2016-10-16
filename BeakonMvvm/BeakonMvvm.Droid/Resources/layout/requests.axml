@@ -14,12 +14,12 @@
         <ImageButton
             android:src="@drawable/requesticon"
             android:layout_width="0dp"
-            android:layout_height="75dp"
+            android:layout_height="70dp"
             android:id="@+id/btnRequestSettings"
             android:layout_gravity="left"
             android:layout_weight="1"
             android:scaleType="fitCenter"
-            android:background="#6599ff"
+            android:background="@android:color/holo_blue_dark"
             android:layout_margin="1dp" />
         <ImageButton
             android:src="@drawable/notificationicon"
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:scaleType="fitCenter"
             local:MvxBind="Click NavNotCmd"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#56b3d2"
             android:layout_marginBottom="1dp"
             android:layout_marginRight="1dp"
             android:layout_marginLeft="1dp" />
@@ -42,13 +42,13 @@
             android:scaleType="fitCenter"
             android:layout_gravity="right"
             local:MvxBind="Click NavSetCmd"
-            android:background="@android:color/holo_blue_dark"
+            android:background="#56b3d2"
             android:layout_margin="1dp" />
     </LinearLayout>
     <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:background="#fff"
+        android:background="#F4F4F4"
         local:MvxItemTemplate="@layout/listview_row"
         local:MvxBind="ItemsSource Messages; ItemClick SelectPer" />
 </LinearLayout>

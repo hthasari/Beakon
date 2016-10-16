@@ -1,8 +1,4 @@
 using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 // Author Gurpreet Dhaliwal
 
@@ -29,14 +25,7 @@ namespace BeakonMvvm.Core
             ReqLoc = reqloc;
             ReqExtra = reqextra;
 
-
         }
-
-        //public override string ToString()
-        //{
-        //    return string.Format("[Person: ID={0}, FirstName={1}, LastName={2}]", ID, pFirstname, pLastname);
-        //}
-
 
     }
 
