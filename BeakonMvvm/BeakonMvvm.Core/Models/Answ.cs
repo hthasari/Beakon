@@ -12,16 +12,16 @@ namespace BeakonMvvm.Core
         public string AnsFrom { get; set; }
         public string AnsTo { get; set; }
         public string AnsLoc { get; set; }
-    //    public bool AnsCal { get; set; }
+        public string  AnsCal { get; set; }
         public string AnsExtra { get; set; }
 
         public Answ() {}
 
-        public Answ(string anfrom, string anto, string anloc, string anextra)
+        public Answ(string anfrom, string anto, string anloc, string anscall, string anextra)
         {
             AnsFrom = anfrom;
             AnsTo = anto;
-            //ReqCal = reqcal;
+            AnsCal = anscall;
             AnsLoc = anloc;
             AnsExtra = anextra;
 

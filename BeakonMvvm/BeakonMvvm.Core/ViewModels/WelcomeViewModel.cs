@@ -23,7 +23,7 @@ namespace BeakonMvvm.Core.ViewModels
             if (db.GetPersons().Count()==0)
             {
                 Gur = new Person("Gurpreet", "Dhaliwal", "@drawable/gur", "hathur.gg@gmail.com","Someting",true,true);
-                Hari = new Person("Harri", "Tuononen", "@drawable/harri", "hathur.gg@gmail.com", "Someting", true, true);
+                Hari = new Person("Harri", "Tuononen", "@drawable/harri", "hathur.gg@gmail.com", "Someting",true, true);
                 Person Ian = new Person("Ian", "Maskell", "@drawable/iam", "hathur.gg@gmail.com", "Someting", true, true);
 
                 db.InsertPerson(Gur);

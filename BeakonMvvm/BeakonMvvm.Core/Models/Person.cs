@@ -14,7 +14,7 @@ namespace BeakonMvvm.Core
         public string photo { get; set; }
         public string PEmail { get; set; }
         public string PLocation { get; set; }
-    //    public List<string> PCal { get; set; }
+     //   public string PCal { get; set; }
         public bool PLocCheck { get; set; }
         public bool PCalCheck { get; set; }
 
@@ -30,7 +30,7 @@ namespace BeakonMvvm.Core
             photo = phot;
             PEmail = email;
             PLocation = location;
-          //  PCal = calander;
+       //    PCal = cal;
             PLocCheck = loccheck;
             PCalCheck = calcheck;
 

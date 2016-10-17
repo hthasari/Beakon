@@ -76,12 +76,12 @@ namespace BeakonMvvm.Core.ViewModels
                 if (Answer == true)
                 {
 
-                      //  List<string> EventList = calendar.returnEvents();
+                      //  string calend = calendar.returnEvents();
                     adbs = new AnsDB();
 
                     Person sell = MyGlobals.SelPer;
 
-                    adbs.InsertAns(new Answ(selectedItem.ReqTo, sell.pFirstname,sell.PLocation, selectedItem.ReqExtra));
+                    adbs.InsertAns(new Answ(selectedItem.ReqTo, sell.pFirstname,sell.PLocation, calend , selectedItem.ReqExtra));
 
                     Message.Remove(selectedItem);
                     dbs.DeleteReq(selectedItem.Id);
