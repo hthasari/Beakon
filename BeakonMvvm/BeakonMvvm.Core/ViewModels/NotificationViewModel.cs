@@ -76,7 +76,7 @@ namespace BeakonMvvm.Core.ViewModels
                 if (Answer == true)
                 {
 
-                      //  string calend = calendar.returnEvents();
+                    string calend = calendar.returnEvents();
                     adbs = new AnsDB();
 
                     Person sell = MyGlobals.SelPer;

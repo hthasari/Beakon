@@ -76,7 +76,7 @@ namespace BeakonMvvm.Droid.Services
                     eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + " "+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
                         " " + eventTimeDate.ToShortTimeString());
 
-                    returnevents = returnevents + events.GetString(events.GetColumnIndex(eventsProjection[0])) + " " + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
+                    returnevents = returnevents + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
                         " " + eventTimeDate.ToShortTimeString() + "\n";
 
                     if (events.IsLast == true)
