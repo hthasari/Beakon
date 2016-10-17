@@ -6,22 +6,13 @@
     android:layout_height="match_parent"
     android:background="#fff">
     <ImageView
-        android:src="@drawable/beakonlogo_large"
+        android:src="@drawable/beakonlogo_large1"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:id="@+id/imageView1"
         android:layout_gravity="center"
-        android:padding="20sp" />
-    <TextView
-        android:text="Welcome to Beakon "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:textColor="@android:color/holo_blue_dark"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        android:layout_gravity="center"
-        android:layout_marginBottom="150sp" />
+        android:padding="5sp"
+        android:layout_marginBottom="150dp" />
     <TextView
         android:text="Please Login as:"
         android:layout_width="wrap_content"
