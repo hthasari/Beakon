@@ -68,7 +68,7 @@ namespace BeakonMvvm.Core.ViewModels
 
             SelectMessage = new MvxCommand<Answ>(async selectedItem =>
             {
-                string mes = "from " + selectedItem.AnsFrom + "\n" + "Calendar: Meeting in F111\n" + "Location: "+ selectedItem.AnsLoc + "\nOther Info:" + selectedItem.AnsExtra;
+                string mes = "from " + selectedItem.AnsFrom + "\n" + "Calendar: " + selectedItem.AnsCal + "\n" + "Location: "+ selectedItem.AnsLoc + "\nOther Info:" + selectedItem.AnsExtra;
                 bool Answer = await dialog.Show(mes, "Status Response", "Ok", "Delete");
 
                 if  (Answer == false)
