@@ -12,7 +12,8 @@ namespace BeakonMvvm.Droid.Services
     public class Calendar : ICalendar
     {
         List<string> eventlist = new List<string>();
-        public List<string> returnEvents()
+        string returnevents;
+        public string returnEvents()
         {
             
 
@@ -75,6 +76,9 @@ namespace BeakonMvvm.Droid.Services
                     eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + " "+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
                         " " + eventTimeDate.ToShortTimeString());
 
+                    returnevents = returnevents + events.GetString(events.GetColumnIndex(eventsProjection[0])) + " " + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
+                        " " + eventTimeDate.ToShortTimeString() + "\n";
+
                     if (events.IsLast == true)
                     {
                         break;
@@ -98,7 +102,7 @@ namespace BeakonMvvm.Droid.Services
                 }
             }
 
-            return eventlist;
+            return returnevents;
 
         }
 
