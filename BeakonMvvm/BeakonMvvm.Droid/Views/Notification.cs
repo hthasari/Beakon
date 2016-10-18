@@ -1,5 +1,6 @@
 using Android.App;
 using Android.OS;
+using Android.Views;
 using BeakonMvvm.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Views;
@@ -14,6 +15,7 @@ namespace BeakonMvvm.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Notification);
+           
         }
     }
 }

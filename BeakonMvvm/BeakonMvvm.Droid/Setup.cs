@@ -33,6 +33,7 @@ namespace BeakonMvvm.Droid
             Mvx.LazyConstructAndRegisterSingleton<IPersonDB, PersonDB>();
             Mvx.LazyConstructAndRegisterSingleton<IToast, ToastService>();
             Mvx.LazyConstructAndRegisterSingleton<INetwork, Network>();
+            Mvx.LazyConstructAndRegisterSingleton<IDialogServiceText, DialogServiceText>();
             base.InitializeFirstChance();
         }
     }

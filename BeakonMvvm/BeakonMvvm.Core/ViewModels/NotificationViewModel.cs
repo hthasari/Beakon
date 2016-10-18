@@ -14,7 +14,7 @@ namespace BeakonMvvm.Core.ViewModels
         private IAnsDB adbs;
         List<Req> dbRequests = new List<Req>();
         public ICommand SelectMessage { get; private set; }
-        private readonly IDialogService dialog;
+        private readonly IDialogServiceText dialog;
         private ICalendar calendar;
         private INetwork ssid;
 
@@ -54,7 +54,7 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar, INetwork ssid, IToast toast)
+        public NotificationViewModel(IDialogServiceText dialog, ICalendar calendar, INetwork ssid, IToast toast)
         {
             Message = new ObservableCollection<Req>();
             dbs = new ReqDB();

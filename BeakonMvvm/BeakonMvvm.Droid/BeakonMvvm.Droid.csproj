@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\SqliteDroid.cs" />
+    <Compile Include="Services\DialogServiceText.cs" />
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\Network.cs" />
     <Compile Include="DebugTrace.cs" />
@@ -207,6 +208,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AnsCustomListView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\CustomDialog.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
