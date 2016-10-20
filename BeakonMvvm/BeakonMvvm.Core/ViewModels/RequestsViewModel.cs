@@ -58,11 +58,11 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public RequestsViewModel(IAPerson dbs)
+        public RequestsViewModel(IAPerson dbs, IToast toast)
         {
             Messages = new ObservableCollection<Perso>();
             this.dbs = dbs;
-
+            toast.Show("Members Loading...");
             getCount();
 
             SelectPer = new MvxCommand<Perso>( selectedPer =>

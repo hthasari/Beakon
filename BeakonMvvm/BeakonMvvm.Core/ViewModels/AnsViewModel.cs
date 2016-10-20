@@ -54,6 +54,7 @@ namespace BeakonMvvm.Core.ViewModels
         {
             Message = new ObservableCollection<Answ>();
             adbs = anss;
+            toast.Show("Responses Loading...");
             getCount();
             this.dialog = dialog;
 

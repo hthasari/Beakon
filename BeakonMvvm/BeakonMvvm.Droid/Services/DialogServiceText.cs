@@ -10,7 +10,7 @@ using Android.Widget;
 
 namespace BeakonMvvm.Droid.Services
 {
-    public class DialogServiceText : IDialogServiceText
+    public class DialogServiceText : IDialogService
     {
         Dialog dialog = null;
        public int word;
@@ -34,7 +34,7 @@ namespace BeakonMvvm.Droid.Services
                 Android.App.AlertDialog.Builder alertDialog = new AlertDialog.Builder(mvxTopActivity.Activity);
                 alertDialog.SetTitle(title);
                 alertDialog.SetMessage(message);
-                alertDialog.SetView(Resource.Layout.CustomDialog);
+                //alertDialog.SetView(Resource.Layout.CustomDialog);
                 alertDialog.SetNegativeButton(cancelButton, (s, args) =>
                 {
                     chosenOption = false;

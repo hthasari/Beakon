@@ -60,6 +60,7 @@ namespace BeakonMvvm.Core.ViewModels
             Message = new ObservableCollection<Req>();
             dbs = db;
             adbs = new AnsDB();
+            toast.Show("Responses Loading...");
             try
             {
                 getCount();
