@@ -5,7 +5,7 @@ namespace BeakonMvvm.Core.Interfaces
 {
     public interface IAnsDB
     {
-        Task<IEnumerable<Answ>> GetAns();
+        Task<List<Answ>> GetAns();
 
         Task<int> DeleteAns(object id);
         Task<int> InsertAns(Answ p);

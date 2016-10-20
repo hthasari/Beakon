@@ -1,12 +1,9 @@
-using SQLite;
-
 // Author Gurpreet Dhaliwal
 
 namespace BeakonMvvm.Core
 {
     public class Req
     {
-        [Newtonsoft.Json.JsonProperty("Id")]
         public string Id { get; set; }
         public string ReqFrom { get; set; }
         public string ReqTo { get; set; }

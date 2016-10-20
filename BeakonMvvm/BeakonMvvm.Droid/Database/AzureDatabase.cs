@@ -14,7 +14,7 @@ namespace BeakonMvvm.Droid.Database
             CurrentPlatform.Init();
 
             azureDatabase = new MobileServiceClient("https://beakon.azurewebsites.net");
-           
+
             InitializeLocal();
             return azureDatabase;
         }
@@ -30,8 +30,8 @@ namespace BeakonMvvm.Droid.Database
             }
             var store = new MobileServiceSQLiteStore(path);
             store.DefineTable<Perso>();
-            store.DefineTable<Req>();
             store.DefineTable<Answ>();
+            store.DefineTable<Req>();
             azureDatabase.SyncContext.InitializeAsync(store);
         }
     }

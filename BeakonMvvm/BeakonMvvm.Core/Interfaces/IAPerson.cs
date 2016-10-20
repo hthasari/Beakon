@@ -6,13 +6,9 @@ namespace BeakonMvvm.Core.Database
 {
     public interface IAPerson
     {
-        Task<IEnumerable<Perso>> GetPersons();
-
-        //Task<int> DeletePerson(object id);
+        Task<List<Perso>> GetPersons();
 
         Task<int> InsertPerson(Perso p);
-        Task<bool> CheckIfExists(Perso p);
-
 
     }
 }

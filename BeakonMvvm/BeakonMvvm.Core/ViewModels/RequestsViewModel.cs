@@ -11,6 +11,7 @@ namespace BeakonMvvm.Core.ViewModels
     {
         public static Perso perr { get; set; }
         public static Perso SelPer { get; set; }
+        public static Answ answer { get; set; }
     }
 
     public class RequestsViewModel : MvxViewModel

@@ -7,7 +7,6 @@ using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System.Diagnostics;
 using BeakonMvvm.Core.Interfaces;
-
 namespace BeakonMvvm.Core.Database
 {
     public class APerson : IAPerson
@@ -19,46 +18,20 @@ namespace BeakonMvvm.Core.Database
             azureDatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
             azureSyncTable = azureDatabase.GetSyncTable<Perso>();
         }
-
-        public async Task<bool> CheckIfExists(Perso location)
+        public async Task<List<Perso>> GetPersons()
         {
-            var locations = await azureSyncTable.Where(x => x.pFirstname == location.pFirstname || x.Id == location.Id).ToListAsync();
-            return locations.Any();
-        }
-
-        public async Task<int> DeletePerson(object id)
-        {
-            await SyncAsync(true);
-            var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
-            if (location.Any())
-            {
-                await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                await SyncAsync();
-                return 1;
-            }
-            else
-            {
-                return 0;
-
-            }
-        }
-
-        public async Task<IEnumerable<Perso>> GetPersons()
-        {
-
             await SyncAsync(true);
             var locations = await azureSyncTable.ToListAsync();
             return locations;
-
         }
 
         public async Task<int> InsertPerson(Perso p)
         {
-           
-           await SyncAsync(true);
-           await azureSyncTable.InsertAsync(p);
-           await SyncAsync();
-           return 1;
+
+            await SyncAsync(true);
+            await azureSyncTable.InsertAsync(p);
+            await SyncAsync();
+            return 1;
 
 
         }
@@ -66,20 +39,24 @@ namespace BeakonMvvm.Core.Database
         {
             try
             {
-
+                await azureDatabase.SyncContext.PushAsync();
 
                 if (pullData)
                 {
+
                     await azureSyncTable.PullAsync("allPersos", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
-            await azureDatabase.SyncContext.PushAsync();
-        }
-    }
+                }
+
+            }
 
             catch (Exception e)
             {
                 Debug.WriteLine(e);
+
+
             }
         }
 
     }
 }
+

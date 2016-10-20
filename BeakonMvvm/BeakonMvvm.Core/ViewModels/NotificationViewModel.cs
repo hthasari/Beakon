@@ -7,16 +7,19 @@ using BeakonMvvm.Core.Database;
 using Android.App;
 using System;
 
+using System.Diagnostics;
+
 namespace BeakonMvvm.Core.ViewModels
 {
     public class NotificationViewModel : MvxViewModel
     {
-
+       // IAnsDB adds = new AnsDB();
         private IReqDB dbs;
-        private IAnsDB adbs;
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
+        private Perso sell = MyGlobals.SelPer;
+        private ObservableCollection<Req> two = new ObservableCollection<Req>();
 
 
         private ObservableCollection<Req> messages;
@@ -25,53 +28,21 @@ namespace BeakonMvvm.Core.ViewModels
             get { return messages; }
             set
             {
-                SetProperty(ref messages, value);
+                    SetProperty(ref messages, value);
+             
+
             }
         }
 
-
-        private string Reqfrom;
-        public string ReqFrom
-        {
-            get { return Reqfrom; }
-            set
-            {
-                if (value != null)
-
-                    SetProperty(ref Reqfrom, value);
-            }
-        }
-        private string reqextra;
-
-        public string ReqExtra
-        {
-            get { return reqextra; }
-            set
-            {
-                if (value != null)
-                {
-
-                    SetProperty(ref reqextra, value);
-                }
-            }
-        }
-        public NotificationViewModel(IDialogService dialog, ICalendar calendar, IToast toast, IReqDB db)
+        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast)
         {
             Message = new ObservableCollection<Req>();
-            dbs = db;
-            adbs = new AnsDB();
-            toast.Show("Responses Loading...");
-            try
-            {
-                getCount();
-            }
-            catch (Exception e)
-            {
-                toast.Show("Error:" + e);
-            }
-  
+            dbs = dbss;       
             this.dialog = dialog;
             this.calendar = calendar;
+
+            getCount();
+
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
                 
@@ -80,25 +51,23 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
                 if (Answer == true)
                 {
-      
-                    //string calend = calendar.returnEvents();
 
-                    Perso sell = MyGlobals.SelPer;
+                 Message.Remove(selectedItem);
+                 DeleteReq(selectedItem.Id);
+                    toast.Show("Status Response Sent");
 
-                    Answ Hari = new Answ
+                    MyGlobals.answer = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
                         AnsTo = sell.pFirstname,
                         AnsLoc = sell.PLocation,
                         AnsCal = "Something",
                         AnsExtra = selectedItem.ReqExtra
-                    };
-                   await adbs.InsertAns(Hari);
 
-                    Message.Remove(selectedItem);
-                 DeleteReq(selectedItem.Id); 
-                 toast.Show("Status Response Sent");
-                }
+
+                    };
+                ShowViewModel<AnsViewModel>();
+        }
                 else
                 {
                     Message.Remove(selectedItem);
@@ -133,23 +102,18 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<AnsViewModel>());
             }
         }
-
         public async void getCount()
         {
-            
             foreach (Req a in await dbs.GetReq())
             {
                 Message.Add(a);
-                //  await adb.CheckIfExists(p);
             }
         }
 
         public async void DeleteReq(object id)
         {
             await dbs.DeleteReq(id);
-
         }
-
 
     }
 }

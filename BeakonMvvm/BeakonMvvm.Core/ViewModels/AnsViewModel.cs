@@ -9,12 +9,10 @@ namespace BeakonMvvm.Core.ViewModels
 {
     public class AnsViewModel : MvxViewModel
     {
-
-        private IAnsDB adbs;
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
-
         private ObservableCollection<Answ> messages;
+        IAnsDB answerDB;
         public ObservableCollection<Answ> Message
         {
             get { return messages; }
@@ -25,35 +23,16 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        private string Reqfrom;
-        public string ReqFrom
+        public AnsViewModel(IDialogService dialog, IToast toast, IAnsDB ansDB)
         {
-            get { return Reqfrom; }
-            set
+            answerDB = ansDB;
+            if(MyGlobals.answer != null)
             {
-                if (value != null)
-
-                    SetProperty(ref Reqfrom, value);
+                insertAns(MyGlobals.answer);
+                MyGlobals.answer = null;
             }
-        }
-        private string reqextra;
 
-        public string ReqExtra
-        {
-            get { return reqextra; }
-            set
-            {
-                if (value != null)
-                {
-
-                    SetProperty(ref reqextra, value);
-                }
-            }
-        }
-        public AnsViewModel(IDialogService dialog, IToast toast, IAnsDB anss)
-        {
             Message = new ObservableCollection<Answ>();
-            adbs = anss;
             toast.Show("Responses Loading...");
             getCount();
             this.dialog = dialog;
@@ -99,18 +78,19 @@ namespace BeakonMvvm.Core.ViewModels
 
         public async void getCount()
         {
-            foreach (Answ a in await adbs.GetAns())
+            foreach (Answ a in await answerDB.GetAns())
             {
                 Message.Add(a);
             }
-
-
         }
-
         public async void DeleteAns(object id)
         {
-            await adbs.DeleteAns(id);
+            await answerDB.DeleteAns(id);
+        }
 
+        public async void insertAns(Answ a)
+        {
+            await answerDB.InsertAns(a);
         }
     }
 }

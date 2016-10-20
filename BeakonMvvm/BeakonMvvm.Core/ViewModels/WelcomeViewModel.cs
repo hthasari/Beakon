@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.ViewModels;
 using BeakonMvvm.Core.Interfaces;
 using BeakonMvvm.Core.Database;
 using System.Windows.Input;
@@ -54,9 +52,9 @@ namespace BeakonMvvm.Core.ViewModels
             //    PLocCheck = true
             //};
 
-         //   getCount(Gur);
-           // getCount(Hari);
-          //  getCount(Ian);
+            //getCount(Gur);
+            //getCount(Hari);
+            //getCount(Ian);
 
             GurButton = new MvxCommand(() =>
             {

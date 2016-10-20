@@ -9,6 +9,7 @@ namespace BeakonMvvm.Droid.Services
 {
     public class DialogService : IDialogService
     {
+
         Dialog dialog = null;
 
         public async Task<bool> Show(string message, string title)

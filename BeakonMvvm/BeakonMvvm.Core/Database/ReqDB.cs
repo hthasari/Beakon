@@ -2,7 +2,6 @@
 using Microsoft.WindowsAzure.MobileServices;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using MvvmCross.Platform;
-using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -46,7 +45,7 @@ namespace BeakonMvvm.Core.Database
             }
         }
 
-        public async Task<IEnumerable<Req>> GetReq()
+        public async Task<List<Req>> GetReq()
         {
 
             await SyncAsync(true);
@@ -57,7 +56,7 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<int> InsertReq(Req p)
         {
-            await SyncAsync(true);
+           await SyncAsync(true);
             await azureSyncTable.InsertAsync(p);
             await SyncAsync();
             return 1;
@@ -72,8 +71,11 @@ namespace BeakonMvvm.Core.Database
 
                 if (pullData)
                 {
+
                     await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+
                 }
+
             }
 
             catch (Exception e)
