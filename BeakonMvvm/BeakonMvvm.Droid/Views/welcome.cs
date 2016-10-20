@@ -11,7 +11,6 @@ namespace BeakonMvvm.Droid.Views
     [Activity(Label = "Beakon")]
     public class welcome : MvxActivity
     {
-
         protected override void OnCreate(Bundle Bundle)
         {
             base.OnCreate(Bundle);

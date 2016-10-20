@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.Interfaces
 {
     public interface IReqDB
     {
-       
-        List<Req> GetReq();
+        Task<IEnumerable<Req>> GetReq();
 
-        void DeleteReq(object id);
+        Task<int> DeleteReq(object id);
 
-        int InsertReq(Req person);
+        Task<int> InsertReq(Req p);
+        Task<bool> CheckIfExists(Req p);
+
 
 
     }

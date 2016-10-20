@@ -1,40 +1,85 @@
 ﻿using BeakonMvvm.Core.Interfaces;
+using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices.Sync;
 using MvvmCross.Platform;
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 
 // Author Gurpreet Dhaliwal
 namespace BeakonMvvm.Core.Database
 {
     
-    public class AnsDB : IAnsDB
+    public class ReqDB : IReqDB
     {
-        private SQLiteConnection database;
-
-        public AnsDB()
+        private MobileServiceClient azureDatabase;
+        private IMobileServiceSyncTable<Req> azureSyncTable;
+        public ReqDB()
         {
-            var sqlite = Mvx.Resolve<ISqlite>();
-            database = sqlite.GetConnection();
-            database.CreateTable<Answ>();
+            azureDatabase = Mvx.Resolve<IAzureDatabase>().GetMobileServiceClient();
+            azureSyncTable = azureDatabase.GetSyncTable<Req>();
         }
 
-    public void DeleteAnsw(object id)
+        public async Task<bool> CheckIfExists(Req location)
         {
-            database.Delete<Answ>(Convert.ToInt16(id));
+            var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
+            return locations.Any();
         }
 
-        public List<Answ> GetAns()
+        public async Task<int> DeleteReq(object id)
         {
-            return database.Table<Answ>().ToList();
+            await SyncAsync(true);
+            var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
+            if (location.Any())
+            {
+                await azureSyncTable.DeleteAsync(location.FirstOrDefault());
+                await SyncAsync();
+                return 1;
+            }
+            else
+            {
+                return 0;
+
+            }
         }
 
-        public int InsertAns(Answ person)
+        public async Task<IEnumerable<Req>> GetReq()
         {
-            var num = database.Insert(person);
-            database.Commit();
-            return num;
+
+            await SyncAsync(true);
+            var locations = await azureSyncTable.ToListAsync();
+            return locations;
+
+        }
+
+        public async Task<int> InsertReq(Req p)
+        {
+            await SyncAsync(true);
+            await azureSyncTable.InsertAsync(p);
+            await SyncAsync();
+            return 1;
+
+
+        }
+        private async Task SyncAsync(bool pullData = false)
+        {
+            try
+            {
+                await azureDatabase.SyncContext.PushAsync();
+
+                if (pullData)
+                {
+                    await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                }
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
         }
 
     }

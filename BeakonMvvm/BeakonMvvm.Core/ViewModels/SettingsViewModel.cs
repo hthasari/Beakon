@@ -5,7 +5,7 @@ namespace BeakonMvvm.Core.ViewModels
 {
     public class SettingsViewModel : MvxViewModel
     {
-        static Person selected = MyGlobals.SelPer;
+        static Perso selected = MyGlobals.SelPer;
 
         // First Name
         private string _name = selected.pFirstname;

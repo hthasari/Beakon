@@ -10,31 +10,53 @@ namespace BeakonMvvm.Core.ViewModels
 
     public class WelcomeViewModel : MvxViewModel
     {
-        IPersonDB db;
-        Person Gur;
-        Person Hari;
+        private IAPerson adb;
+        private Perso Gur;
+        private Perso Hari;
 
         public ICommand GurButton { get; private set; }
         public ICommand HarriButton { get; private set; }
-        public WelcomeViewModel(IToast toast)
+        public WelcomeViewModel(IToast toast, IAPerson per)
+
         {
-            db = new PersonDB();
+            this.adb = per;
 
-            if (db.GetPersons().Count()==0)
-            {
-                Gur = new Person("Gurpreet", "Dhaliwal", "@drawable/gur", "hathur.gg@gmail.com","Someting",true,true);
-                Hari = new Person("Harri", "Tuononen", "@drawable/harri", "hathur.gg@gmail.com", "Someting",true, true);
-                Person Ian = new Person("Ian", "Maskell", "@drawable/iam", "hathur.gg@gmail.com", "Someting", true, true);
 
-                db.InsertPerson(Gur);
-                db.InsertPerson(Hari);
-                db.InsertPerson(Ian);
-            } 
-            else
+            Gur = new Perso
             {
-                Gur = new Person("Gurpreet", "Dhaliwal", "@drawable/gur", "hathur.gg@gmail.com", "Someting", true, true);
-                Hari = new Person("Harri", "Tuononen", "@drawable/harri", "hathur.gg@gmail.com", "Someting", true, true);
-            }
+                pFirstname = "Gurpreet",
+                pLastname = "Dhaliwal",
+                PEmail = "hathur.gg@gmail.com",
+                photo = "@drawable/gur",
+                PCalCheck = true,
+                PLocation = "Qut",
+                PLocCheck = true
+            };
+            Hari = new Perso
+            {
+                pFirstname = "Harri",
+                pLastname = "Tuononen",
+                PEmail = "harri@gmail.com",
+                photo = "@drawable/harri",
+                PCalCheck = true,
+                PLocation = "Qut",
+                PLocCheck = true
+            };
+
+            //Perso Ian = new Perso
+            //{
+            //    pFirstname = "Ian",
+            //    pLastname = "Maskell",
+            //    PEmail = "Maskell@gmail.com",
+            //    photo = "@drawable/iam",
+            //    PCalCheck = true,
+            //    PLocation = "Qut",
+            //    PLocCheck = true
+            //};
+
+         //   getCount(Gur);
+           // getCount(Hari);
+          //  getCount(Ian);
 
             GurButton = new MvxCommand(() =>
             {
@@ -51,6 +73,10 @@ namespace BeakonMvvm.Core.ViewModels
 
             });
 
+        }
+        public async void getCount(Perso p)
+        {
+            await adb.InsertPerson(p);
         }
 
     }

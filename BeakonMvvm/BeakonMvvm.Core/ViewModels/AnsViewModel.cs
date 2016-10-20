@@ -11,7 +11,6 @@ namespace BeakonMvvm.Core.ViewModels
     {
 
         private IAnsDB adbs;
-        List<Answ> dbAnswers = new List<Answ>();
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
 
@@ -51,19 +50,11 @@ namespace BeakonMvvm.Core.ViewModels
                 }
             }
         }
-        public AnsViewModel(IDialogService dialog, IToast toast)
+        public AnsViewModel(IDialogService dialog, IToast toast, IAnsDB anss)
         {
             Message = new ObservableCollection<Answ>();
-
-            adbs = new AnsDB();
-
-            dbAnswers = adbs.GetAns();
-
-            foreach (Answ person in dbAnswers)
-            {
-                Message.Add(person);
-            }
-
+            adbs = anss;
+            getCount();
             this.dialog = dialog;
 
             SelectMessage = new MvxCommand<Answ>(async selectedItem =>
@@ -74,7 +65,7 @@ namespace BeakonMvvm.Core.ViewModels
                 if  (Answer == false)
                 {
                     Message.Remove(selectedItem);
-                    adbs.DeleteAnsw(selectedItem.Id);
+                    DeleteAns(selectedItem.Id);
                     toast.Show("Status Response Deleted");
                 }
             });
@@ -105,6 +96,21 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
+        public async void getCount()
+        {
+            foreach (Answ a in await adbs.GetAns())
+            {
+                Message.Add(a);
+            }
+
+
+        }
+
+        public async void DeleteAns(object id)
+        {
+            await adbs.DeleteAns(id);
+
+        }
     }
 }
 

@@ -9,21 +9,19 @@ namespace BeakonMvvm.Core.ViewModels
 {
     public static class MyGlobals
     {
-        public static Person perr { get; set; }
-        public static Person SelPer { get; set; }
+        public static Perso perr { get; set; }
+        public static Perso SelPer { get; set; }
     }
 
     public class RequestsViewModel : MvxViewModel
     { 
-       private ObservableCollection<Person> messages;
-       private IPersonDB dbs;
+       private ObservableCollection<Perso> messages;
+       private IAPerson dbs;
 
-       List<Person> dbPersons = new List<Person>();
+       List<Perso> dbPersons = new List<Perso>();
        public ICommand SelectPer { get; private set; }
-       private Person Per;
 
-
-        public ObservableCollection<Person> Messages
+        public ObservableCollection<Perso> Messages
         {
 
             get { return messages; }
@@ -60,19 +58,14 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public RequestsViewModel()
+        public RequestsViewModel(IAPerson dbs)
         {
-            dbs = new PersonDB();
-            dbPersons = dbs.GetPersons();
+            Messages = new ObservableCollection<Perso>();
+            this.dbs = dbs;
 
-            Messages = new ObservableCollection<Person>();
-                 
-            foreach (Person person in dbPersons)
-            {
-               Messages.Add(person);
-            }
+            getCount();
 
-            SelectPer = new MvxCommand<Person>( selectedPer =>
+            SelectPer = new MvxCommand<Perso>( selectedPer =>
             {
                 MyGlobals.perr = selectedPer;
                 ShowViewModel<AnswerViewModel>();
@@ -97,6 +90,18 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
         }
+
+        public async void getCount()
+        {
+
+            foreach (Perso a in await dbs.GetPersons())
+            { 
+                Messages.Add(a);
+            }
+
+
+        }
+
 
     }
 

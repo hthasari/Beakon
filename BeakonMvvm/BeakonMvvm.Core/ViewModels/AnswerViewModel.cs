@@ -11,6 +11,7 @@ namespace BeakonMvvm.Core.ViewModels
 
     {
         private IReqDB dbss;
+        private Req Hari;
 
         static string nameofperson = "Request Status of " + MyGlobals.perr.pFirstname + "";
 
@@ -69,16 +70,24 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand SendButton { get; private set; }
         public ICommand CancelButton { get; private set; }
 
-        public AnswerViewModel(IToast toast)
+        public AnswerViewModel(IToast toast, IReqDB reqq)
         {
-
+            dbss = reqq;
             SendButton = new MvxCommand(() =>
                 {
-                    dbss = new ReqDB();
 
-                    string from = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
 
-                    dbss.InsertReq(new Req(from, MyGlobals.perr.pFirstname, IsCheckedCal, IsCheckedLoc, ExtraInfo));
+                    string froms = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
+
+                    Hari = new Req
+                    {
+                        ReqFrom = MyGlobals.perr.pFirstname,
+                        ReqTo = froms,
+                        ReqCal = IsCheckedCal,
+                        ReqLoc = IsCheckedLoc,
+                        ReqExtra = ExtraInfo
+                    };
+                    InsertReq(Hari);
 
                     toast.Show("Status Request Sent");
 
@@ -108,6 +117,12 @@ namespace BeakonMvvm.Core.ViewModels
             {
                 return new MvxCommand(() => ShowViewModel<SettingsViewModel>());
             }
+        }
+
+        public async void InsertReq(Req an)
+        {
+            await dbss.InsertReq(an);
+
         }
 
     }

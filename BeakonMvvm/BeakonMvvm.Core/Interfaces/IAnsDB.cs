@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.Interfaces
 {
     public interface IAnsDB
     {
-        List<Answ> GetAns();
+        Task<IEnumerable<Answ>> GetAns();
 
-        void DeleteAnsw(object id);
+        Task<int> DeleteAns(object id);
+        Task<int> InsertAns(Answ p);
+       Task<bool> CheckIfExists(Answ p);
 
-        int InsertAns(Answ person);
+
     }
 }
