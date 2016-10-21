@@ -6,6 +6,7 @@ namespace BeakonMvvm.Core
 
     public class Perso
     {
+        [Newtonsoft.Json.JsonProperty("Id")]
         public string Id { get; set; }
         public string pFirstname { get; set; }
         public string pLastname { get; set; }

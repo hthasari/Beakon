@@ -8,7 +8,7 @@ namespace BeakonMvvm.Core.Interfaces
         Task<List<Answ>> GetAns();
 
         Task<int> DeleteAns(object id);
-        Task<int> InsertAns(Answ p);
+        Task<int> InsertAns(string from, string to, string cal, string loc, string extra);
        Task<bool> CheckIfExists(Answ p);
 
 

@@ -21,7 +21,7 @@ namespace BeakonMvvm.Droid.Database
 
         private void InitializeLocal()
         {
-            var sqliteFilename = "LocationSQLite.db3";
+            var sqliteFilename = "SQLite.db3";
             string documentsPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal); // Documents folder
             var path = Path.Combine(documentsPath, sqliteFilename);
             if (!File.Exists(path))

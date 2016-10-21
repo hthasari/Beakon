@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 // Author Gurpreet Dhaliwal
 namespace BeakonMvvm.Core.Database
 {
-    
+
     public class AnsDB : IAnsDB
     {
         private MobileServiceClient azureDatabase;
@@ -25,6 +25,7 @@ namespace BeakonMvvm.Core.Database
         public async Task<bool> CheckIfExists(Answ location)
         {
             var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
+            await azureDatabase.LogoutAsync();
             return locations.Any();
         }
 
@@ -36,6 +37,7 @@ namespace BeakonMvvm.Core.Database
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
                 await SyncAsync();
+                await azureDatabase.LogoutAsync();
                 return 1;
             }
             else
@@ -50,17 +52,28 @@ namespace BeakonMvvm.Core.Database
 
             await SyncAsync(true);
             var locations = await azureSyncTable.ToListAsync();
+            await azureDatabase.LogoutAsync();
             return locations;
 
         }
 
-        public async Task<int> InsertAns(Answ p)
+        public async Task<int> InsertAns(string from, string to, string cal, string loc, string extra)
         {
-
+            Answ answer = new Answ
+            {
+                AnsFrom = from,
+                AnsTo = to,
+                AnsCal = cal,
+                AnsLoc = loc,
+                AnsExtra = extra
+            };
             await SyncAsync(true);
-            await azureSyncTable.InsertAsync(p);
+            await azureSyncTable.InsertAsync(answer);
             await SyncAsync();
+            await azureDatabase.LogoutAsync();
             return 1;
+
+
         }
         private async Task SyncAsync(bool pullData = false)
         {
@@ -68,19 +81,19 @@ namespace BeakonMvvm.Core.Database
             {
                 await azureDatabase.SyncContext.PushAsync();
 
+
                 if (pullData)
                 {
-
-                    await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
-        }
-
-    }
+                    await azureSyncTable.PullAsync("allAnsws", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                }
+            }
 
             catch (Exception e)
             {
                 Debug.WriteLine(e);
             }
         }
+
     }
 
 }

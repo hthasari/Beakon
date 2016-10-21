@@ -6,14 +6,16 @@ using System.Windows.Input;
 using BeakonMvvm.Core.Database;
 using Android.App;
 using System;
-
+using System.Windows;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using Android.OS;
+using Java.Util.Logging;
 
 namespace BeakonMvvm.Core.ViewModels
 {
     public class NotificationViewModel : MvxViewModel
     {
-       // IAnsDB adds = new AnsDB();
         private IReqDB dbs;
         public ICommand SelectMessage { get; private set; }
         private readonly IDialogService dialog;
@@ -29,19 +31,24 @@ namespace BeakonMvvm.Core.ViewModels
             set
             {
                     SetProperty(ref messages, value);
-             
+                RaisePropertyChanged("Message");
+
 
             }
         }
 
         public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast)
         {
+
             Message = new ObservableCollection<Req>();
             dbs = dbss;       
+
             this.dialog = dialog;
             this.calendar = calendar;
+            toast.Show("Loading from Database");
+            LoadRequestes();
+           
 
-            getCount();
 
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
@@ -54,19 +61,17 @@ namespace BeakonMvvm.Core.ViewModels
 
                  Message.Remove(selectedItem);
                  DeleteReq(selectedItem.Id);
-                    toast.Show("Status Response Sent");
-
+                 toast.Show("Status Response Sent");
                     MyGlobals.answer = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
                         AnsTo = sell.pFirstname,
-                        AnsLoc = sell.PLocation,
+                        AnsLoc = "Wifi",
                         AnsCal = "Something",
                         AnsExtra = selectedItem.ReqExtra
-
-
                     };
-                ShowViewModel<AnsViewModel>();
+
+                    ShowViewModel<AnsViewModel>();
         }
                 else
                 {
@@ -102,11 +107,13 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<AnsViewModel>());
             }
         }
-        public async void getCount()
+        public async void LoadRequestes()
         {
-            foreach (Req a in await dbs.GetReq())
+
+            foreach (Req request in await dbs.GetReq(MyGlobals.SelPer.pFirstname))
             {
-                Message.Add(a);
+                Message.Add(request);
+                
             }
         }
 
@@ -117,4 +124,3 @@ namespace BeakonMvvm.Core.ViewModels
 
     }
 }
-

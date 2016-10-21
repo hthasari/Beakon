@@ -1,6 +1,7 @@
 ﻿using MvvmCross.Core.ViewModels;
 using System.Windows.Input;
 using BeakonMvvm.Core.Interfaces;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -74,12 +75,12 @@ namespace BeakonMvvm.Core.ViewModels
                 {
 
 
-                    string froms = "form " + MyGlobals.SelPer.pFirstname + " " + MyGlobals.SelPer.pLastname;
+                    string froms = MyGlobals.SelPer.pFirstname;
 
                     Hari = new Req
                     {
-                        ReqFrom = MyGlobals.perr.pFirstname,
-                        ReqTo = froms,
+                        ReqFrom = froms,
+                        ReqTo = MyGlobals.perr.pFirstname,
                         ReqCal = IsCheckedCal,
                         ReqLoc = IsCheckedLoc,
                         ReqExtra = ExtraInfo
@@ -116,9 +117,9 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public async void InsertReq(Req an)
+        public void InsertReq(Req an)
         {
-            await dbss.InsertReq(an);
+            Task<int> aa = dbss.InsertReq(an);
 
         }
 

@@ -122,7 +122,12 @@ namespace BeakonMvvm.Core.ViewModels
             this.ssid = ssid;
             ssidName = ssid.SSID();
             selected.PLocation = ssidName;
-
+            _lname = MyGlobals.SelPer.pLastname;
+            _name = MyGlobals.SelPer.pFirstname;
+            _email = MyGlobals.SelPer.PEmail;
+            _cal = MyGlobals.SelPer.PCalCheck;
+            _loc = MyGlobals.SelPer.PLocCheck;
+            _photo = MyGlobals.SelPer.photo;
         }
 
 

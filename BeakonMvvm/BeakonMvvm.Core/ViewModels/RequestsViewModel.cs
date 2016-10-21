@@ -16,7 +16,7 @@ namespace BeakonMvvm.Core.ViewModels
 
     public class RequestsViewModel : MvxViewModel
     { 
-       private ObservableCollection<Perso> messages;
+       private ObservableCollection<Perso> message;
        private IAPerson dbs;
 
        List<Perso> dbPersons = new List<Perso>();
@@ -25,46 +25,22 @@ namespace BeakonMvvm.Core.ViewModels
         public ObservableCollection<Perso> Messages
         {
 
-            get { return messages; }
+            get { return message; }
             set
             {
-                SetProperty(ref messages, value);
+                SetProperty(ref message, value);
+                RaisePropertyChanged("Messages");
             }
         }
 
 
-        private string messageHeader;
-        public string pFirstName
-        {
-
-            get { return messageHeader; }
-            set
-            {
-                if (value != null)
-
-                    SetProperty(ref messageHeader, value);
-            }
-        }
-        private string basicText;
-        public string pLastName
-        {
-            get { return basicText; }
-            set
-            {
-                if (value != null)
-                {
-
-                    SetProperty(ref basicText, value);
-                }
-            }
-        }
 
         public RequestsViewModel(IAPerson dbs, IToast toast)
         {
             Messages = new ObservableCollection<Perso>();
             this.dbs = dbs;
-            toast.Show("Members Loading...");
-            getCount();
+            toast.Show("Loading from databse");
+            LoadPeople();
 
             SelectPer = new MvxCommand<Perso>( selectedPer =>
             {
@@ -92,14 +68,13 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public async void getCount()
-        {
 
+        public async void LoadPeople()
+        {
             foreach (Perso a in await dbs.GetPersons())
-            { 
+            {
                 Messages.Add(a);
             }
-
 
         }
 

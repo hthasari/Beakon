@@ -36,6 +36,7 @@ namespace BeakonMvvm.Core.Database
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
                 await SyncAsync();
+                await azureDatabase.LogoutAsync();
                 return 1;
             }
             else
@@ -45,20 +46,32 @@ namespace BeakonMvvm.Core.Database
             }
         }
 
-        public async Task<List<Req>> GetReq()
+        public async Task<List<Req>> GetReq(string name)
         {
 
             await SyncAsync(true);
+            var location = await azureSyncTable.Where(x => x.ReqTo == (string)name).ToListAsync();
+            await azureDatabase.LogoutAsync();
+            return location;
+            
+
+        }
+        public async Task<List<Req>> GetReqLoc()
+        {
+
             var locations = await azureSyncTable.ToListAsync();
             return locations;
+           
 
         }
 
         public async Task<int> InsertReq(Req p)
         {
+
            await SyncAsync(true);
             await azureSyncTable.InsertAsync(p);
             await SyncAsync();
+            await azureDatabase.LogoutAsync();
             return 1;
 
 
@@ -69,13 +82,11 @@ namespace BeakonMvvm.Core.Database
             {
                 await azureDatabase.SyncContext.PushAsync();
 
+
                 if (pullData)
                 {
-
-                    await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
-
+                    await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                 }
-
             }
 
             catch (Exception e)

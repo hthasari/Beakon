@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
 using System.Windows.Input;
 using BeakonMvvm.Core.Database;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -26,15 +27,16 @@ namespace BeakonMvvm.Core.ViewModels
         public AnsViewModel(IDialogService dialog, IToast toast, IAnsDB ansDB)
         {
             answerDB = ansDB;
-            if(MyGlobals.answer != null)
+            if (MyGlobals.answer != null)
             {
-                insertAns(MyGlobals.answer);
-                MyGlobals.answer = null;
+                Answ sel = MyGlobals.answer;
+                insertAns(sel.AnsFrom, sel.AnsTo, sel.AnsCal, sel.AnsLoc, sel.AnsExtra);
+                MyGlobals.answer = null; 
             }
 
             Message = new ObservableCollection<Answ>();
             toast.Show("Responses Loading...");
-            getCount();
+            getCount(toast);
             this.dialog = dialog;
 
             SelectMessage = new MvxCommand<Answ>(async selectedItem =>
@@ -76,22 +78,28 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public async void getCount()
+        public async void getCount(IToast t)
         {
             foreach (Answ a in await answerDB.GetAns())
             {
                 Message.Add(a);
+                t.Show("something.");
             }
+            List<Answ> abc = await answerDB.GetAns();
         }
-        public async void DeleteAns(object id)
+        public void DeleteAns(object id)
         {
-            await answerDB.DeleteAns(id);
+            Task<int> aa = answerDB.DeleteAns(id);
         }
 
-        public async void insertAns(Answ a)
+        public async void insertAns(string from, string to, string cal, string loc, string extra)
         {
-            await answerDB.InsertAns(a);
+            await answerDB.InsertAns(from,to, cal,loc,extra);
         }
+
+
+
+
     }
 }
 
