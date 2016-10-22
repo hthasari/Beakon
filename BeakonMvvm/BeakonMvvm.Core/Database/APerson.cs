@@ -37,7 +37,6 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<int> InsertPerson(Perso p)
         {
-
             await SyncAsync(true);
             await azureSyncTable.InsertAsync(p);
             await SyncAsync();

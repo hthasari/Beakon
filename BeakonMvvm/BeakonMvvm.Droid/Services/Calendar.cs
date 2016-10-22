@@ -15,7 +15,6 @@ namespace BeakonMvvm.Droid.Services
         string returnevents;
         public string returnEvents()
         {
-            
 
             // Get events
             var calendarsUri = CalendarContract.Calendars.ContentUri;
@@ -27,82 +26,90 @@ namespace BeakonMvvm.Droid.Services
             };
 
             var cursor = Application.Context.ContentResolver.Query(calendarsUri, calendarsProjection, null, null, null);
-            cursor.MoveToFirst();
-            int calendarCount = cursor.Count;
+
+                cursor.MoveToFirst();
+                int calendarCount = cursor.Count;
+
+            if (calendarCount > 0)
+            {
 
 
-            
-
-            int calId = cursor.GetInt(cursor.GetColumnIndex(calendarsProjection[0]));
+                int calId = cursor.GetInt(cursor.GetColumnIndex(calendarsProjection[0]));
 
 
-            var eventsUri = CalendarContract.Events.ContentUri;
+                var eventsUri = CalendarContract.Events.ContentUri;
 
-            string[] eventsProjection = {
+                string[] eventsProjection = {
                 CalendarContract.Events.InterfaceConsts.Id,
                 CalendarContract.Events.InterfaceConsts.Title,
                 CalendarContract.Events.InterfaceConsts.Dtstart
              };
 
-            var events = Application.Context.ContentResolver.Query(eventsUri, eventsProjection,
-             String.Format("calendar_id={0}", calId), null, "dtstart ASC");
-
-          
+                var events = Application.Context.ContentResolver.Query(eventsUri, eventsProjection,
+                 String.Format("calendar_id={0}", calId), null, "dtstart ASC");
 
 
-           // var events = eventList(calId);
-           int testi = events.Count;
 
-            events.MoveToFirst();
-            long eventTimeLong = events.GetLong(events.GetColumnIndex(eventsProjection[2]));
-            DateTime eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
-                DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
 
-            DateTime now = DateTime.Now.ToLocalTime();
+                // var events = eventList(calId);
+                int testi = events.Count;
 
-            while (true)
-            {
-                 eventTimeLong = events.GetLong(2);
-                 eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
+                events.MoveToFirst();
+                long eventTimeLong = events.GetLong(events.GetColumnIndex(eventsProjection[2]));
+                DateTime eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
                     DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
 
-                if (eventTimeDate.DayOfYear.Equals(now.DayOfYear))
+                DateTime now = DateTime.Now.ToLocalTime();
 
+                while (true)
                 {
+                    eventTimeLong = events.GetLong(2);
+                    eventTimeDate = new DateTime(1970, 1, 1, 0, 0, 0,
+                       DateTimeKind.Utc).AddMilliseconds(eventTimeLong).ToLocalTime();
 
-                    eventTimeDate.ToShortDateString();
+                    if (eventTimeDate.DayOfYear.Equals(now.DayOfYear))
 
-
-                    eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + " "+ events.GetString(events.GetColumnIndex(eventsProjection[1]))+
-                        " " + eventTimeDate.ToShortTimeString());
-
-                    returnevents = returnevents + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
-                        " " + eventTimeDate.ToShortTimeString() + "\n";
-
-                    if (events.IsLast == true)
                     {
-                        break;
+
+                        eventTimeDate.ToShortDateString();
+
+
+                        eventlist.Add(events.GetString(events.GetColumnIndex(eventsProjection[0])) + " " + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
+                            " " + eventTimeDate.ToShortTimeString());
+
+                        returnevents = returnevents + events.GetString(events.GetColumnIndex(eventsProjection[1])) +
+                            " " + eventTimeDate.ToShortTimeString() + "\n";
+
+                        if (events.IsLast == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            events.MoveToNext();
+                        }
+
                     }
                     else
                     {
-                        events.MoveToNext();
-                    }
-                  
-                }
-                else
-                {
-                    if (events.IsLast == true)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        events.MoveToNext();
+                        if (events.IsLast == true)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            events.MoveToNext();
+                        }
                     }
                 }
+
+                return returnevents;
+
             }
-
-            return returnevents;
+            else
+            {
+                return "No Events";
+            }
 
         }
 

@@ -31,7 +31,8 @@ namespace BeakonMvvm.Droid.Services
 
                 var mvxTopActivity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>();
 
-                Android.App.AlertDialog.Builder alertDialog = new AlertDialog.Builder(mvxTopActivity.Activity);
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(mvxTopActivity.Activity);
+                alertDialog.SetView(Resource.Layout.CustomDialog);
                 alertDialog.SetTitle(title);
                 alertDialog.SetMessage(message);
                 //alertDialog.SetView(Resource.Layout.CustomDialog);

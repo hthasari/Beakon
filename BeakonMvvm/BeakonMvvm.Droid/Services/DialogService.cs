@@ -5,6 +5,7 @@ using MvvmCross.Platform;
 using MvvmCross.Platform.Droid.Platform;
 using System.Threading.Tasks;
 
+
 namespace BeakonMvvm.Droid.Services
 {
     public class DialogService : IDialogService
@@ -27,6 +28,7 @@ namespace BeakonMvvm.Droid.Services
             {
                 var mvxTopActivity = Mvx.Resolve<IMvxAndroidCurrentTopActivity>();
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(mvxTopActivity.Activity);
+
                 alertDialog.SetTitle(title);
                 alertDialog.SetMessage(message);
                 alertDialog.SetNegativeButton(cancelButton, (s, args) => 

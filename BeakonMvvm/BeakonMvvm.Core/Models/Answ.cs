@@ -5,7 +5,7 @@ namespace BeakonMvvm.Core
 {
     public class Answ
     {
-        [Newtonsoft.Json.JsonProperty("Id")]
+        public string success{ get; set;}
         public string Id { get; set; }
         public string AnsFrom { get; set; }
         public string AnsTo { get; set; }

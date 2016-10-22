@@ -83,9 +83,7 @@ namespace BeakonMvvm.Core.ViewModels
             foreach (Answ a in await answerDB.GetAns())
             {
                 Message.Add(a);
-                t.Show("something.");
             }
-            List<Answ> abc = await answerDB.GetAns();
         }
         public void DeleteAns(object id)
         {

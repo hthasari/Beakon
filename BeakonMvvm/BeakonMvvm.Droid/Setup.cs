@@ -27,15 +27,16 @@ namespace BeakonMvvm.Droid
         }
         protected override void InitializeFirstChance()
         {
-            Mvx.LazyConstructAndRegisterSingleton<IAnsDB, AnsDB>();
+           
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
             Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();
-       
-            Mvx.LazyConstructAndRegisterSingleton<IAPerson, APerson>();
-            Mvx.LazyConstructAndRegisterSingleton<IReqDB, ReqDB>();
             Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
             Mvx.LazyConstructAndRegisterSingleton<IToast, ToastService>();
             Mvx.LazyConstructAndRegisterSingleton<INetwork, Network>();
+            Mvx.LazyConstructAndRegisterSingleton<IAPerson, APerson>();
+            Mvx.LazyConstructAndRegisterSingleton<IReqDB, ReqDB>();
+            Mvx.LazyConstructAndRegisterSingleton<IAnsDB, AnsDB>();
+
             //Mvx.LazyConstructAndRegisterSingleton<IDialogServiceText, DialogServiceText>();
             base.InitializeFirstChance();
         }

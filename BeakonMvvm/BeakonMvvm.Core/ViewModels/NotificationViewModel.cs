@@ -37,12 +37,11 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast)
+        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net)
         {
 
             Message = new ObservableCollection<Req>();
             dbs = dbss;       
-
             this.dialog = dialog;
             this.calendar = calendar;
             toast.Show("Loading from Database");
@@ -58,20 +57,29 @@ namespace BeakonMvvm.Core.ViewModels
                 bool Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
                 if (Answer == true)
                 {
+                    string calend;
+                    Message.Remove(selectedItem);
+                    DeleteReq(selectedItem.Id);
+                    toast.Show("Status Response Sent");
+                    if (calendar.returnEvents() != null) {
 
-                 Message.Remove(selectedItem);
-                 DeleteReq(selectedItem.Id);
-                 toast.Show("Status Response Sent");
+                        calend = calendar.returnEvents();
+                        }
+                    else
+                    {
+                        calend = "No Events Forund";
+                    }
+                    string wifi = net.SSID();
                     MyGlobals.answer = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
                         AnsTo = sell.pFirstname,
-                        AnsLoc = "Wifi",
-                        AnsCal = "Something",
+                        AnsLoc = wifi,
+                        AnsCal = calend,
                         AnsExtra = selectedItem.ReqExtra
                     };
 
-                    ShowViewModel<AnsViewModel>();
+                   // ShowViewModel<AnsViewModel>();
         }
                 else
                 {
