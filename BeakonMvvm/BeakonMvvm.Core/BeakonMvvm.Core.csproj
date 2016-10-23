@@ -39,6 +39,7 @@
     <Compile Include="Interfaces\IAPerson.cs" />
     <Compile Include="Database\ReqDB.cs" />
     <Compile Include="Interfaces\IAzureDatabase.cs" />
+    <Compile Include="Interfaces\IDialogServiceP.cs" />
     <Compile Include="Interfaces\IToast.cs" />
     <Compile Include="Interfaces\ICalendar.cs" />
     <Compile Include="Interfaces\IAnsDB.cs" />

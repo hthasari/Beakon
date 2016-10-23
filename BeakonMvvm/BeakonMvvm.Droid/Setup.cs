@@ -29,6 +29,7 @@ namespace BeakonMvvm.Droid
         {
            
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
+            Mvx.LazyConstructAndRegisterSingleton<IDialogServiceP, DialogServiceP>();
             Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();
             Mvx.LazyConstructAndRegisterSingleton<ICalendar, Calendar>();
             Mvx.LazyConstructAndRegisterSingleton<IToast, ToastService>();

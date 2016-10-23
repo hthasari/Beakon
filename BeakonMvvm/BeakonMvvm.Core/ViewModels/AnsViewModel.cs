@@ -11,7 +11,7 @@ namespace BeakonMvvm.Core.ViewModels
     public class AnsViewModel : MvxViewModel
     {
         public ICommand SelectMessage { get; private set; }
-        private readonly IDialogService dialog;
+        private readonly IDialogServiceP dialog;
         private ObservableCollection<Answ> messages;
         IAnsDB answerDB;
         public ObservableCollection<Answ> Message
@@ -24,7 +24,7 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        public AnsViewModel(IDialogService dialog, IToast toast, IAnsDB ansDB)
+        public AnsViewModel(IDialogServiceP dialog, IToast toast, IAnsDB ansDB)
         {
             answerDB = ansDB;
             if (MyGlobals.answer != null)

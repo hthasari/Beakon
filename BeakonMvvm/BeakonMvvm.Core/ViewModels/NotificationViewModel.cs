@@ -65,7 +65,7 @@ namespace BeakonMvvm.Core.ViewModels
                     };
 
         }
-                else
+                else if(Answer[0]=="false")
                 {
                     Message.Remove(selectedItem);
                     DeleteReq(selectedItem.Id);
