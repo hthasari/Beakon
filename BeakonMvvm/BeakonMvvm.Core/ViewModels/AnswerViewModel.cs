@@ -11,9 +11,7 @@ namespace BeakonMvvm.Core.ViewModels
         private IReqDB dbss;
         private Req Hari;
 
-        static string nameofperson = "Request Status of " + MyGlobals.perr.pFirstname + "";
-
-        private string _PerInfo = nameofperson;
+        private string _PerInfo = "" + MyGlobals.perr.pFirstname + " " + MyGlobals.perr.pLastname + "\n\n" + MyGlobals.perr.PLocation + "";
         public string PerInfo
         {
             get { return _PerInfo; }
@@ -39,7 +37,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        private bool _isCheckedCal = true;
+        private bool _isCheckedCal = MyGlobals.perr.PCalCheck;
         public bool IsCheckedCal
         {
             get { return _isCheckedCal; }
@@ -52,7 +50,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        private bool _isCheckedLoc = true;
+        private bool _isCheckedLoc = MyGlobals.perr.PLocCheck;
         public bool IsCheckedLoc
         {
             get { return _isCheckedLoc; }
@@ -73,13 +71,9 @@ namespace BeakonMvvm.Core.ViewModels
             dbss = reqq;
             SendButton = new MvxCommand(() =>
                 {
-
-
-                    string froms = MyGlobals.SelPer.pFirstname;
-
                     Hari = new Req
                     {
-                        ReqFrom = froms,
+                        ReqFrom = MyGlobals.SelPer.pFirstname,
                         ReqTo = MyGlobals.perr.pFirstname,
                         ReqCal = IsCheckedCal,
                         ReqLoc = IsCheckedLoc,

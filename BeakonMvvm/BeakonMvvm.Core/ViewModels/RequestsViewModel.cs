@@ -33,8 +33,6 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-
-
         public RequestsViewModel(IAPerson dbs, IToast toast)
         {
             Messages = new ObservableCollection<Perso>();
@@ -44,12 +42,10 @@ namespace BeakonMvvm.Core.ViewModels
 
             SelectPer = new MvxCommand<Perso>( selectedPer =>
             {
+                MyGlobals.perr = null;
                 MyGlobals.perr = selectedPer;
                 ShowViewModel<AnswerViewModel>();
-
             });
-
-
         }
 
         public MvxCommand NavNotCmd
@@ -68,7 +64,6 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-
         public async void LoadPeople()
         {
             foreach (Perso a in await dbs.GetPersons())
@@ -78,10 +73,6 @@ namespace BeakonMvvm.Core.ViewModels
 
         }
 
-
     }
-
-
-
 }
 

@@ -80,7 +80,7 @@ namespace BeakonMvvm.Core.ViewModels
 
         public async void getCount(IToast t)
         {
-            foreach (Answ a in await answerDB.GetAns())
+            foreach (Answ a in await answerDB.GetAns(MyGlobals.SelPer.pFirstname))
             {
                 Message.Add(a);
             }

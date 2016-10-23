@@ -24,7 +24,6 @@ namespace BeakonMvvm.Core.ViewModels
                     SetProperty(ref messages, value);
                 RaisePropertyChanged("Message");
 
-
             }
         }
 
@@ -37,12 +36,20 @@ namespace BeakonMvvm.Core.ViewModels
             this.calendar = calendar;
             LoadRequestes();
            
-
-
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
-                
-                string mes = selectedItem.ReqFrom + "\n" + "Calendar: Needed\n" + "Location: Needed\n" + "Other Info:" + selectedItem.ReqExtra; 
+                string ifloc = "Not Needed";
+                string ifcal = "Not Needed";
+                if (selectedItem.ReqLoc == true)
+                {
+                    ifloc = "Needed";
+                }
+
+                if (selectedItem.ReqCal == true)
+                {
+                    ifcal = "Needed";
+                }
+                string mes = selectedItem.ReqFrom + "\n" + "Calendar: " + ifcal + "\n" + "Location: " + ifloc + "\n" + "Other Info:" + selectedItem.ReqExtra; 
 
                 List<string> Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
                 if (Answer[0] == "true")
@@ -58,7 +65,7 @@ namespace BeakonMvvm.Core.ViewModels
                     MyGlobals.answer = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
-                        AnsTo = sell.pFirstname,
+                        AnsTo = selectedItem.ReqFrom,
                         AnsLoc = wifi,
                         AnsCal = calend,
                         AnsExtra = Answer[1]

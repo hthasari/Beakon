@@ -27,7 +27,7 @@ namespace BeakonMvvm.Core.ViewModels
                 PEmail = "hathur.gg@gmail.com",
                 photo = "@drawable/gur",
                 PCalCheck = true,
-                PLocation = "Qut",
+                PLocation = "Available",
                 PLocCheck = true
             };
             Hari = new Perso
@@ -37,7 +37,7 @@ namespace BeakonMvvm.Core.ViewModels
                 PEmail = "harri@gmail.com",
                 photo = "@drawable/harri",
                 PCalCheck = true,
-                PLocation = "Qut",
+                PLocation = "Having Food",
                 PLocCheck = true
             };
 
@@ -48,7 +48,7 @@ namespace BeakonMvvm.Core.ViewModels
             //    PEmail = "Maskell@gmail.com",
             //    photo = "@drawable/iam",
             //    PCalCheck = true,
-            //    PLocation = "Qut",
+            //    PLocation = "Meeting in QUT",
             //    PLocCheck = true
             //};
 

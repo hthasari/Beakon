@@ -61,27 +61,21 @@ namespace BeakonMvvm.Core.ViewModels
         {
             get { return _photo; }
         }
-        private INetwork ssid;
-        private string ssidName;
 
-
-
-
-        public string Wifi
+        private string _status = selected.PLocation;
+        public string Status
         {
-            get { return ssidName; }
+            get { return _status; }
             set
             {
-                if (value != ssidName)
+                if (value != null && value != _status)
                 {
-                    ssidName = value;
+                    _status = value;
                     selected.PLocation = value;
-                    RaisePropertyChanged(() => Wifi);
+                    RaisePropertyChanged(() => Status);
                 }
             }
         }
-
-
 
 
         //Last Name
@@ -116,12 +110,9 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public SettingsViewModel(INetwork ssid)
+        public SettingsViewModel()
         {
-
-            this.ssid = ssid;
-            ssidName = ssid.SSID();
-            selected.PLocation = ssidName;
+            _status = MyGlobals.SelPer.PLocation;
             _lname = MyGlobals.SelPer.pLastname;
             _name = MyGlobals.SelPer.pFirstname;
             _email = MyGlobals.SelPer.PEmail;

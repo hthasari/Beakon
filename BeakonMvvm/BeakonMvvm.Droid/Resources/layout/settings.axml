@@ -210,7 +210,7 @@
                     android:paddingBottom="20px"
                     android:paddingLeft="20px"
                     android:paddingRight="10px"
-                    android:text="Wifi SSID"
+                    android:text="STATUS"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent" />
                 <Space
@@ -230,43 +230,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
-                    local:MvxBind="Text Wifi" />
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/linearLayoutSSID">
-                <TextView
-                    android:id="@+id/textEmail"
-                    android:textColor="#ff0099cc"
-                    android:textStyle="bold"
-                    android:textSize="18dp"
-                    android:paddingTop="20px"
-                    android:paddingBottom="20px"
-                    android:paddingLeft="20px"
-                    android:paddingRight="10px"
-                    android:text="Status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" />
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/space3"
-                    android:layout_weight="1" />
-                <EditText
-                    android:id="@+id/textEmailInput"
-                    android:textColor="#000"
-                    android:textStyle="normal"
-                    android:textSize="18dp"
-                    android:paddingTop="20px"
-                    android:paddingBottom="20px"
-                    android:paddingLeft="20px"
-                    android:paddingRight="30px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="right"
-                    local:MvxBind="Text Wifi" />
+                    local:MvxBind="Text Status" />
             </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"

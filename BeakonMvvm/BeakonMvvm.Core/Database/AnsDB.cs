@@ -47,13 +47,13 @@ namespace BeakonMvvm.Core.Database
             }
         }
 
-        public async Task<List<Answ>> GetAns()
+        public async Task<List<Answ>> GetAns(string name)
         {
             await SyncAsync(true);
             SyncAsync(true);
-            
-            var locations = await azureSyncTable.ToListAsync();
-            return locations;
+
+            var location = await azureSyncTable.Where(x => x.AnsTo == (string)name).ToListAsync();
+            return location;
 
         }
 
