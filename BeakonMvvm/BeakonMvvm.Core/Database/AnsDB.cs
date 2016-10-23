@@ -25,19 +25,19 @@ namespace BeakonMvvm.Core.Database
         public async Task<bool> CheckIfExists(Answ location)
         {
             var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
-            await azureDatabase.LogoutAsync();
             return locations.Any();
         }
 
         public async Task<int> DeleteAns(object id)
         {
             await SyncAsync(true);
+            SyncAsync(true);
+            
             var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
             if (location.Any())
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
                 await SyncAsync();
-                await azureDatabase.LogoutAsync();
                 return 1;
             }
             else
@@ -49,10 +49,10 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<List<Answ>> GetAns()
         {
-
             await SyncAsync(true);
+            SyncAsync(true);
+            
             var locations = await azureSyncTable.ToListAsync();
-            await azureDatabase.LogoutAsync();
             return locations;
 
         }
@@ -68,10 +68,12 @@ namespace BeakonMvvm.Core.Database
                 AnsExtra = extra
             };
             await SyncAsync(true);
+            SyncAsync(true);
+           
             await azureSyncTable.InsertAsync(answer);
             await SyncAsync();
-            await azureDatabase.LogoutAsync();
-            return 1;
+
+                   return 1;
 
 
         }

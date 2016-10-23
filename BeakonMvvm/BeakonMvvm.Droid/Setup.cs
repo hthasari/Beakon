@@ -36,8 +36,6 @@ namespace BeakonMvvm.Droid
             Mvx.LazyConstructAndRegisterSingleton<IAPerson, APerson>();
             Mvx.LazyConstructAndRegisterSingleton<IReqDB, ReqDB>();
             Mvx.LazyConstructAndRegisterSingleton<IAnsDB, AnsDB>();
-
-            //Mvx.LazyConstructAndRegisterSingleton<IDialogServiceText, DialogServiceText>();
             base.InitializeFirstChance();
         }
     }

@@ -42,9 +42,9 @@ namespace BeakonMvvm.Core.ViewModels
             SelectMessage = new MvxCommand<Answ>(async selectedItem =>
             {
                 string mes = "from " + selectedItem.AnsFrom + "\n" + "Calendar: " + selectedItem.AnsCal + "\n" + "Location: "+ selectedItem.AnsLoc + "\nOther Info:" + selectedItem.AnsExtra;
-                bool Answer = await dialog.Show(mes, "Status Response", "Ok", "Delete");
+                List<string> Answer = await dialog.Show(mes, "Status Response", "Ok", "Delete");
 
-                if  (Answer == false)
+                if  (Answer[0] == "false")
                 {
                     Message.Remove(selectedItem);
                     DeleteAns(selectedItem.Id);

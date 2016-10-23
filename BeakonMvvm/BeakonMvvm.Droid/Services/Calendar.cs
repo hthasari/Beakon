@@ -30,7 +30,12 @@ namespace BeakonMvvm.Droid.Services
                 cursor.MoveToFirst();
                 int calendarCount = cursor.Count;
 
-            if (calendarCount > 0)
+            if (calendarCount==0)
+            {
+   
+                    return "No Events";
+                }
+            else
             {
 
 
@@ -106,10 +111,9 @@ namespace BeakonMvvm.Droid.Services
                 return returnevents;
 
             }
-            else
-            {
-                return "No Events";
-            }
+
+
+
 
         }
 

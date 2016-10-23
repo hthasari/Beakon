@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.Interfaces
 {
@@ -10,7 +11,7 @@ namespace BeakonMvvm.Core.Interfaces
         /// <param name="message"></param>
         /// <param name="title"></param>
         /// <returns></returns>
-        Task<bool> Show(string message, string title);
+        Task<List<string>> Show(string message, string title);
 
         /// <summary>
         /// Shows a dialog to the user, with a chosen message, title, confirm button and cancel button
@@ -20,6 +21,6 @@ namespace BeakonMvvm.Core.Interfaces
         /// <param name="confirmButton"></param>
         /// <param name="cancelButton"></param>
         /// <returns></returns>
-        Task<bool> Show(string message, string title, string confirmButton, string cancelButton);
+        Task<List<string>> Show(string message, string title, string confirmButton, string cancelButton);
     }
 }

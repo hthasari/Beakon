@@ -21,8 +21,10 @@ namespace BeakonMvvm.Core.Database
         public async Task<List<Perso>> GetPersons()
         {
             await SyncAsync(true);
+            SyncAsync(true);
+            await SyncAsync(true);
             var locations = await azureSyncTable.ToListAsync();
-            await azureDatabase.LogoutAsync();
+
             return locations;
         }
 
@@ -30,17 +32,17 @@ namespace BeakonMvvm.Core.Database
         {
           //  await SyncAsync(true);
             var locations = await azureSyncTable.ToListAsync();
-            await azureDatabase.LogoutAsync();
             return locations;
         }
 
 
         public async Task<int> InsertPerson(Perso p)
         {
+
             await SyncAsync(true);
+            SyncAsync(true);
             await azureSyncTable.InsertAsync(p);
             await SyncAsync();
-            await azureDatabase.LogoutAsync();
             return 1;
 
 

@@ -1,16 +1,8 @@
-﻿using System.Collections.Generic;
-using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.ViewModels;
 using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
 using System.Windows.Input;
-using BeakonMvvm.Core.Database;
-using Android.App;
-using System;
-using System.Windows;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using Android.OS;
-using Java.Util.Logging;
+using System.Collections.Generic;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -21,8 +13,7 @@ namespace BeakonMvvm.Core.ViewModels
         private readonly IDialogService dialog;
         private ICalendar calendar;
         private Perso sell = MyGlobals.SelPer;
-        private ObservableCollection<Req> two = new ObservableCollection<Req>();
-
+      
 
         private ObservableCollection<Req> messages;
         public ObservableCollection<Req> Message
@@ -44,7 +35,6 @@ namespace BeakonMvvm.Core.ViewModels
             dbs = dbss;       
             this.dialog = dialog;
             this.calendar = calendar;
-            toast.Show("Loading from Database");
             LoadRequestes();
            
 
@@ -54,21 +44,16 @@ namespace BeakonMvvm.Core.ViewModels
                 
                 string mes = selectedItem.ReqFrom + "\n" + "Calendar: Needed\n" + "Location: Needed\n" + "Other Info:" + selectedItem.ReqExtra; 
 
-                bool Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
-                if (Answer == true)
+                List<string> Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
+                if (Answer[0] == "true")
                 {
-                    string calend;
+
                     Message.Remove(selectedItem);
                     DeleteReq(selectedItem.Id);
                     toast.Show("Status Response Sent");
-                    if (calendar.returnEvents() != null) {
-
-                        calend = calendar.returnEvents();
-                        }
-                    else
-                    {
-                        calend = "No Events Forund";
-                    }
+     
+                        string calend = calendar.returnEvents();
+      
                     string wifi = net.SSID();
                     MyGlobals.answer = new Answ
                     {
@@ -76,10 +61,9 @@ namespace BeakonMvvm.Core.ViewModels
                         AnsTo = sell.pFirstname,
                         AnsLoc = wifi,
                         AnsCal = calend,
-                        AnsExtra = selectedItem.ReqExtra
+                        AnsExtra = Answer[1]
                     };
 
-                   // ShowViewModel<AnsViewModel>();
         }
                 else
                 {

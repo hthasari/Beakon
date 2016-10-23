@@ -29,14 +29,14 @@ namespace BeakonMvvm.Core.Database
         }
 
         public async Task<int> DeleteReq(object id)
-        {
-            await SyncAsync(true);
+        { await SyncAsync(true);
+            SyncAsync(true);
+           
             var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
             if (location.Any())
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
                 await SyncAsync();
-                await azureDatabase.LogoutAsync();
                 return 1;
             }
             else
@@ -48,17 +48,15 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<List<Req>> GetReq(string name)
         {
-
-            await SyncAsync(true);
+await SyncAsync(true);
+            SyncAsync(true);
             var location = await azureSyncTable.Where(x => x.ReqTo == (string)name).ToListAsync();
-            await azureDatabase.LogoutAsync();
             return location;
             
 
         }
         public async Task<List<Req>> GetReqLoc()
         {
-
             var locations = await azureSyncTable.ToListAsync();
             return locations;
            
@@ -67,11 +65,11 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<int> InsertReq(Req p)
         {
-
-           await SyncAsync(true);
+            await SyncAsync(true);
+           SyncAsync(true);
+            
             await azureSyncTable.InsertAsync(p);
             await SyncAsync();
-            await azureDatabase.LogoutAsync();
             return 1;
 
 
