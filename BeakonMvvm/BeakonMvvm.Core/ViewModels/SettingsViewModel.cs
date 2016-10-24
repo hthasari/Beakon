@@ -39,7 +39,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        //Last Name
+        //Email
         private string _email = selected.PEmail;
         public string Eemail
         {
@@ -55,7 +55,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        //Last Name
+        //Photo
         private string _photo = selected.photo;
         public string Photo
         {
@@ -78,7 +78,7 @@ namespace BeakonMvvm.Core.ViewModels
         }
 
 
-        //Last Name
+        //Location Bool
         private bool _loc = selected.PLocCheck;
         public bool Location
         {
@@ -94,7 +94,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        //Last Name
+        //Calander Bool
         private bool _cal = selected.PCalCheck;
         public bool Calandr
         {
@@ -110,15 +110,16 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
+
         public SettingsViewModel()
         {
-            _status = MyGlobals.SelPer.PLocation;
-            _lname = MyGlobals.SelPer.pLastname;
-            _name = MyGlobals.SelPer.pFirstname;
-            _email = MyGlobals.SelPer.PEmail;
-            _cal = MyGlobals.SelPer.PCalCheck;
-            _loc = MyGlobals.SelPer.PLocCheck;
-            _photo = MyGlobals.SelPer.photo;
+           _status = MyGlobals.SelPer.PLocation;
+           _lname = MyGlobals.SelPer.pLastname;
+           _name = MyGlobals.SelPer.pFirstname;
+           _email = MyGlobals.SelPer.PEmail;
+           _cal = MyGlobals.SelPer.PCalCheck;
+           _loc = MyGlobals.SelPer.PLocCheck;
+           _photo = MyGlobals.SelPer.photo;
         }
 
 

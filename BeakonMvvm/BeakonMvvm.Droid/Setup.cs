@@ -27,7 +27,6 @@ namespace BeakonMvvm.Droid
         }
         protected override void InitializeFirstChance()
         {
-           
             Mvx.LazyConstructAndRegisterSingleton<IDialogService, DialogService>();
             Mvx.LazyConstructAndRegisterSingleton<IDialogServiceP, DialogServiceP>();
             Mvx.LazyConstructAndRegisterSingleton<IAzureDatabase, AzureDatabase>();

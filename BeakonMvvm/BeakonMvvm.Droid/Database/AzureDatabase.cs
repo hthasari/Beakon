@@ -13,7 +13,7 @@ namespace BeakonMvvm.Droid.Database
         {
             CurrentPlatform.Init();
 
-            azureDatabase = new MobileServiceClient("https://garry.azurewebsites.net");
+            azureDatabase = new MobileServiceClient("https://beakon.azurewebsites.net/");
 
             InitializeLocal();
             return azureDatabase;

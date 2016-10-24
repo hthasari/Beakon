@@ -15,10 +15,8 @@ namespace BeakonMvvm.Core.ViewModels
         public ICommand GurButton { get; private set; }
         public ICommand HarriButton { get; private set; }
         public WelcomeViewModel(IToast toast, IAPerson per)
-
         {
-            this.adb = per;
-
+            adb = per;
 
             Gur = new Perso
             {
@@ -30,6 +28,7 @@ namespace BeakonMvvm.Core.ViewModels
                 PLocation = "Available",
                 PLocCheck = true
             };
+
             Hari = new Perso
             {
                 pFirstname = "Harri",
@@ -72,9 +71,9 @@ namespace BeakonMvvm.Core.ViewModels
             });
 
         }
-        public async void getCount(Perso p)
+        public async void getCount(Perso person)
         {
-            await adb.InsertPerson(p);
+            await adb.InsertPerson(person);
         }
 
     }

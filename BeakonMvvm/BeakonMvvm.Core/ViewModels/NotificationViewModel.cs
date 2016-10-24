@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
 using System.Windows.Input;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.ViewModels
 {
@@ -27,7 +28,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net)
+        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net, IAnsDB ans)
         {
 
             Message = new ObservableCollection<Req>();
@@ -40,15 +41,11 @@ namespace BeakonMvvm.Core.ViewModels
             {
                 string ifloc = "Not Needed";
                 string ifcal = "Not Needed";
-                if (selectedItem.ReqLoc == true)
-                {
-                    ifloc = "Needed";
-                }
 
-                if (selectedItem.ReqCal == true)
-                {
-                    ifcal = "Needed";
-                }
+                if (selectedItem.ReqLoc == true) { ifloc = "Needed"; }
+
+                if (selectedItem.ReqCal == true) { ifcal = "Needed"; }
+
                 string mes = selectedItem.ReqFrom + "\n" + "Calendar: " + ifcal + "\n" + "Location: " + ifloc + "\n" + "Other Info:" + selectedItem.ReqExtra; 
 
                 List<string> Answer = await dialog.Show(mes, "Status Request",  "Send", "Dismiss");
@@ -56,13 +53,13 @@ namespace BeakonMvvm.Core.ViewModels
                 {
 
                     Message.Remove(selectedItem);
-                    DeleteReq(selectedItem.Id);
+                   await DeleteReq(selectedItem.Id);
                     toast.Show("Status Response Sent");
      
-                        string calend = calendar.returnEvents();
-      
-                    string wifi = net.SSID();
-                    MyGlobals.answer = new Answ
+                    string calend = calendar.returnEvents(); // Calander Events for Today
+                    string wifi = net.SSID(); // Wifi Access point of person
+
+                    Answ a = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
                         AnsTo = selectedItem.ReqFrom,
@@ -71,11 +68,13 @@ namespace BeakonMvvm.Core.ViewModels
                         AnsExtra = Answer[1]
                     };
 
-        }
+                   await insertAns(ans, a);
+                }
+
                 else if(Answer[0]=="false")
                 {
                     Message.Remove(selectedItem);
-                    DeleteReq(selectedItem.Id);
+                    await DeleteReq(selectedItem.Id);
                     toast.Show("Status Request Deleted");
                 }
             });
@@ -111,14 +110,22 @@ namespace BeakonMvvm.Core.ViewModels
 
             foreach (Req request in await dbs.GetReq(MyGlobals.SelPer.pFirstname))
             {
+
                 Message.Add(request);
                 
             }
         }
 
-        public async void DeleteReq(object id)
+        public async Task DeleteReq(object id)
         {
             await dbs.DeleteReq(id);
+        }
+
+        public async Task insertAns(IAnsDB answerDB, Answ a)
+        {
+                Answ sel = a;
+                await answerDB.InsertAns(sel.AnsFrom, sel.AnsTo, sel.AnsCal, sel.AnsLoc, sel.AnsExtra);
+              //  ShowViewModel<AnsViewModel>();
         }
 
     }

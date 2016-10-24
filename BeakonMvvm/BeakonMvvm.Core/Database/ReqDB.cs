@@ -24,6 +24,7 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<bool> CheckIfExists(Req location)
         {
+
             var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
             return locations.Any();
         }

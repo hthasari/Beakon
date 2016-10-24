@@ -4,38 +4,40 @@ using System.Collections.ObjectModel;
 using BeakonMvvm.Core.Interfaces;
 using BeakonMvvm.Core.Database;
 using System.Windows.Input;
+using System.Threading.Tasks;
 
 namespace BeakonMvvm.Core.ViewModels
 {
     public static class MyGlobals
     {
-        public static Perso perr { get; set; }
-        public static Perso SelPer { get; set; }
-        public static Answ answer { get; set; }
+        public static Perso perr { get; set; } // Holds the Selected Person
+        public static Perso SelPer { get; set; } // Holds the Main person
+        public static Answ answer { get; set; } // Holds the answer for Req
     }
 
     public class RequestsViewModel : MvxViewModel
     { 
-       private ObservableCollection<Perso> message;
+       private ObservableCollection<Perso> _persons;
        private IAPerson dbs;
-
        List<Perso> dbPersons = new List<Perso>();
+
        public ICommand SelectPer { get; private set; }
 
-        public ObservableCollection<Perso> Messages
+        // List that holds the persons
+        public ObservableCollection<Perso> Persons
         {
-
-            get { return message; }
+            get { return _persons; }
             set
             {
-                SetProperty(ref message, value);
-                RaisePropertyChanged("Messages");
+                SetProperty(ref _persons, value);
+                RaisePropertyChanged("Persons");
             }
         }
 
+        // Main View Model Function
         public RequestsViewModel(IAPerson dbs, IToast toast)
         {
-            Messages = new ObservableCollection<Perso>();
+            Persons = new ObservableCollection<Perso>();
             this.dbs = dbs;
             toast.Show("Loading from databse");
             LoadPeople();
@@ -48,6 +50,16 @@ namespace BeakonMvvm.Core.ViewModels
             });
         }
 
+        // Load People form Azure Async
+        public async void LoadPeople()
+        {
+            foreach (Perso person in await dbs.GetPersons())
+            {
+               Persons.Add(person);
+            }
+        }
+
+        // Navigation 
         public MvxCommand NavNotCmd
         {
             get
@@ -64,15 +76,5 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public async void LoadPeople()
-        {
-            foreach (Perso a in await dbs.GetPersons())
-            {
-                Messages.Add(a);
-            }
-
-        }
-
     }
 }
-
