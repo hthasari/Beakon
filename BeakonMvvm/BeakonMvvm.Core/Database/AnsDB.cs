@@ -31,7 +31,6 @@ namespace BeakonMvvm.Core.Database
         public async Task<int> DeleteAns(object id)
         {
             await SyncAsync(true);
-            SyncAsync(true);
             
             var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
             if (location.Any())
@@ -50,8 +49,6 @@ namespace BeakonMvvm.Core.Database
         public async Task<List<Answ>> GetAns(string name)
         {
             await SyncAsync(true);
-            SyncAsync(true);
-
             var location = await azureSyncTable.Where(x => x.AnsTo == (string)name).ToListAsync();
             return location;
 
@@ -68,8 +65,6 @@ namespace BeakonMvvm.Core.Database
                 AnsExtra = extra
             };
             await SyncAsync(true);
-            SyncAsync(true);
-           
             await azureSyncTable.InsertAsync(answer);
             await SyncAsync();
 
