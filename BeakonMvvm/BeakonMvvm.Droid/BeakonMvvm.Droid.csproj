@@ -185,6 +185,7 @@
     <Compile Include="Services\DialogService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Views\redirect.cs" />
     <Compile Include="Views\answers.cs" />
     <Compile Include="Views\Answr.cs" />
     <Compile Include="Views\Requests.cs" />

@@ -28,7 +28,7 @@ namespace BeakonMvvm.Core.ViewModels
             }
         }
 
-        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net, IAnsDB ans)
+        public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net)
         {
 
             Message = new ObservableCollection<Req>();
@@ -53,13 +53,13 @@ namespace BeakonMvvm.Core.ViewModels
                 {
 
                     Message.Remove(selectedItem);
-                   await DeleteReq(selectedItem.Id);
+                    await DeleteReq(selectedItem.Id);
                     toast.Show("Status Response Sent");
      
                     string calend = calendar.returnEvents(); // Calander Events for Today
                     string wifi = net.SSID(); // Wifi Access point of person
 
-                    Answ a = new Answ
+                    MyGlobals.answer  = new Answ
                     {
                         AnsFrom = selectedItem.ReqTo,
                         AnsTo = selectedItem.ReqFrom,
@@ -67,11 +67,11 @@ namespace BeakonMvvm.Core.ViewModels
                         AnsCal = calend,
                         AnsExtra = Answer[1]
                     };
+                    ShowViewModel<RedirectViewModel>();
 
-                   await insertAns(ans, a);
                 }
 
-                else if(Answer[0]=="false")
+                else if (Answer[0]=="false")
                 {
                     Message.Remove(selectedItem);
                     await DeleteReq(selectedItem.Id);
@@ -121,12 +121,6 @@ namespace BeakonMvvm.Core.ViewModels
             await dbs.DeleteReq(id);
         }
 
-        public async Task insertAns(IAnsDB answerDB, Answ a)
-        {
-                Answ sel = a;
-                await answerDB.InsertAns(sel.AnsFrom, sel.AnsTo, sel.AnsCal, sel.AnsLoc, sel.AnsExtra);
-              //  ShowViewModel<AnsViewModel>();
-        }
 
     }
 }

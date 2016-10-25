@@ -81,7 +81,7 @@ namespace BeakonMvvm.Core.Database
 
                 if (pullData)
                 {
-                    await azureSyncTable.PullAsync("allAnsws", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                    await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                 }
             }
 

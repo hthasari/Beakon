@@ -27,7 +27,12 @@ namespace BeakonMvvm.Core.ViewModels
         public AnsViewModel(IDialogServiceP dialog, IToast toast, IAnsDB ansDB)
         {
             answerDB = ansDB;
-           
+            if (MyGlobals.answer != null)
+                {
+                Answ sel = MyGlobals.answer;
+                insertAns(sel.AnsFrom, sel.AnsTo, sel.AnsCal, sel.AnsLoc, sel.AnsExtra);
+                MyGlobals.answer = null;
+               }
 
             Message = new ObservableCollection<Answ>();
             toast.Show("Responses Loading...");

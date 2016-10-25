@@ -1,11 +1,8 @@
 
-// Author Gurpreet Dhaliwal
-
 namespace BeakonMvvm.Core
 {
     public class Answ
-    {
-        public string success{ get; set;}
+    { 
         public string Id { get; set; }
         public string AnsFrom { get; set; }
         public string AnsTo { get; set; }
