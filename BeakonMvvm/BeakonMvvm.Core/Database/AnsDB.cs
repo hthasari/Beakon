@@ -24,19 +24,19 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<bool> CheckIfExists(Answ location)
         {
+            await SyncAsync(true);
             var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
             return locations.Any();
         }
 
         public async Task<int> DeleteAns(object id)
         {
-            await SyncAsync(true);
-            
+            await SyncAsync(true);  
             var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
             if (location.Any())
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                await SyncAsync();
+                await SyncAsync(false);
                 return 1;
             }
             else
@@ -66,26 +66,25 @@ namespace BeakonMvvm.Core.Database
             };
             await SyncAsync(true);
             await azureSyncTable.InsertAsync(answer);
-            await SyncAsync();
+            await SyncAsync(false);
 
-                   return 1;
-
+            return 1;
 
         }
-        private async Task SyncAsync(bool pullData = false)
+
+        private async Task SyncAsync(bool pullData)
         {
             try
             {
                 await azureDatabase.SyncContext.PushAsync();
-
-
-                if (pullData)
+                if (pullData == true)
                 {
-                    await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                    await azureSyncTable.PullAsync("allAnsws", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                 }
+              
             }
 
-            catch (Exception e)
+            catch(Exception e)
             {
                 Debug.WriteLine(e);
             }

@@ -1,5 +1,7 @@
 using Android.App;
 using Android.OS;
+using Android.Support.V4.Widget;
+using Android.Views;
 using BeakonMvvm.Core.ViewModels;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Droid.Views;
@@ -14,6 +16,12 @@ namespace BeakonMvvm.Droid.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Notification);
+
+            SwipeRefreshLayout refresher = FindViewById<SwipeRefreshLayout>(Resource.Id.refresher);
+            refresher.Refresh += delegate {
+                // refresher.Refreshing = false;
+              
+            };
 
         }
 

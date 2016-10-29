@@ -95,8 +95,49 @@ namespace BeakonMvvm.Core.ViewModels
             await answerDB.InsertAns(from,to, cal,loc,extra);
         }
 
+        public async Task LoadReq()
+        {
+            Message = new ObservableCollection<Answ>();
 
+            foreach (Answ ans in await answerDB.GetAns(MyGlobals.SelPer.pFirstname))
+            {
 
+                Message.Add(ans);
+
+            }
+        }
+        // experimental stuff
+
+        private bool _isRefreshing;
+
+        public virtual bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+
+                _isRefreshing = value;
+                RaisePropertyChanged(() => IsRefreshing);
+            }
+        }
+
+        public ICommand ReloadCommand
+        {
+            get
+            {
+                return new MvxCommand(async () => {
+                    IsRefreshing = true;
+                    await LoadReq();
+                    IsRefreshing = false;
+                });
+            }
+        }
+
+        public virtual async Task ReloadData()
+        {
+            // By default return a completed Task
+            await Task.Delay(5000);
+        }
 
     }
 }

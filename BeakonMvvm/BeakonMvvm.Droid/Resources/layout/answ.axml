@@ -79,10 +79,16 @@
             android:paddingRight="20px"
             android:text="Answers" />
     </LinearLayout>
+  <BeakonMvvm.Droid.BindableSwipeRefreshLayout
+    android:id="@+id/refresher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
     <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         local:MvxItemTemplate="@layout/anscustomlistview"
         local:MvxBind="ItemsSource Message; ItemClick SelectMessage"
         android:background="#f3f3f3" />
+  </BeakonMvvm.Droid.BindableSwipeRefreshLayout>
 </LinearLayout>

@@ -6,9 +6,6 @@ namespace BeakonMvvm.Core.Interfaces
     public interface IReqDB
     {
         Task<List<Req>> GetReq(string t);
-
-        Task<List<Req>> GetReqLoc();
-
         Task<int> DeleteReq(object id);
 
         Task<int> InsertReq(Req p);

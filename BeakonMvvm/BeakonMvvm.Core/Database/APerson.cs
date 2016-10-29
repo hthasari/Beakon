@@ -18,9 +18,7 @@ namespace BeakonMvvm.Core.Database
             azureSyncTable = azureDatabase.GetSyncTable<Perso>();
         }
         public async Task<List<Perso>> GetPersons()
-        {
-            await SyncAsync(true);
-            SyncAsync(true);
+        { 
             await SyncAsync(true);
             var locations = await azureSyncTable.ToListAsync();
 
@@ -37,26 +35,23 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<int> InsertPerson(Perso p)
         {
-
             await SyncAsync(true);
-            SyncAsync(true);
             await azureSyncTable.InsertAsync(p);
-            await SyncAsync();
+            await SyncAsync(false);
             return 1;
 
 
         }
-        private async Task SyncAsync(bool pullData = false)
+        private async Task SyncAsync(bool pullData)
         {
             try
             {
                 await azureDatabase.SyncContext.PushAsync();
-
-
-                if (pullData)
+                if (pullData == true)
                 {
-                    await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                    await azureSyncTable.PullAsync("allPersws", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                 }
+                
             }
 
             catch (Exception e)

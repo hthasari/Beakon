@@ -53,10 +53,6 @@ namespace BeakonMvvm.Core.ViewModels
         {
             await answerDB.InsertAns(from,to, cal,loc,extra);
         }
-
-
-
-
     }
 }
 

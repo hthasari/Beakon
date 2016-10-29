@@ -13,7 +13,7 @@ namespace BeakonMvvm.Droid.Views
         protected override void OnCreate(Bundle Bundle)
         {
             base.OnCreate(Bundle);
-            SetContentView(Resource.Layout.settings);
+            SetContentView(Resource.Layout.settings); 
         }
     }
 }

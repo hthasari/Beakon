@@ -11,6 +11,7 @@ namespace BeakonMvvm.Core.ViewModels
     {
         private IReqDB dbs;
         public ICommand SelectMessage { get; private set; }
+       // public ICommand RefreshCommand { get; set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
         private Perso sell = MyGlobals.SelPer;
@@ -36,7 +37,6 @@ namespace BeakonMvvm.Core.ViewModels
             this.dialog = dialog;
             this.calendar = calendar;
             LoadRequestes();
-           
             SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
                 string ifloc = "Not Needed";
@@ -112,7 +112,19 @@ namespace BeakonMvvm.Core.ViewModels
             {
 
                 Message.Add(request);
-                
+
+            }
+        }
+
+        public async Task LoadReq()
+        {
+            Message = new ObservableCollection<Req>();
+
+            foreach (Req request in await dbs.GetReq(MyGlobals.SelPer.pFirstname))
+            {
+
+                Message.Add(request);
+
             }
         }
 
@@ -120,7 +132,38 @@ namespace BeakonMvvm.Core.ViewModels
         {
             await dbs.DeleteReq(id);
         }
+        // experimental stuff
 
+        private bool _isRefreshing;
+
+        public virtual bool IsRefreshing
+        {
+            get { return _isRefreshing; }
+            set
+            {
+
+                _isRefreshing = value;
+                RaisePropertyChanged(() => IsRefreshing);
+            }
+        }
+
+        public ICommand ReloadCommand
+        {
+            get
+            {
+                return new MvxCommand(async () => {
+                    IsRefreshing = true;
+                    await LoadReq();
+                    IsRefreshing = false;
+                });
+            }
+        }
+
+        public virtual async Task ReloadData()
+        {
+            // By default return a completed Task
+            await Task.Delay(5000);
+        }
 
     }
 }

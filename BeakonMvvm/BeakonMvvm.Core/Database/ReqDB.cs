@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 // Author Gurpreet Dhaliwal
 namespace BeakonMvvm.Core.Database
 {
-    
+
     public class ReqDB : IReqDB
     {
         private MobileServiceClient azureDatabase;
@@ -24,20 +24,20 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<bool> CheckIfExists(Req location)
         {
-
+            await SyncAsync(true);
             var locations = await azureSyncTable.Where(x => x.Id == location.Id).ToListAsync();
             return locations.Any();
         }
 
         public async Task<int> DeleteReq(object id)
-        { await SyncAsync(true);
-            SyncAsync(true);
-           
+        {
+            await SyncAsync(true);
+
             var location = await azureSyncTable.Where(x => x.Id == (string)id).ToListAsync();
             if (location.Any())
             {
                 await azureSyncTable.DeleteAsync(location.FirstOrDefault());
-                await SyncAsync();
+                await SyncAsync(false);
                 return 1;
             }
             else
@@ -49,42 +49,31 @@ namespace BeakonMvvm.Core.Database
 
         public async Task<List<Req>> GetReq(string name)
         {
-await SyncAsync(true);
-            SyncAsync(true);
+            await SyncAsync(true);
             var location = await azureSyncTable.Where(x => x.ReqTo == (string)name).ToListAsync();
             return location;
-            
 
         }
-        public async Task<List<Req>> GetReqLoc()
-        {
-            var locations = await azureSyncTable.ToListAsync();
-            return locations;
-           
-
-        }
-
+ 
         public async Task<int> InsertReq(Req p)
         {
             await SyncAsync(true);
-           SyncAsync(true);
-            
             await azureSyncTable.InsertAsync(p);
-            await SyncAsync();
+            await SyncAsync(false);
             return 1;
 
 
         }
-        private async Task SyncAsync(bool pullData = false)
+        private async Task SyncAsync(bool pullData)
         {
+
             try
             {
+               
                 await azureDatabase.SyncContext.PushAsync();
-
-
-                if (pullData)
+                if (pullData == true)
                 {
-                    await azureSyncTable.PullAsync("allLocations", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
+                   await azureSyncTable.PullAsync("allReqs", azureSyncTable.CreateQuery()); // query ID is used for incremental sync
                 }
             }
 
@@ -95,6 +84,5 @@ await SyncAsync(true);
         }
 
     }
-
 }
 
