@@ -11,7 +11,6 @@ namespace BeakonMvvm.Core.ViewModels
     {
         private IReqDB dbs;
         public ICommand SelectMessage { get; private set; }
-       // public ICommand RefreshCommand { get; set; }
         private readonly IDialogService dialog;
         private ICalendar calendar;
         private Perso sell = MyGlobals.SelPer;
@@ -31,13 +30,12 @@ namespace BeakonMvvm.Core.ViewModels
 
         public NotificationViewModel(IReqDB dbss, IDialogService dialog, ICalendar calendar, IToast toast, INetwork net)
         {
-
-            Message = new ObservableCollection<Req>();
             dbs = dbss;       
             this.dialog = dialog;
             this.calendar = calendar;
-            LoadRequestes();
-            SelectMessage = new MvxCommand<Req>(async selectedItem =>
+
+            ReloadCommand.Execute(null);
+           SelectMessage = new MvxCommand<Req>(async selectedItem =>
             {
                 string ifloc = "Not Needed";
                 string ifcal = "Not Needed";
@@ -105,17 +103,6 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(() => ShowViewModel<AnsViewModel>());
             }
         }
-        public async void LoadRequestes()
-        {
-
-            foreach (Req request in await dbs.GetReq(MyGlobals.SelPer.pFirstname))
-            {
-
-                Message.Add(request);
-
-            }
-        }
-
         public async Task LoadReq()
         {
             Message = new ObservableCollection<Req>();
@@ -154,7 +141,7 @@ namespace BeakonMvvm.Core.ViewModels
                 return new MvxCommand(async () => {
                     IsRefreshing = true;
                     await LoadReq();
-                    IsRefreshing = false;
+                 IsRefreshing = false;
                 });
             }
         }

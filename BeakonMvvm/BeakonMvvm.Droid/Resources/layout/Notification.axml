@@ -79,8 +79,8 @@
             local:MvxBind="Click NavAns"
             android:layout_margin="2dp" />
     </LinearLayout>
-  <BeakonMvvm.Droid.BindableSwipeRefreshLayout
-      android:id="@+id/refresher"
+    <BeakonMvvm.Droid.BindableSwipeRefreshLayout
+        android:id="@+id/refresher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">

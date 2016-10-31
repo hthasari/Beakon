@@ -45,10 +45,16 @@
             android:background="#56b3d2"
             android:layout_margin="1dp" />
     </LinearLayout>
+  <BeakonMvvm.Droid.BindableSwipeRefreshLayout
+       android:id="@+id/refresher"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       local:MvxBind="Refreshing IsRefreshing; RefreshCommand ReloadCommand">
     <Mvx.MvxListView
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:background="#F4F4F4"
         local:MvxItemTemplate="@layout/listview_row"
-        local:MvxBind="ItemsSource Persons; ItemClick SelectPer" />
+        local:MvxBind="ItemsSource Persons; ItemClick SelectPer"/>
+        </BeakonMvvm.Droid.BindableSwipeRefreshLayout>
 </LinearLayout>
