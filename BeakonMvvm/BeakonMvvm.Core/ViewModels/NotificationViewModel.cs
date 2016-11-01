@@ -53,9 +53,34 @@ namespace BeakonMvvm.Core.ViewModels
                     Message.Remove(selectedItem);
                     await DeleteReq(selectedItem.Id);
                     toast.Show("Status Response Sent");
-     
-                    string calend = calendar.returnEvents(); // Calander Events for Today
-                    string wifi = net.SSID(); // Wifi Access point of person
+                    string calend = ""; // Calander Events for Today
+                    string wifi = ""; // Wifi Access point of person
+
+                    // Don't send location or Calendar
+                    if ((MyGlobals.SelPer.PLocCheck == false || ifloc == "Not Needed") && (MyGlobals.SelPer.PCalCheck == false || ifcal == "Not Needed"))
+                    {
+                         calend = ""; 
+                         wifi = ""; 
+                    }
+                    // Don't send Calendar
+                    else if (MyGlobals.SelPer.PCalCheck == false || ifcal == "Not Needed")
+                    {
+                         calend = ""; 
+                         wifi = net.SSID(); 
+                    }
+                    // Don't send Location
+                    else if (MyGlobals.SelPer.PLocCheck == false || ifloc == "Not Needed")
+                    {
+                         calend = calendar.returnEvents(); 
+                         wifi = ""; 
+                    }
+                    // Send both.
+                    else
+                    {
+                         calend = calendar.returnEvents(); 
+                         wifi = net.SSID(); 
+                    }
+                   
 
                     MyGlobals.answer  = new Answ
                     {
